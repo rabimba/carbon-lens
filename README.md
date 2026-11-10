@@ -16,9 +16,11 @@ All **45,080 lines** of code, WebGL2 shaders, 3D continuum physics, WebAudio syn
 | **03 · \$20k / 20-Min Venture — Baseline (`CiteSignal`)** | [`./experiments/entrepreneur/baseline/`](./experiments/entrepreneur/baseline/) | Unguided 1-shot municipal boiler/elevator compliance feed business (46 files, SQLite pipeline, 7 unit tests, Monte Carlo model) |
 | **03 · \$20k / 20-Min Venture — Twist (`CivicSignal V2`)** | [`./experiments/entrepreneur/twist/`](./experiments/entrepreneur/twist/) | 20 web-verified FY25–26 U.S. municipal CIP leads (\$54.65M across 13 states) + Python span-verifier (`pipeline.py`) + 4-Persona Hostile Red-Team Arena + Air-Gapped 17.5-Min/Mo Founder Cockpit |
 
-## Blog Post & Recorded Experiment GIFs
+## Blog Post, Animated GIFs & 20s Social Reel
 
-- **[`blog/rkrants-gemini-carbon-jagged-agi.html`](./blog/rkrants-gemini-carbon-jagged-agi.html)**: Copy-paste-ready Blogger HTML essay written for [`rkrants.blogspot.com`](https://rkrants.blogspot.com/), audited with [`clarity.addy.ie`](https://clarity.addy.ie/), and paired with recorded walkthrough GIFs in [`blog/media/`](./blog/media/).
+- **Live Blog Post (`rkrants.blogspot.com`)**: [Testing Gemini Carbon on "Jagged AGI": 3D Portal Physics, W.H. Auden, and a \$20k Autonomous Business](https://rkrants.blogspot.com/2026/11/testing-gemini-carbon-on-agi.html)
+- **[`blog/rkrants-gemini-carbon-jagged-agi.html`](./blog/rkrants-gemini-carbon-jagged-agi.html)**: Source Blogger HTML essay audited with [`clarity.addy.ie`](https://clarity.addy.ie/) (`0/100` surface AI pattern score).
+- **[`blog/media/`](./blog/media/)**: Recorded walkthrough GIFs (`01`–`05`) plus 19.2-second vertical `1080x1920` Instagram/TikTok Reels ([`instagram-reel-gemini-4-carbon.mp4`](./blog/media/instagram-reel-gemini-4-carbon.mp4) with narration + [`instagram-reel-gemini-4-carbon-dub-ready.mp4`](./blog/media/instagram-reel-gemini-4-carbon-dub-ready.mp4) backing-only teleprompter edition).
 
 ## Included Workspace Skill
 
