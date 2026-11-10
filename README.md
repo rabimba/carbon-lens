@@ -16,6 +16,10 @@ All **45,080 lines** of code, WebGL2 shaders, 3D continuum physics, WebAudio syn
 | **03 · \$20k / 20-Min Venture — Baseline (`CiteSignal`)** | [`./experiments/entrepreneur/baseline/`](./experiments/entrepreneur/baseline/) | Unguided 1-shot municipal boiler/elevator compliance feed business (46 files, SQLite pipeline, 7 unit tests, Monte Carlo model) |
 | **03 · \$20k / 20-Min Venture — Twist (`CivicSignal V2`)** | [`./experiments/entrepreneur/twist/`](./experiments/entrepreneur/twist/) | 20 web-verified FY25–26 U.S. municipal CIP leads (\$54.65M across 13 states) + Python span-verifier (`pipeline.py`) + 4-Persona Hostile Red-Team Arena + Air-Gapped 17.5-Min/Mo Founder Cockpit |
 
+## Blog Post & Recorded Experiment GIFs
+
+- **[`blog/rkrants-gemini-carbon-jagged-agi.html`](./blog/rkrants-gemini-carbon-jagged-agi.html)**: Copy-paste-ready Blogger HTML essay written for [`rkrants.blogspot.com`](https://rkrants.blogspot.com/), audited with [`clarity.addy.ie`](https://clarity.addy.ie/), and paired with recorded walkthrough GIFs in [`blog/media/`](./blog/media/).
+
 ## Included Workspace Skill
 
 - **[`design-elevation`](./.agents/skills/design-elevation/SKILL.md)**: Reusable Design Director skill with five reference manuals ([Design Philosophy](./.agents/skills/design-elevation/references/design-philosophy.md), [Reference Library](./.agents/skills/design-elevation/references/reference-library.md), [Technique Catalog](./.agents/skills/design-elevation/references/technique-catalog.md), [Elevation Protocol](./.agents/skills/design-elevation/references/elevation-protocol.md), and [Design Interrogation Checklist](./.agents/skills/design-elevation/references/design-interrogation-checklist.md)).

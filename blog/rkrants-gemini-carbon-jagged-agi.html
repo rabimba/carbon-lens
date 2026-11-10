@@ -1,0 +1,353 @@
+<!--===== BEGIN BLOGGER PASTE =====-->
+<div class="carbon-lens-blog-post" style="font-family: Georgia, 'Times New Roman', serif; font-size: 18.5px; line-height: 1.76; color: #1c1b18; max-width: 780px; margin: 0 auto;">
+  <!-- Absorbs Blogger theme .post-body:first-letter and .post-body:first-line overrides cleanly -->
+  <div style="text-align: center; font-size: 1px; line-height: 1px; height: 1px; overflow: hidden; opacity: 0;" aria-hidden="true">&nbsp;</div>
+
+  <!-- Masthead Banner -->
+  <div style="text-align: center; background: #0b0e14; border-radius: 8px; padding: 34px 32px 30px 32px; color: #f8fafc; margin-bottom: 36px; border: 1px solid #1e2533;">
+    <div style="text-align: left;">
+      <div style="font-family: -apple-system, BlinkMacSystemFont, 'Helvetica Neue', Arial, sans-serif; font-size: 11.5px; font-weight: 700; letter-spacing: 0.12em; text-transform: uppercase; color: #10b981; margin-bottom: 14px;">
+        GEMINI CARBON EARLY ACCESS &middot; AGENT ARCHITECTURE &middot; EMPIRICAL REPLICATION
+      </div>
+      <h1 style="font-family: -apple-system, BlinkMacSystemFont, 'Helvetica Neue', Arial, sans-serif; font-size: 32px; font-weight: 800; color: #f8fafc; margin: 0 0 14px 0; line-height: 1.18; letter-spacing: -0.025em;">
+        Testing Gemini Carbon on &#8220;Jagged AGI&#8221;: 3D Portal Physics, W.H. Auden, and a &#36;20k Autonomous Business
+      </h1>
+      <p style="font-family: -apple-system, BlinkMacSystemFont, 'Helvetica Neue', Arial, sans-serif; font-size: 16px; color: #94a3b8; margin: 0 0 22px 0; line-height: 1.55; max-width: 680px;">
+        What happened when I ran Ethan Mollick&#8217;s open-ended &#8220;Fable 5.2&#8221; prompts verbatim on Gemini Carbon, watched unguided agents invent the exact same manta-ray tropes, and built multi-agent guardrails to fix what broke.
+      </p>
+      <div style="border-top: 1px solid #1e2533; padding-top: 14px; font-family: 'SF Mono', Menlo, Consolas, monospace; font-size: 12.5px; color: #94a3b8; font-variant-numeric: tabular-nums;">
+        By <strong style="color: #e2e8f0;">Rabimba Karanjai</strong> &middot;
+        Live Observatory: <a href="https://rabimba.github.io/carbon-lens/" target="_blank" rel="noopener" style="color: #10b981; text-decoration: underline; font-weight: 600;">rabimba.github.io/carbon-lens</a> &middot;
+        Code: <a href="https://github.com/rabimba/carbon-lens" target="_blank" rel="noopener" style="color: #38bdf8; text-decoration: underline; font-weight: 600;">github.com/rabimba/carbon-lens</a>
+      </div>
+    </div>
+  </div>
+
+  <!-- Opening Hook -->
+  <p style="margin: 0 0 22px 0;">
+    Courtesy of Google DeepMind, I have had early access to <strong>Gemini Carbon</strong> for the past few weeks. Whenever I get my hands on a new frontier model, my first instinct is to skip synthetic leaderboards and throw messy, multi-hour engineering problems at it to see where the wheels come off.
+  </p>
+
+  <p style="margin: 0 0 22px 0;">
+    A few days into those tests, Ethan Mollick published <a href="https://www.oneusefulthing.org/p/fable-52-and-jagged-agi" target="_blank" rel="noopener" style="color: #0f52ba; text-decoration: underline;"><em>Fable 5.2 and Jagged AGI</em></a> on <em>One Useful Thing</em>. Mollick had been testing an unreleased frontier system (aliased as &#8220;Fable 5.2&#8221;) built for long autonomous runs. Give it a twenty-word prompt and it spins up 3D worlds, interactive literary courses, or full-stack businesses. Right beside that brilliance sit strange blind spots. Uncoordinated subagents invent identical cyclones of manta rays. Over-specified 87,500-word rulebooks get gamed with flat 2D cutouts. Humanities apps turn into joyless quizzes, and business agents try to blast public-records requests at city clerks.
+  </p>
+
+  <p style="margin: 0 0 24px 0;">
+    Reading Mollick&#8217;s post sparked a question I could not resist testing. If I feed his exact short prompts to Gemini Carbon, where does Carbon shine on the first try, where does it hit the same jagged walls, and how much of that jaggedness can we cure with better agent architecture?
+  </p>
+
+  <!-- Editorial Thesis Callout (div instead of blockquote for Blogger theme safety) -->
+  <div role="note" style="background: #f6f4ee; border-left: 3px solid #0f766e; padding: 18px 22px; margin: 28px 0; font-family: -apple-system, BlinkMacSystemFont, 'Helvetica Neue', Arial, sans-serif;">
+    <div style="font-size: 11.5px; font-weight: 700; letter-spacing: 0.1em; text-transform: uppercase; color: #0f766e; margin-bottom: 6px;">
+      The Single-Variable Testbed: Carbon Lens
+    </div>
+    <p style="margin: 0; font-size: 15.5px; line-height: 1.6; color: #262522;">
+      Polished AI demos hide failure modes because the human quietly fixes the prompt ten times before hitting record. To keep the comparison honest, I built <strong><a href="https://rabimba.github.io/carbon-lens/" target="_blank" rel="noopener" style="color: #0f766e; text-decoration: underline;">Carbon Lens</a></strong>: a side-by-side observatory running three of Mollick&#8217;s open-ended experiments twice. On the left sits a <strong>True Blind 1-Shot Baseline</strong>, built by an isolated Gemini Carbon subagent given <em>only</em> Mollick&#8217;s raw 16-to-25-word prompt and zero context from his essay. On the right sits an <strong>Anti-Jagged Twist</strong>, where Gemini Carbon works under constitutional invariants, primary-source locks, and hostile red-teamers.
+    </p>
+  </div>
+
+  <!-- Figure 1: Carbon Lens Observatory GIF -->
+  <div style="margin: 32px 0 36px 0; background: #0b0e14; padding: 16px; border-radius: 8px; border: 1px solid #1e2533;">
+    <div style="display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 8px; margin-bottom: 10px; font-family: -apple-system, BlinkMacSystemFont, 'Helvetica Neue', Arial, sans-serif; font-size: 12.5px;">
+      <span style="color: #e2e8f0; font-weight: 600;">FIG. 01 &middot; Carbon Lens Split Arena, Jaggedness X-Ray &amp; Blind Taste Test</span>
+      <a href="https://rabimba.github.io/carbon-lens/" target="_blank" rel="noopener" style="color: #10b981; text-decoration: underline; font-weight: 600;">Launch Live Observatory &#8599;</a>
+    </div>
+    <img src="https://rabimba.github.io/carbon-lens/blog/media/01-carbon-lens-observatory.gif" width="860" alt="Animated recording of Carbon Lens Observatory comparing True Blind 1-Shot Baselines against Anti-Jagged Twists, toggling Jaggedness X-Ray telemetry and Blind Taste Test mode" style="width: 100%; max-width: 100%; height: auto; display: block; border-radius: 4px; border: 1px solid #262f40;" />
+    <p style="font-family: -apple-system, BlinkMacSystemFont, 'Helvetica Neue', Arial, sans-serif; font-size: 13px; line-height: 1.5; color: #94a3b8; margin: 10px 0 0 0;">
+      Comparing isolated 1-shot runs against governed multi-agent builds across 45,080 lines of generated code, complete with a randomized Blind Taste Test toggle so you can vote before revealing which build is which.
+    </p>
+  </div>
+
+  <!-- Inline SVG Architecture Diagram -->
+  <div style="margin: 30px 0 36px 0;">
+    <svg viewBox="0 0 780 230" width="100%" style="max-width: 780px; background: #0b0e14; border-radius: 8px; border: 1px solid #1e2533; display: block; margin: 0 auto;" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Architecture diagram comparing Blind 1-Shot Baseline isolation against Anti-Jagged Multi-Agent Twist governance">
+      <text x="24" y="28" fill="#f8fafc" font-family="Helvetica Neue, Arial, sans-serif" font-size="13.5" font-weight="bold">Experimental Protocol: Holding the Prompt Fixed While Changing Agent Governance</text>
+      <text x="24" y="45" fill="#94a3b8" font-family="SF Mono, Menlo, monospace" font-size="10.5">Mollick Raw Prompt (16–25 words) &#8594; Forked into Isolated Subagent Sandboxes</text>
+
+      <!-- Prompt Source -->
+      <rect x="24" y="84" width="166" height="88" rx="6" fill="#121722" stroke="#38bdf8" stroke-width="1.5"/>
+      <text x="107" y="110" fill="#38bdf8" font-family="Helvetica Neue, Arial, sans-serif" font-size="11.5" font-weight="bold" text-anchor="middle">Raw Prompt Only</text>
+      <text x="107" y="129" fill="#e2e8f0" font-family="SF Mono, Menlo, monospace" font-size="10" text-anchor="middle">16w Portals</text>
+      <text x="107" y="145" fill="#e2e8f0" font-family="SF Mono, Menlo, monospace" font-size="10" text-anchor="middle">23w Auden 1941</text>
+      <text x="107" y="161" fill="#e2e8f0" font-family="SF Mono, Menlo, monospace" font-size="10" text-anchor="middle">25w &#36;20k Venture</text>
+
+      <!-- Fork Arrows -->
+      <path d="M 194 112 L 246 84" stroke="#f59e0b" stroke-width="1.8" fill="none"/>
+      <path d="M 194 144 L 246 172" stroke="#10b981" stroke-width="1.8" fill="none"/>
+
+      <!-- Top Lane: Blind 1-Shot -->
+      <rect x="252" y="58" width="256" height="68" rx="6" fill="#121722" stroke="#f59e0b" stroke-width="1.5"/>
+      <text x="380" y="80" fill="#fbbf24" font-family="Helvetica Neue, Arial, sans-serif" font-size="11.5" font-weight="bold" text-anchor="middle">Lane A: True Blind 1-Shot Baseline</text>
+      <text x="380" y="98" fill="#cbd5e1" font-family="SF Mono, Menlo, monospace" font-size="9.8" text-anchor="middle">Zero essay context &#8226; Single unguided pass</text>
+      <text x="380" y="114" fill="#94a3b8" font-family="SF Mono, Menlo, monospace" font-size="9.8" text-anchor="middle">Exposes raw priors &amp; failure instincts</text>
+
+      <!-- Bottom Lane: Anti-Jagged Twist -->
+      <rect x="252" y="140" width="256" height="72" rx="6" fill="#121722" stroke="#10b981" stroke-width="1.5"/>
+      <text x="380" y="162" fill="#34d399" font-family="Helvetica Neue, Arial, sans-serif" font-size="11.5" font-weight="bold" text-anchor="middle">Lane B: Anti-Jagged Twist Harness</text>
+      <text x="380" y="180" fill="#cbd5e1" font-family="SF Mono, Menlo, monospace" font-size="9.8" text-anchor="middle">480w Constitution &#8226; Jaccard &amp; Span Locks</text>
+      <text x="380" y="196" fill="#94a3b8" font-family="SF Mono, Menlo, monospace" font-size="9.8" text-anchor="middle">4-Persona Red-Team &#8226; 5-Pass Design Skill</text>
+
+      <!-- Join Arrows -->
+      <path d="M 512 92 L 556 116" stroke="#f59e0b" stroke-width="1.8" fill="none"/>
+      <path d="M 512 176 L 556 144" stroke="#10b981" stroke-width="1.8" fill="none"/>
+
+      <!-- Output Box -->
+      <rect x="562" y="84" width="194" height="88" rx="6" fill="#121722" stroke="#94a3b8" stroke-width="1.5"/>
+      <text x="659" y="110" fill="#f8fafc" font-family="Helvetica Neue, Arial, sans-serif" font-size="11.5" font-weight="bold" text-anchor="middle">Empirical Audit</text>
+      <text x="659" y="129" fill="#34d399" font-family="SF Mono, Menlo, monospace" font-size="10" text-anchor="middle">Split-Screen Arena</text>
+      <text x="659" y="145" fill="#cbd5e1" font-family="SF Mono, Menlo, monospace" font-size="10" text-anchor="middle">Blind Taste Voting</text>
+      <text x="659" y="161" fill="#fbbf24" font-family="SF Mono, Menlo, monospace" font-size="10" text-anchor="middle">Forensic Diff Logs</text>
+    </svg>
+  </div>
+
+  <!-- =====================================================================
+       SECTION 1: ENDLESS 3D PORTALS
+       ===================================================================== -->
+  <h2 style="font-family: -apple-system, BlinkMacSystemFont, 'Helvetica Neue', Arial, sans-serif; font-size: 24px; font-weight: 800; color: #111827; margin: 44px 0 16px 0; padding-bottom: 8px; border-bottom: 1px solid #d6d3cd; letter-spacing: -0.015em;">
+    1. Builder of Worlds: Continuum Portal Physics and the Manta-Ray Déjà Vu
+  </h2>
+
+  <p style="margin: 0 0 20px 0;">
+    Mollick&#8217;s first test was sixteen words long: <em>&#8220;Create an endless, hands-off journey through 3D worlds linked by portals and make it awe inspiring.&#8221;</em>
+  </p>
+
+  <p style="margin: 0 0 20px 0;">
+    When he ran that prompt on Fable 5.2, two strange things happened. First, because separate subagents built worlds without checking each other&#8217;s metaphors, they kept converging on the exact same pet imagery: what Mollick called <em>&#8220;a cyclone of circling reindeer, manta rays, and storks.&#8221;</em> Second, when the orchestrator tried to enforce quality by writing a sprawling 204-section, 87,500-word specification manual, overworked builder agents started gaming the static screenshot camera by propping up flat 2D cutouts right in front of the lens.
+  </p>
+
+  <p style="margin: 0 0 20px 0;">
+    I handed those exact sixteen words to an isolated Gemini Carbon subagent with zero mention of Fable, manta rays, or physics engines, and later asked Carbon to honor physical laws across the portals. Out came <strong><a href="https://rabimba.github.io/carbon-lens/experiments/portals/baseline/" target="_blank" rel="noopener" style="color: #0f52ba; text-decoration: underline;">Aetheria</a></strong> (<code>experiments/portals/baseline/</code>, 5,631 lines of zero-dependency WebGL2 and GLSL). Technically, it floored me. It renders dual-FBO HDR raymarching at 60 FPS and flies a 6-DOF Velocity-Verlet craft that conserves 3D momentum across portal boundaries. You can fire ray-sliced Newtonian test spheres through portals into seawater with Archimedes buoyancy, or into a Schwarzschild black hole with relativistic Doppler beaming.
+  </p>
+
+  <p style="margin: 0 0 22px 0;">
+    Then I opened <code>js/worlds.js</code> and burst out laughing. This subagent had zero access to Mollick&#8217;s blog post. Yet to make its worlds &#8220;awe inspiring,&#8221; it populated World II with swimming bioluminescent rays, World IV with soaring sky-mantas, World VI with flocking white birds, and built two separate precessing astrolabe worlds alongside twin ringed gas giants. Frontier models trained on human descriptions of wonder share an almost gravitational pull toward manta rays and brass armillary spheres.
+  </p>
+
+  <!-- Figure 2: Portals Baseline Aetheria GIF -->
+  <div style="margin: 30px 0 34px 0; background: #0b0e14; padding: 16px; border-radius: 8px; border: 1px solid #1e2533;">
+    <div style="display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 8px; margin-bottom: 10px; font-family: -apple-system, BlinkMacSystemFont, 'Helvetica Neue', Arial, sans-serif; font-size: 12.5px;">
+      <span style="color: #fbbf24; font-weight: 600;">FIG. 02 &middot; Blind 1-Shot Baseline: Aetheria (Dual-FBO Raymarching &amp; Convergent Manta Rays)</span>
+      <a href="https://rabimba.github.io/carbon-lens/experiments/portals/baseline/" target="_blank" rel="noopener" style="color: #fbbf24; text-decoration: underline; font-weight: 600;">Fly 1-Shot Baseline &#8599;</a>
+    </div>
+    <img src="https://rabimba.github.io/carbon-lens/blog/media/02-portals-baseline-aetheria.gif" width="840" alt="Animated recording of Aetheria 1-shot WebGL2 portal journey flying past Keplerian astrolabes, swimming bioluminescent manta rays, and a gravitational-lensed Schwarzschild black hole" style="width: 100%; max-width: 100%; height: auto; display: block; border-radius: 4px; border: 1px solid #262f40;" />
+    <p style="font-family: -apple-system, BlinkMacSystemFont, 'Helvetica Neue', Arial, sans-serif; font-size: 13px; line-height: 1.5; color: #94a3b8; margin: 10px 0 0 0;">
+      Gemini Carbon&#8217;s unguided 16-word run built a real-time WebGL2 raymarcher with Newtonian test probes, Schwarzschild lensing, and (unprompted) swimming manta rays and twin astrolabe worlds.
+    </p>
+  </div>
+
+  <p style="margin: 0 0 20px 0;">
+    For the <strong>Anti-Jagged Twist</strong> (<strong><a href="https://rabimba.github.io/carbon-lens/experiments/portals/twist/" target="_blank" rel="noopener" style="color: #0f52ba; text-decoration: underline;">The Deregulation Multiverse</a></strong>, 7,234 LOC), we threw out giant rulebooks and replaced them with three lightweight mechanisms:
+  </p>
+
+  <ul style="margin: 0 0 24px 0; padding-left: 22px;">
+    <li style="margin-bottom: 10px;">
+      <strong>A 480-Word Minimalist Constitution:</strong> Hard-capped under 500 words (0.55% of context window). It sets only physical invariants (2-bounce FBO portal continuity, 60 FPS budget, off-axis 3D geometry) while granting each builder full artistic sovereignty over an assigned movement: M.C. Escher, Italo Calvino, Hokusai, Piranesi, Remedios Varo, and Yayoi Kusama.
+    </li>
+    <li style="margin-bottom: 10px;">
+      <strong>Pairwise Semantic Novelty Ban Ledger:</strong> Before any world ships, an automated ledger checks its motif tokens against prior worlds and quarantines pet tropes (blocking 4,118 reindeer/manta/astrolabe collisions at <code>Jaccard &lt;= 0.0600</code>). Press <code>[T]</code> live to watch the filter intercept a manta-stork cyclone attempt.
+    </li>
+    <li style="margin-bottom: 10px;">
+      <strong>Per-World Continuum Physics (<code>js/physics.js</code>):</strong> Crossing a portal conserves rigid-body position and velocity in the portal frame while switching physical regimes. You get 4-axis Escher stairwell gravity walks (<code>[G]</code>) with RK4 torque-free Dzhanibekov flips, Bernoulli pipe jets, a 4-train Gerstner wave ocean lifting a buoyant Hokusai skiff, Boussinesq thermal plumes in Piranesi&#8217;s forge, RK4 anchor-escapement gears, and Cauchy chromatic dispersion.
+    </li>
+  </ul>
+
+  <p style="margin: 0 0 22px 0;">
+    Better yet, we made Fable&#8217;s failure mode playable. Clicking <strong>&#167; 204-Sec Bureaucracy</strong> (or pressing <code>[B]</code>) applies an 87,500-word committee rulebook live on the GPU. Flight speed drops to an OSHA-mandated <code>1.40 m/s</code> (<code>&#167;199.4</code>), color drains to <code>&lt;= 14%</code> greige (<code>&#167;88.2</code>), and hinged <strong>2x4 plywood billboards</strong> (<code>&#167;142.7</code>) drop right in front of the portals. Snap to <strong>Tripod #1</strong> (<code>[J]</code>) and the static compliance judge awards <code>99.8%</code>. Switch to the unscripted <strong>Roaming Judge</strong> (<code>[R]</code>) and the camera orbits behind the facade, exposing raw pine struts stenciled <code>DO NOT ORBIT</code> and crashing the score to <code>11.6%</code>. Fire a rigid-body sphere (<code>[F]</code>) into the plywood and it rocks back and forth on rusty hinges.
+  </p>
+
+  <!-- Figure 3: Portals Twist Continuum Physics & Plywood Bureaucracy GIF -->
+  <div style="margin: 30px 0 36px 0; background: #0b0e14; padding: 16px; border-radius: 8px; border: 1px solid #1e2533;">
+    <div style="display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 8px; margin-bottom: 10px; font-family: -apple-system, BlinkMacSystemFont, 'Helvetica Neue', Arial, sans-serif; font-size: 12.5px;">
+      <span style="color: #10b981; font-weight: 600;">FIG. 03 &middot; Anti-Jagged Twist: Continuum Physics vs. &#167;142.7 Hinged Plywood Bureaucracy</span>
+      <a href="https://rabimba.github.io/carbon-lens/experiments/portals/twist/" target="_blank" rel="noopener" style="color: #10b981; text-decoration: underline; font-weight: 600;">Test Bureaucracy Toggle [B] &#8599;</a>
+    </div>
+    <img src="https://rabimba.github.io/carbon-lens/blog/media/03-portals-twist-bureaucracy.gif" width="860" alt="Animated recording of Deregulation Multiverse showing Escher stairwell portals, Hokusai Gerstner ocean waves, Article II manta-ray trope quarantine, and switching to 204-Section Bureaucracy Mode where Roaming Judge exposes 2x4 plywood struts behind the portal" style="width: 100%; max-width: 100%; height: auto; display: block; border-radius: 4px; border: 1px solid #262f40;" />
+    <p style="font-family: -apple-system, BlinkMacSystemFont, 'Helvetica Neue', Arial, sans-serif; font-size: 13px; line-height: 1.5; color: #94a3b8; margin: 10px 0 0 0;">
+      Firing cross-portal rigid-body spheres across Escher and Hokusai worlds under the 480-word Constitution, then toggling 204-Section Bureaucracy Mode to watch the Roaming Judge expose Potemkin 2x4 plywood flats (<code>99.8%</code> on Tripod #1 vs. <code>11.6%</code> off-axis).
+    </p>
+  </div>
+
+  <!-- =====================================================================
+       SECTION 2: W.H. AUDEN'S 1941 SEMINAR & DESIGN ELEVATION
+       ===================================================================== -->
+  <h2 style="font-family: -apple-system, BlinkMacSystemFont, 'Helvetica Neue', Arial, sans-serif; font-size: 24px; font-weight: 800; color: #111827; margin: 44px 0 16px 0; padding-bottom: 8px; border-bottom: 1px solid #d6d3cd; letter-spacing: -0.015em;">
+    2. The Scholar of Literature: W.H. Auden&#8217;s 1941 Seminar and Teaching Design Taste
+  </h2>
+
+  <p style="margin: 0 0 20px 0;">
+    Technical shaders are home turf for frontier coding models. Humanities taste is much harder. Mollick&#8217;s second prompt tested literary judgment by asking, in twenty-three words: <em>&#8220;Make an engaging interactive experience around the syllabus of WH Auden&#8217;s 1941 class Fate and the Detective that gets at his key themes.&#8221;</em>
+  </p>
+
+  <p style="margin: 0 0 20px 0;">
+    Notice the historical wrinkle baked into that prompt. Auden&#8217;s legendary Fall 1941 University of Michigan course was officially titled <em>English 135: Fate and the Individual in European Literature</em> (35 to 41 works, over 6,000 pages of Aeschylus, Dante, Kierkegaard, opera libretti, and Kafka for two undergraduate credits, capped by a final exam students protested as <em>&#8220;impossible and inhumane&#8221;</em>). On Fable 5.2, the model first produced what Mollick called a <em>&#8220;brutal slog of joyless tests,&#8221;</em> and when nudged to lighten up, overcorrected into a silly bell-ringing game.
+  </p>
+
+  <p style="margin: 0 0 20px 0;">
+    Gemini Carbon&#8217;s blind 1-shot baseline (<strong><a href="https://rabimba.github.io/carbon-lens/experiments/auden/baseline/" target="_blank" rel="noopener" style="color: #0f52ba; text-decoration: underline;">Angell Hall Folio</a></strong>, 32,424 words) handled the literary history far better than I expected. Without any external coaching, it spotted the colloquial title, connected Auden&#8217;s 1948 essay <em>&#8220;The Guilty Vicarage&#8221;</em> to the Fall 1941 Ann Arbor reading list, recovered future detective novelist Kenneth Millar&#8217;s (Ross Macdonald&#8217;s) smuggled back-row seminar notes, and built a six-room studio with WebAudio opera motifs and creative workshops.
+  </p>
+
+  <p style="margin: 0 0 20px 0;">
+    When I audited its source files line by line, though, two subtle cracks appeared:
+  </p>
+
+  <ol style="margin: 0 0 22px 0; padding-left: 22px;">
+    <li style="margin-bottom: 10px;">
+      <strong>Synthetic Classroom Quotations:</strong> Because Auden banned note-taking in Angell Hall, no verbatim classroom transcript exists. In <code>data/syllabus.js</code>, the 1-shot agent blended real ideas from <em>The Dyer&#8217;s Hand</em> with invented first-person Angell Hall stage remarks wrapped in quotation marks.
+    </li>
+    <li style="margin-bottom: 10px;">
+      <strong>Strawman Distractors:</strong> In its Blue Book quiz, wrong answers sounded modern and flat-footed, letting you pass on test-taking instincts without reading Auden&#8217;s Kierkegaardian theology.
+    </li>
+  </ol>
+
+  <p style="margin: 0 0 22px 0;">
+    In the <strong><a href="https://rabimba.github.io/carbon-lens/experiments/auden/twist/" target="_blank" rel="noopener" style="color: #0f52ba; text-decoration: underline;">Archival Seminar Studio</a></strong> twist, we turned that exact LLM failure mode into the main seminar exercise by locking every quote to verified essays in <code>archival_audit.json</code> (<em>The Dyer&#8217;s Hand</em>, <em>The Enchaf&#232;d Flood</em>, <em>The Sea and the Mirror</em>, and <em>&#8220;K.&#8217;s Quest&#8221;</em>). Inside Room III (<strong>Spot the Counterfeit Critic</strong>), ten broadsheet galley proofs place a genuine Auden argument beside a length-matched (62 to 85 word), high-style Romantic or Aristotelian counterfeit written in seductive critical prose. Your job is to slash the impostor with Auden&#8217;s crimson grease-pencil, revealing the primary citation before heading into Room IV&#8217;s ebonite <strong>78-RPM Victrola &amp; Prosodic Scansion Lab</strong>.
+  </p>
+
+  <p style="margin: 0 0 24px 0;">
+    We also used the Auden experiment to tackle another pet peeve of mine: generic first-draft AI interfaces full of rounded card soup, pill-badge confetti, and purple gradients. We authored a workspace <strong><a href="https://github.com/rabimba/carbon-lens/tree/main/.agents/skills/design-elevation" target="_blank" rel="noopener" style="color: #0f52ba; text-decoration: underline;">Design Elevation skill</a></strong> (<code>.agents/skills/design-elevation/</code>) that forces a five-pass art-direction critique anchored in Swiss International grids, 1940s Faber &amp; Faber uncoated cotton-vellum monographs, and Dieter Rams instrument bays, removing roughly 30% of decorative chrome before shipping.
+  </p>
+
+  <!-- Figure 4: Auden Design-Elevated Seminar GIF -->
+  <div style="margin: 30px 0 36px 0; background: #0b0e14; padding: 16px; border-radius: 8px; border: 1px solid #1e2533;">
+    <div style="display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 8px; margin-bottom: 10px; font-family: -apple-system, BlinkMacSystemFont, 'Helvetica Neue', Arial, sans-serif; font-size: 12.5px;">
+      <span style="color: #f87171; font-weight: 600;">FIG. 04 &middot; Design-Elevated 1941 Seminar: Swiss Syllabus Index, Grease-Pencil Slash &amp; 78-RPM Lab</span>
+      <a href="https://rabimba.github.io/carbon-lens/experiments/auden/twist/" target="_blank" rel="noopener" style="color: #f87171; text-decoration: underline; font-weight: 600;">Enter 1941 Seminar Studio &#8599;</a>
+    </div>
+    <img src="https://rabimba.github.io/carbon-lens/blog/media/04-auden-seminar-elevation.gif" width="860" alt="Animated recording of the Design-Elevated W.H. Auden 1941 Seminar Studio navigating the 35-work Swiss hairline syllabus index, Angell Hall green slate matrix, striking a counterfeit galley proof with a crimson grease-pencil X, and spinning a 78-RPM ebonite turntable with harmonic oscilloscope" style="width: 100%; max-width: 100%; height: auto; display: block; border-radius: 4px; border: 1px solid #262f40;" />
+    <p style="font-family: -apple-system, BlinkMacSystemFont, 'Helvetica Neue', Arial, sans-serif; font-size: 13px; line-height: 1.5; color: #94a3b8; margin: 10px 0 0 0;">
+      Styled via the 5-pass <code>design-elevation</code> skill: warm cotton-vellum surfaces, 1px hairline syllabus tables, balanced two-column broadsheet galley duels with crimson grease-pencil strikes, and a recessed ebonite 78-RPM listening bay.
+    </p>
+  </div>
+
+  <!-- =====================================================================
+       SECTION 3: THE TWENTY-MINUTE ENTREPRENEUR
+       ===================================================================== -->
+  <h2 style="font-family: -apple-system, BlinkMacSystemFont, 'Helvetica Neue', Arial, sans-serif; font-size: 24px; font-weight: 800; color: #111827; margin: 44px 0 16px 0; padding-bottom: 8px; border-bottom: 1px solid #d6d3cd; letter-spacing: -0.015em;">
+    3. The Twenty-Minute Entrepreneur: Public-Record Arbitrage vs. Hostile Red-Teams
+  </h2>
+
+  <p style="margin: 0 0 20px 0;">
+    Mollick&#8217;s third test moved from culture into real-world institutional judgment: <em>&#8220;Build a legal, real, completely autonomous online business that makes at least &#36;20k a year, budget &#36;20k, my max effort is 20 min a month, do no harm.&#8221;</em>
+  </p>
+
+  <p style="margin: 0 0 20px 0;">
+    In Mollick&#8217;s run, Fable 5.2 screened over 200 ideas before landing on municipal procurement intelligence, built a working site, and then stumbled into two institutional landmines: trying to fire automated Freedom of Information Act (FOIA) bots at small-town clerks and preparing unsolicited cold emails.
+  </p>
+
+  <p style="margin: 0 0 20px 0;">
+    Here came our second convergent surprise. Given only those twenty-five words in an isolated sandbox, Gemini Carbon&#8217;s blind 1-shot baseline independently invented <strong><a href="https://rabimba.github.io/carbon-lens/experiments/entrepreneur/baseline/" target="_blank" rel="noopener" style="color: #0f52ba; text-decoration: underline;">CiteSignal</a></strong> (<code>experiments/entrepreneur/baseline/</code>, 46 files, 9,754 LOC): a seat-capped B2B compliance feed cross-joining NYC DOB commercial boiler failures (<code>52dp-yji6</code>), Chicago building violations, and overdue Texas TDLR elevator certificates. It wrote a clean SQLite pipeline, 7 passing unit tests, a 10,000-trial Monte Carlo simulator, and wisely air-gapped its own prototype so zero live emails or charges could fire.
+  </p>
+
+  <p style="margin: 0 0 20px 0;">
+    Yet when I inspected <code>pipeline/outbound_drafter.py</code> and <code>data/raw/</code>, the exact institutional blind spots from Mollick&#8217;s essay stared right back at me. To bootstrap customer acquisition without founder effort, the 1-shot agent designed its go-to-market around scraping state contractor licensing registries for cold <code>.eml</code> blasts, and filled its offline sample tables with synthetic records (<code>555-0146</code>, <code>.example</code> domains).
+  </p>
+
+  <p style="margin: 0 0 22px 0;">
+    For the <strong>Anti-Jagged Twist</strong> (<strong><a href="https://rabimba.github.io/carbon-lens/experiments/entrepreneur/twist/" target="_blank" rel="noopener" style="color: #0f52ba; text-decoration: underline;">CivicSignal / Prebid Brief V2</a></strong>, 9,269 LOC), we paired Gemini Carbon&#8217;s builder agent with a <strong>4-Persona Hostile Red-Team</strong> (a Municipal Procurement Officer, an FTC/CAN-SPAM Compliance Attorney, an Incumbent GovTech VP of Sales, and a Burned Manufacturer&#8217;s Rep) given hard veto power before a line of UI was shipped:
+  </p>
+
+  <ul style="margin: 0 0 24px 0; padding-left: 22px;">
+    <li style="margin-bottom: 10px;">
+      <strong>20 Real FY25/26 Municipal CIP Leads (&#36;54.65M):</strong> Zero <code>555-0199</code> placeholders. <code>pipeline.py</code> ingests passive, already-published Capital Improvement Plan budgets and council agendas across 13 U.S. states (from Raleigh&#8217;s &#36;8.4M Neuse River UV disinfection upgrade to Mesa&#8217;s &#36;4.85M booster pump rehabilitation), verifying exact <code>[char_start:char_end]</code> document spans for every dollar figure.
+    </li>
+    <li style="margin-bottom: 10px;">
+      <strong>Statutory FOIA &amp; Cold-SMTP Blocks:</strong> The Procurement Officer vetoed automated FOIA bots under commercial-purpose statutes such as Arizona <code>A.R.S. &#167; 39-121.03</code> and Kentucky <code>KRS &#167; 61.874</code>; a seeded test record (<code>V1-FOIA-TRAP-999</code>) is quarantined at boot. Cold scraping was replaced by double-opt-in inbound territory digests.
+    </li>
+    <li style="margin-bottom: 10px;">
+      <strong>Air-Gapped 17.5-Minute Monthly Founder Cockpit:</strong> Sixteen clean leads pass deterministic span checks automatically. Four ambiguous multi-year or CMAR sub-tier items route to a 3-click human triage queue, keeping total monthly human work at <code>17m 30s</code> while modeling &#36;33,254 in Year-1 net profit.
+    </li>
+  </ul>
+
+  <!-- Figure 5: Entrepreneur Red-Team & Cockpit GIF -->
+  <div style="margin: 30px 0 36px 0; background: #0b0e14; padding: 16px; border-radius: 8px; border: 1px solid #1e2533;">
+    <div style="display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 8px; margin-bottom: 10px; font-family: -apple-system, BlinkMacSystemFont, 'Helvetica Neue', Arial, sans-serif; font-size: 12.5px;">
+      <span style="color: #38bdf8; font-weight: 600;">FIG. 05 &middot; CivicSignal V2: &#36;54.65M Span-Verified CIP Feed, 4-Persona Red-Team &amp; 17.5-Min Cockpit</span>
+      <a href="https://rabimba.github.io/carbon-lens/experiments/entrepreneur/twist/" target="_blank" rel="noopener" style="color: #38bdf8; text-decoration: underline; font-weight: 600;">Open Venture &amp; Red-Team Arena &#8599;</a>
+    </div>
+    <img src="https://rabimba.github.io/carbon-lens/blog/media/05-entrepreneur-redteam-cockpit.gif" width="860" alt="Animated recording of CivicSignal Prebid Brief V2 inspecting 20 real municipal CIP leads with verbatim span verification, reviewing 4-persona hostile red-team vetoes and V1-to-V2 governance diffs, and triaging exception spans inside the air-gapped 18-minute monthly founder cockpit" style="width: 100%; max-width: 100%; height: auto; display: block; border-radius: 4px; border: 1px solid #262f40;" />
+    <p style="font-family: -apple-system, BlinkMacSystemFont, 'Helvetica Neue', Arial, sans-serif; font-size: 13px; line-height: 1.5; color: #94a3b8; margin: 10px 0 0 0;">
+      Inspecting character-offset verified FY25/26 municipal CIP projects, auditing the four red-team vetoes (including <code>V1-FOIA-TRAP-999</code> quarantine), and executing 3-click span sign-off inside the air-gapped Founder Cockpit.
+    </p>
+  </div>
+
+  <!-- Summary Comparison Table -->
+  <h2 style="font-family: -apple-system, BlinkMacSystemFont, 'Helvetica Neue', Arial, sans-serif; font-size: 24px; font-weight: 800; color: #111827; margin: 44px 0 16px 0; padding-bottom: 8px; border-bottom: 1px solid #d6d3cd; letter-spacing: -0.015em;">
+    4. Empirical Scorecard: Blind 1-Shot vs. Anti-Jagged Governance
+  </h2>
+
+  <p style="margin: 0 0 20px 0;">
+    Putting all six builds side by side makes the contour of Gemini Carbon&#8217;s capabilities concrete:
+  </p>
+
+  <div style="overflow-x: auto; margin: 22px 0 30px 0;">
+    <table style="width: 100%; border-collapse: collapse; font-family: -apple-system, BlinkMacSystemFont, 'Helvetica Neue', Arial, sans-serif; font-size: 13.5px; line-height: 1.5; border: 1px solid #cbd5e1; font-variant-numeric: tabular-nums;">
+      <thead>
+        <tr style="background: #0b0e14; color: #f8fafc; text-align: left;">
+          <th style="padding: 11px 13px; border-bottom: 1px solid #334155;">Experiment</th>
+          <th style="padding: 11px 13px; border-bottom: 1px solid #334155;">Blind 1-Shot Baseline (Raw Prompt)</th>
+          <th style="padding: 11px 13px; border-bottom: 1px solid #334155;">Jagged Crack Exposed</th>
+          <th style="padding: 11px 13px; border-bottom: 1px solid #334155;">Anti-Jagged Twist Resolution</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr style="border-bottom: 1px solid #e2e8f0; background: #ffffff; vertical-align: top;">
+          <td style="padding: 11px 13px; font-weight: 700; color: #0f172a;">01 &middot; 3D Portals<br/><span style="font-family: monospace; font-weight: 400; font-size: 12px; color: #64748b;">12,865 LOC total</span></td>
+          <td style="padding: 11px 13px;"><strong>Aetheria:</strong> Dual-FBO HDR raymarcher, 6-DOF Verlet flight, Schwarzschild lensing &amp; cross-portal probes.</td>
+          <td style="padding: 11px 13px;">Independently spawned swimming manta rays, sky-mantas, white birds &amp; twin astrolabes.</td>
+          <td style="padding: 11px 13px;">480w Constitution + <code>Jaccard &lt;= 0.06</code> ban ledger + 6 continuum physics realms + playable <code>[B]</code> 2x4 plywood audit.</td>
+        </tr>
+        <tr style="border-bottom: 1px solid #e2e8f0; background: #f8fafc; vertical-align: top;">
+          <td style="padding: 11px 13px; font-weight: 700; color: #0f172a;">02 &middot; Auden 1941<br/><span style="font-family: monospace; font-weight: 400; font-size: 12px; color: #64748b;">13,192 LOC total</span></td>
+          <td style="padding: 11px 13px;"><strong>Angell Hall Folio:</strong> Identified 1941 UMich seminar, 41 works, Ross Macdonald notes &amp; 9 WebAudio operas.</td>
+          <td style="padding: 11px 13px;">Invented unverified verbatim classroom quotes in <code>syllabus.js</code>; easy quiz distractors.</td>
+          <td style="padding: 11px 13px;"><code>archival_audit.json</code> locks + 10 length-matched <em>Counterfeit Critic</em> galley proofs + 5-pass <code>design-elevation</code> skill.</td>
+        </tr>
+        <tr style="background: #ffffff; vertical-align: top;">
+          <td style="padding: 11px 13px; font-weight: 700; color: #0f172a;">03 &middot; &#36;20k Venture<br/><span style="font-family: monospace; font-weight: 400; font-size: 12px; color: #64748b;">19,023 LOC total</span></td>
+          <td style="padding: 11px 13px;"><strong>CiteSignal:</strong> Air-gapped NYC/Chicago/TX boiler &amp; elevator compliance pipeline + Monte Carlo model.</td>
+          <td style="padding: 11px 13px;">Synthetic <code>555-0146</code> rows in <code>data/raw/</code>; cold-email state license scraping GTM.</td>
+          <td style="padding: 11px 13px;">20 real FY25&#8211;26 CIP leads (&#36;54.65M) with span offsets + 4-persona red-team FOIA/SMTP vetoes + 17.5m/mo cockpit.</td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+
+  <!-- Closing Reflection -->
+  <h2 style="font-family: -apple-system, BlinkMacSystemFont, 'Helvetica Neue', Arial, sans-serif; font-size: 24px; font-weight: 800; color: #111827; margin: 44px 0 16px 0; padding-bottom: 8px; border-bottom: 1px solid #d6d3cd; letter-spacing: -0.015em;">
+    5. What Weeks With Gemini Carbon Taught Me About Agent Architecture
+  </h2>
+
+  <p style="margin: 0 0 20px 0;">
+    After several weeks of pushing Gemini Carbon across systems code, graphics shaders, and multi-agent pipelines, two lessons stand out from building Carbon Lens.
+  </p>
+
+  <p style="margin: 0 0 20px 0;">
+    First, the 1-shot floor has risen dramatically. Across three prompts totaling sixty-four words, isolated runs wrote custom GLSL raymarchers with relativistic beaming, recovered obscure 1941 Ann Arbor seminar history with real warmth, and wired up a tested SQLite compliance engine. A year ago, getting any one of those to compile without hand-holding took an afternoon.
+  </p>
+
+  <p style="margin: 0 0 24px 0;">
+    Second, you cannot fix jaggedness by yelling louder in the system prompt. Piling 87,500 words of procedural rules onto an agent eats its context window and teaches it to build 2x4 plywood facades for whatever metric you forgot to rotate. What worked every time was keeping prompts short and putting deterministic checks outside the generator: a 480-word constitution backed by a <code>Jaccard</code> novelty ledger and roaming cameras, character-offset span verifiers over real municipal filings, hostile red-teamers empowered to veto outreach plans, and a subtractive design skill that strips visual clutter before shipping.
+  </p>
+
+  <!-- Try It Live Box -->
+  <div style="background: #0b0e14; color: #f8fafc; border-radius: 8px; padding: 26px 28px; margin: 36px 0 12px 0; border: 1px solid #1e2533; font-family: -apple-system, BlinkMacSystemFont, 'Helvetica Neue', Arial, sans-serif;">
+    <div style="font-size: 11.5px; font-weight: 700; letter-spacing: 0.1em; text-transform: uppercase; color: #10b981; margin-bottom: 8px;">
+      Explore Every Experiment in Your Browser
+    </div>
+    <h3 style="font-size: 20px; font-weight: 700; color: #f8fafc; margin: 0 0 10px 0;">
+      Take the Blind Taste Test Yourself
+    </h3>
+    <p style="margin: 0 0 18px 0; font-size: 15px; color: #cbd5e1; line-height: 1.6;">
+      Every baseline and twist runs client-side on GitHub Pages with zero backend servers or API keys. Turn on <strong>Blind Taste Test Mode</strong> in the top bar, try Candidate Alpha and Candidate Beta side by side, and see if you can spot the 1-shot baseline before revealing the labels.
+    </p>
+    <div style="font-size: 14px; line-height: 1.85; color: #cbd5e1; font-family: 'SF Mono', Menlo, Consolas, monospace;">
+      &rarr; <strong>Split Observatory Hub:</strong> <a href="https://rabimba.github.io/carbon-lens/" target="_blank" rel="noopener" style="color: #10b981; text-decoration: underline;">rabimba.github.io/carbon-lens</a><br/>
+      &rarr; <strong>01 &middot; 3D Portals:</strong> <a href="https://rabimba.github.io/carbon-lens/experiments/portals/baseline/" target="_blank" rel="noopener" style="color: #fbbf24; text-decoration: underline;">1-Shot (Aetheria)</a> &nbsp;|&nbsp; <a href="https://rabimba.github.io/carbon-lens/experiments/portals/twist/" target="_blank" rel="noopener" style="color: #34d399; text-decoration: underline;">Twist (Deregulation Multiverse)</a><br/>
+      &rarr; <strong>02 &middot; Auden 1941 Seminar:</strong> <a href="https://rabimba.github.io/carbon-lens/experiments/auden/baseline/" target="_blank" rel="noopener" style="color: #fbbf24; text-decoration: underline;">1-Shot (Angell Hall)</a> &nbsp;|&nbsp; <a href="https://rabimba.github.io/carbon-lens/experiments/auden/twist/" target="_blank" rel="noopener" style="color: #34d399; text-decoration: underline;">Twist (Counterfeit Critic)</a><br/>
+      &rarr; <strong>03 &middot; &#36;20k Venture:</strong> <a href="https://rabimba.github.io/carbon-lens/experiments/entrepreneur/baseline/" target="_blank" rel="noopener" style="color: #fbbf24; text-decoration: underline;">1-Shot (CiteSignal)</a> &nbsp;|&nbsp; <a href="https://rabimba.github.io/carbon-lens/experiments/entrepreneur/twist/" target="_blank" rel="noopener" style="color: #34d399; text-decoration: underline;">Twist (CivicSignal V2)</a><br/>
+      &rarr; <strong>Source &amp; Design Skill:</strong> <a href="https://github.com/rabimba/carbon-lens" target="_blank" rel="noopener" style="color: #38bdf8; text-decoration: underline;">github.com/rabimba/carbon-lens</a> &nbsp;|&nbsp; <a href="https://www.oneusefulthing.org/p/fable-52-and-jagged-agi" target="_blank" rel="noopener" style="color: #94a3b8; text-decoration: underline;">Ethan Mollick&#8217;s Essay</a>
+    </div>
+  </div>
+
+</div>
+<!--===== END BLOGGER PASTE =====-->
