@@ -1,0 +1,141 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Carbon Lens — Jagged AGI Head-to-Head Observatory</title>
+  <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' rx='6' fill='%230e1117'/%3E%3Ccircle cx='16' cy='16' r='10' fill='none' stroke='%2394a3b8' stroke-width='1.5'/%3E%3Crect x='12' y='12' width='8' height='8' transform='rotate(45 16 16)' fill='%2310b981'/%3E%3C/svg%3E" />
+  <link rel="stylesheet" href="./assets/styles.css" />
+</head>
+<body>
+  <div class="app-shell">
+    <!-- Top Observatory Header -->
+    <header class="topbar">
+      <div class="brand-cluster">
+        <div class="brand-mark" aria-hidden="true">
+          <span class="prism-ring"></span>
+          <span class="prism-core"></span>
+        </div>
+        <div class="brand-copy">
+          <div class="brand-title-row">
+            <h1>CARBON LENS</h1>
+            <span class="badge-pill">JAGGED AGI OBSERVATORY</span>
+          </div>
+          <p class="brand-subtitle">
+            Empirical Replications of Ethan Mollick’s <em>“Fable 5.2 and Jagged AGI”</em> — True Blind 1-Shot vs. Anti-Jagged Multi-Agent Twist
+          </p>
+        </div>
+      </div>
+
+      <div class="topbar-controls">
+        <button id="blindModeBtn" class="ghost-btn" type="button" title="Randomize & mask Baseline vs. Twist for an unbiased blind evaluation">
+          <span class="dot-indicator" id="blindDot"></span>
+          <span id="blindModeLabel">Blind Taste Test: Off</span>
+        </button>
+        <a
+          class="ghost-btn link-btn"
+          href="https://www.oneusefulthing.org/p/fable-52-and-jagged-agi"
+          target="_blank"
+          rel="noopener noreferrer"
+        >
+          Original Essay ↗
+        </a>
+      </div>
+    </header>
+
+    <!-- Experiment Navigation Strip + Mode Switcher -->
+    <nav class="control-deck" aria-label="Experiment and view controls">
+      <div class="experiment-tabs" id="experimentTabs" role="tablist">
+        <!-- Populated dynamically by hub.js -->
+      </div>
+
+      <div class="view-modes" role="group" aria-label="Viewport mode">
+        <button class="mode-btn active" data-mode="split" type="button">Split Arena</button>
+        <button class="mode-btn" data-mode="left" type="button" id="focusLeftBtn">1-Shot Baseline</button>
+        <button class="mode-btn" data-mode="right" type="button" id="focusRightBtn">Anti-Jagged Twist</button>
+        <button class="mode-btn xray-btn" data-mode="xray" type="button">Jaggedness X-Ray &amp; Audit</button>
+      </div>
+    </nav>
+
+    <!-- Context Banner for Active Experiment -->
+    <section class="experiment-ribbon" id="experimentRibbon">
+      <div class="ribbon-left">
+        <span class="ribbon-role" id="ribbonRole">ROLE</span>
+        <h2 id="ribbonTitle">Loading experiment…</h2>
+        <p id="ribbonSummary"></p>
+      </div>
+      <div class="ribbon-metrics" id="ribbonMetrics">
+        <!-- Quick telemetry pills -->
+      </div>
+    </section>
+
+    <!-- Blind Taste Test Voting Bar (Hidden unless Blind Mode is active) -->
+    <section class="blind-bar hidden" id="blindBar">
+      <div class="blind-bar-copy">
+        <strong>Blind Evaluation Active:</strong> Identities of <em>Candidate Alpha</em> and <em>Candidate Beta</em> are randomized and masked. Interact with both builds, pick the stronger execution, then reveal!
+      </div>
+      <div class="blind-bar-actions">
+        <button class="vote-btn" id="voteAlphaBtn" type="button">Vote Candidate Alpha</button>
+        <button class="vote-btn" id="voteBetaBtn" type="button">Vote Candidate Beta</button>
+        <button class="reveal-btn" id="revealBlindBtn" type="button">Reveal Identities</button>
+      </div>
+      <div class="blind-verdict hidden" id="blindVerdict"></div>
+    </section>
+
+    <!-- Main Workspace Stage -->
+    <main class="stage-container" id="stageContainer">
+      <!-- Live Arena (Split / Left / Right) -->
+      <div class="arena-grid" id="arenaGrid">
+        <!-- Left Pane -->
+        <section class="pane" id="paneLeft">
+          <header class="pane-header baseline-accent" id="paneLeftHeader">
+            <div class="pane-title-group">
+              <span class="pane-tag" id="paneLeftTag">TRUE BLIND 1-SHOT BASELINE</span>
+              <h3 id="paneLeftTitle">Unguided Raw Prompt Run</h3>
+            </div>
+            <div class="pane-actions">
+              <span class="pane-stat" id="paneLeftStat"></span>
+              <button class="icon-btn" id="reloadLeftBtn" type="button" title="Reload frame">↻</button>
+              <a class="icon-btn" id="openLeftLink" href="#" target="_blank" rel="noopener noreferrer" title="Open standalone in new tab">↗</a>
+            </div>
+          </header>
+          <div class="iframe-wrap">
+            <iframe id="iframeLeft" title="Left Experiment Build" sandbox="allow-scripts allow-same-origin allow-downloads allow-modals allow-forms allow-pointer-lock"></iframe>
+          </div>
+        </section>
+
+        <!-- Draggable Resizer Handle -->
+        <div class="split-divider" id="splitDivider" role="separator" aria-orientation="vertical" tabindex="0" title="Drag to resize split view (double-click to reset 50/50)">
+          <div class="divider-grip">⋮</div>
+        </div>
+
+        <!-- Right Pane -->
+        <section class="pane" id="paneRight">
+          <header class="pane-header twist-accent" id="paneRightHeader">
+            <div class="pane-title-group">
+              <span class="pane-tag" id="paneRightTag">ANTI-JAGGED MULTI-AGENT TWIST</span>
+              <h3 id="paneRightTitle">Constitutional &amp; Adversarial Governance Run</h3>
+            </div>
+            <div class="pane-actions">
+              <span class="pane-stat" id="paneRightStat"></span>
+              <button class="icon-btn" id="reloadRightBtn" type="button" title="Reload frame">↻</button>
+              <a class="icon-btn" id="openRightLink" href="#" target="_blank" rel="noopener noreferrer" title="Open standalone in new tab">↗</a>
+            </div>
+          </header>
+          <div class="iframe-wrap">
+            <iframe id="iframeRight" title="Right Experiment Build" sandbox="allow-scripts allow-same-origin allow-downloads allow-modals allow-forms allow-pointer-lock"></iframe>
+          </div>
+        </section>
+      </div>
+
+      <!-- X-Ray & Audit View -->
+      <section class="xray-panel hidden" id="xrayPanel" aria-label="Jaggedness X-Ray and Empirical Audit">
+        <!-- Populated dynamically by hub.js -->
+      </section>
+    </main>
+  </div>
+
+  <script src="./data/telemetry_bundle.js"></script>
+  <script src="./assets/hub.js"></script>
+</body>
+</html>

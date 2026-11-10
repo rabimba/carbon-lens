@@ -1,0 +1,2226 @@
+/* ==========================================================================
+   W.H. AUDEN · ENGLISH 135 (FALL 1941) — ARCHIVAL SEMINAR STUDIO
+   100% Self-Contained Vanilla CSS3 · Zero External Dependencies
+   ========================================================================== */
+
+:root {
+  /* 3-Step Cotton-Rag Vellum Surface Ladder */
+  --paper-base: #f5f1e8;
+  --paper-elevated: #fbf9f4;
+  --paper-recessed: #ebe4d6;
+  --paper-hover: #f0eadc;
+
+  /* 3-Step Iron-Gall & Walnut Ink Ladder (WCAG AA+ Verified) */
+  --ink-primary: #181614;
+  --ink-secondary: #49433b;
+  --ink-muted: #686054;
+
+  /* Architectural Hairline Rules */
+  --rule-subtle: rgba(24, 22, 20, 0.12);
+  --rule-strong: rgba(24, 22, 20, 0.24);
+  --rule-solid-subtle: #dcd4c4;
+  --rule-solid-strong: #bdb39f;
+
+  /* Single Primary Editorial Signal (< 8% Screen Area) */
+  --accent-vermilion: #a62320;
+  --accent-vermilion-dark: #7d1816;
+  --accent-vermilion-tint: rgba(166, 35, 32, 0.07);
+
+  /* Semantic Scholarly Confirmation */
+  --verdict-authentic: #1e5236;
+  --verdict-authentic-tint: rgba(30, 82, 54, 0.08);
+
+  /* Dark Instrument Luminance Stack (Slate Matrix & Acoustic Bay Only) */
+  --inst-well: #0b0f0e;
+  --inst-base: #131917;
+  --inst-panel: #19221f;
+  --inst-elevated: #222d29;
+  --inst-ink: #eee9dd;
+  --inst-muted: #9ca59f;
+  --inst-ochre: #d8b56c;
+  --inst-rule: rgba(255, 255, 255, 0.09);
+  --inst-specular: inset 0 1px 0 rgba(255, 255, 255, 0.07);
+
+  /* Disciplined 3-Role Typographic System */
+  --font-display: "Iowan Old Style", "Baskerville", "Palatino Linotype", "Book Antiqua", Palatino, Georgia, serif;
+  --font-prose: Charter, "Bitstream Charter", "Iowan Old Style", Cambria, Georgia, serif;
+  --font-mono: "SFMono-Regular", "IBM Plex Mono", "JetBrains Mono", Menlo, Consolas, "Liberation Mono", monospace;
+
+  /* Motion & Radii */
+  --ease-snappy: cubic-bezier(0.22, 1, 0.36, 1);
+  --radius-crisp: 2px;
+  --radius-bay: 4px;
+}
+
+*, *::before, *::after {
+  box-sizing: border-box;
+}
+
+html {
+  font-size: 16px;
+  scroll-behavior: smooth;
+  -webkit-text-size-adjust: 100%;
+}
+
+body {
+  margin: 0;
+  min-height: 100vh;
+  background-color: var(--paper-base);
+  color: var(--ink-primary);
+  font-family: var(--font-prose);
+  line-height: 1.64;
+  font-variant-numeric: oldstyle-nums;
+  text-rendering: optimizeLegibility;
+  -webkit-font-smoothing: antialiased;
+}
+
+/* Subtle Uncoated Paper Tooth (0.022 Opacity) */
+.paper-grain-defs {
+  position: absolute;
+  width: 0;
+  height: 0;
+  pointer-events: none;
+}
+
+.paper-grain-overlay {
+  position: fixed;
+  inset: 0;
+  pointer-events: none;
+  z-index: 999;
+  opacity: 0.022;
+  filter: url(#paper-tooth);
+}
+
+button, input, select {
+  font: inherit;
+  color: inherit;
+}
+
+button:focus-visible,
+input:focus-visible,
+select:focus-visible,
+[tabindex]:focus-visible {
+  outline: 2px solid var(--accent-vermilion);
+  outline-offset: 2px;
+}
+
+p {
+  margin: 0;
+  max-width: 64ch;
+  text-wrap: pretty;
+}
+
+h1, h2, h3, h4 {
+  margin: 0;
+  font-family: var(--font-display);
+  font-weight: 600;
+  color: var(--ink-primary);
+  text-wrap: balance;
+}
+
+.tabular {
+  font-variant-numeric: tabular-nums;
+}
+
+/* Shared Vertical Alignment Plumb Line Container */
+.shell-frame {
+  max-width: 1360px;
+  margin: 0 auto;
+  padding-inline: clamp(1.15rem, 3vw, 2.75rem);
+}
+
+/* Micro-Tracked Archival Eyebrow */
+.eyebrow {
+  font-family: var(--font-mono);
+  font-size: 0.68rem;
+  font-weight: 600;
+  letter-spacing: 0.11em;
+  text-transform: uppercase;
+  color: var(--ink-muted);
+  font-variant-numeric: tabular-nums;
+  line-height: 1.35;
+}
+
+/* ==========================================================================
+   ARCHITECTURAL MASTHEAD & COLOPHON
+   ========================================================================== */
+
+.masthead {
+  background-color: var(--paper-base);
+  border-bottom: 1px solid var(--rule-strong);
+}
+
+.masthead-topbar {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  align-items: center;
+  gap: 0.75rem 1.25rem;
+  padding: 0.7rem 0;
+  border-bottom: 1px solid var(--rule-subtle);
+}
+
+.colophon-id {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 0.45rem;
+  font-family: var(--font-mono);
+  font-size: 0.69rem;
+  letter-spacing: 0.08em;
+  color: var(--ink-secondary);
+  font-variant-numeric: tabular-nums;
+}
+
+.catalog-mark {
+  font-style: italic;
+  font-weight: 700;
+  letter-spacing: 0.03em;
+  color: var(--ink-primary);
+  text-transform: lowercase;
+}
+
+.dot-sep {
+  color: var(--ink-muted);
+  opacity: 0.65;
+}
+
+.masthead-actions {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 0.75rem 1rem;
+}
+
+/* Monochrome Tabular Ledger Strip (Zero Pill Confetti) */
+.ledger-strip {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 0.65rem;
+  font-family: var(--font-mono);
+  font-size: 0.69rem;
+  letter-spacing: 0.05em;
+  color: var(--ink-muted);
+  font-variant-numeric: tabular-nums;
+}
+
+.ledger-metric {
+  display: inline-flex;
+  align-items: baseline;
+  gap: 0.28rem;
+}
+
+.ledger-metric strong {
+  color: var(--ink-primary);
+  font-weight: 600;
+}
+
+.ledger-metric.is-rubric strong {
+  color: var(--accent-vermilion);
+}
+
+.utility-group {
+  display: inline-flex;
+  align-items: center;
+  border: 1px solid var(--rule-strong);
+  border-radius: var(--radius-crisp);
+  background: var(--paper-elevated);
+}
+
+.btn-quiet {
+  appearance: none;
+  background: var(--paper-elevated);
+  border: 1px solid var(--rule-strong);
+  border-radius: var(--radius-crisp);
+  padding: 0.34rem 0.68rem;
+  font-family: var(--font-mono);
+  font-size: 0.68rem;
+  font-weight: 500;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  color: var(--ink-secondary);
+  cursor: pointer;
+  font-variant-numeric: tabular-nums;
+  transition: background-color 140ms var(--ease-snappy), color 140ms var(--ease-snappy), border-color 140ms var(--ease-snappy);
+}
+
+.utility-group .btn-quiet {
+  border: none;
+  border-right: 1px solid var(--rule-subtle);
+  border-radius: 0;
+}
+
+.utility-group .btn-quiet:last-child {
+  border-right: none;
+}
+
+.btn-quiet:hover {
+  background: var(--paper-recessed);
+  color: var(--ink-primary);
+}
+
+.btn-quiet.is-active {
+  background: var(--ink-primary);
+  color: var(--paper-elevated);
+}
+
+.btn-editorial-primary {
+  appearance: none;
+  background: var(--ink-primary);
+  color: var(--paper-elevated);
+  border: 1px solid var(--ink-primary);
+  border-radius: var(--radius-crisp);
+  padding: 0.48rem 0.95rem;
+  font-family: var(--font-mono);
+  font-size: 0.71rem;
+  font-weight: 600;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  cursor: pointer;
+  transition: background-color 140ms var(--ease-snappy), border-color 140ms var(--ease-snappy);
+}
+
+.btn-editorial-primary:hover {
+  background: var(--accent-vermilion);
+  border-color: var(--accent-vermilion);
+}
+
+.btn-editorial-primary.vermilion {
+  background: var(--accent-vermilion);
+  border-color: var(--accent-vermilion);
+}
+
+.btn-editorial-primary.vermilion:hover {
+  background: var(--accent-vermilion-dark);
+  border-color: var(--accent-vermilion-dark);
+}
+
+/* Provenance Hairline Triptych */
+.provenance-drawer {
+  padding: 0.85rem 0 0.25rem;
+}
+
+.provenance-grid {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 1px;
+  background: var(--rule-solid-strong);
+  border: 1px solid var(--rule-solid-strong);
+}
+
+.provenance-cell {
+  background: var(--paper-elevated);
+  padding: 1rem 1.15rem;
+}
+
+.provenance-cell p {
+  margin-top: 0.4rem;
+  font-size: 0.86rem;
+  line-height: 1.58;
+  color: var(--ink-secondary);
+}
+
+/* Editorial Hero Title Row (3.5:1+ Scale Polarity) */
+.masthead-hero {
+  display: grid;
+  grid-template-columns: minmax(0, 1.35fr) minmax(260px, 0.85fr);
+  gap: 1.5rem 2.5rem;
+  align-items: end;
+  padding: 1.5rem 0 1.45rem;
+}
+
+.masthead-hero h1 {
+  margin-top: 0.35rem;
+  font-size: clamp(2.05rem, 3.5vw, 3.2rem);
+  font-weight: 600;
+  letter-spacing: -0.03em;
+  line-height: 1.05;
+}
+
+.masthead-epigraph {
+  margin: 0;
+  padding-left: 1rem;
+  border-left: 2px solid var(--accent-vermilion);
+  font-size: 0.88rem;
+  line-height: 1.56;
+  color: var(--ink-secondary);
+  max-width: 52ch;
+}
+
+/* ==========================================================================
+   ARCHITECTURAL KEYLINE NAVIGATION BAR
+   ========================================================================== */
+
+.studio-nav-bar {
+  position: sticky;
+  top: 0;
+  z-index: 40;
+  background: rgba(245, 241, 232, 0.95);
+  backdrop-filter: blur(6px);
+  border-bottom: 1px solid var(--rule-strong);
+}
+
+.studio-nav {
+  display: grid;
+  grid-template-columns: repeat(5, minmax(0, 1fr));
+  border-left: 1px solid var(--rule-subtle);
+}
+
+.studio-tab {
+  appearance: none;
+  background: transparent;
+  border: none;
+  border-right: 1px solid var(--rule-subtle);
+  padding: 0.72rem 0.85rem;
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  cursor: pointer;
+  text-align: left;
+  color: var(--ink-secondary);
+  position: relative;
+  transition: background-color 140ms var(--ease-snappy), color 140ms var(--ease-snappy);
+}
+
+.studio-tab:hover {
+  background: var(--paper-elevated);
+  color: var(--ink-primary);
+}
+
+.studio-tab[aria-selected="true"] {
+  background: var(--paper-elevated);
+  color: var(--ink-primary);
+}
+
+.studio-tab[aria-selected="true"]::after {
+  content: "";
+  position: absolute;
+  left: 0;
+  right: 0;
+  bottom: -1px;
+  height: 2px;
+  background: var(--accent-vermilion);
+}
+
+.tab-num {
+  font-family: var(--font-mono);
+  font-size: 0.68rem;
+  font-weight: 600;
+  letter-spacing: 0.06em;
+  color: var(--ink-muted);
+}
+
+.studio-tab[aria-selected="true"] .tab-num {
+  color: var(--accent-vermilion);
+}
+
+.tab-label {
+  font-family: var(--font-display);
+  font-size: 0.93rem;
+  font-weight: 600;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.rubric-dot {
+  width: 6px;
+  height: 6px;
+  border-radius: 50%;
+  background: var(--accent-vermilion);
+  flex-shrink: 0;
+}
+
+.tab-kbd {
+  margin-left: auto;
+  font-family: var(--font-mono);
+  font-size: 0.64rem;
+  color: var(--ink-muted);
+  border: 1px solid var(--rule-subtle);
+  padding: 0.04rem 0.3rem;
+  border-radius: 2px;
+  font-variant-numeric: tabular-nums;
+}
+
+/* ==========================================================================
+   MAIN STAGE & ROOM HEADERS
+   ========================================================================== */
+
+.studio-main {
+  padding-top: 2.25rem;
+  padding-bottom: 4rem;
+}
+
+.room-panel {
+  display: none;
+}
+
+.room-panel.active {
+  display: block;
+  animation: stageReveal 180ms var(--ease-snappy);
+}
+
+@keyframes stageReveal {
+  from { opacity: 0; transform: translateY(3px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+.room-header {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) minmax(0, 1.05fr);
+  gap: 1rem 2.5rem;
+  align-items: end;
+  padding-bottom: 1.5rem;
+  margin-bottom: 1.5rem;
+  border-bottom: 1px solid var(--rule-strong);
+}
+
+.room-header h2 {
+  margin-top: 0.32rem;
+  font-size: clamp(1.75rem, 2.7vw, 2.45rem);
+  letter-spacing: -0.028em;
+  line-height: 1.07;
+}
+
+.room-lead {
+  font-size: 0.95rem;
+  line-height: 1.62;
+  color: var(--ink-secondary);
+  max-width: 62ch;
+}
+
+.room-header-side {
+  display: flex;
+  flex-direction: column;
+  gap: 0.65rem;
+}
+
+.tabular-score-line {
+  font-family: var(--font-mono);
+  font-size: 0.72rem;
+  letter-spacing: 0.07em;
+  text-transform: uppercase;
+  color: var(--ink-primary);
+  font-variant-numeric: tabular-nums;
+  padding-top: 0.5rem;
+  border-top: 1px solid var(--rule-subtle);
+}
+
+/* Recessed Segmented Control (Shared Across Slate & Prosody) */
+.segmented-track {
+  display: inline-flex;
+  flex-wrap: wrap;
+  padding: 3px;
+  background: var(--paper-recessed);
+  border: 1px solid var(--rule-strong);
+  border-radius: var(--radius-crisp);
+  gap: 2px;
+}
+
+.seg-btn {
+  appearance: none;
+  border: none;
+  background: transparent;
+  padding: 0.4rem 0.78rem;
+  font-family: var(--font-mono);
+  font-size: 0.7rem;
+  font-weight: 500;
+  letter-spacing: 0.05em;
+  color: var(--ink-secondary);
+  border-radius: 1px;
+  cursor: pointer;
+  transition: background-color 140ms var(--ease-snappy), color 140ms var(--ease-snappy);
+}
+
+.seg-btn:hover {
+  color: var(--ink-primary);
+}
+
+.seg-btn.is-active {
+  background: var(--paper-elevated);
+  color: var(--ink-primary);
+  font-weight: 600;
+  box-shadow: 0 1px 2px rgba(24, 22, 20, 0.08);
+}
+
+/* ==========================================================================
+   ROOM I: SWISS HAIRLINE SYLLABUS INDEX & STICKY FABER PROOF FOLIO
+   ========================================================================== */
+
+/* 6-Cell Hairline Arc Ledger */
+.arc-ledger {
+  display: grid;
+  grid-template-columns: repeat(6, minmax(0, 1fr));
+  gap: 1px;
+  background: var(--rule-solid-strong);
+  border: 1px solid var(--rule-solid-strong);
+  margin-bottom: 1rem;
+}
+
+.arc-cell {
+  appearance: none;
+  border: none;
+  background: var(--paper-base);
+  padding: 0.75rem 0.85rem;
+  text-align: left;
+  cursor: pointer;
+  display: flex;
+  flex-direction: column;
+  gap: 0.2rem;
+  position: relative;
+  transition: background-color 140ms var(--ease-snappy);
+}
+
+.arc-cell:hover {
+  background: var(--paper-elevated);
+}
+
+.arc-cell.is-active {
+  background: var(--paper-elevated);
+}
+
+.arc-cell.is-active::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 2px;
+  background: var(--accent-vermilion);
+}
+
+.arc-cell-kicker {
+  font-family: var(--font-mono);
+  font-size: 0.65rem;
+  letter-spacing: 0.09em;
+  text-transform: uppercase;
+  color: var(--ink-muted);
+  font-variant-numeric: tabular-nums;
+}
+
+.arc-cell.is-active .arc-cell-kicker {
+  color: var(--accent-vermilion);
+  font-weight: 600;
+}
+
+.arc-cell-title {
+  font-family: var(--font-display);
+  font-size: 0.92rem;
+  font-weight: 600;
+  line-height: 1.22;
+  color: var(--ink-primary);
+}
+
+.arc-cell-meta {
+  margin-top: auto;
+  padding-top: 0.2rem;
+  font-family: var(--font-mono);
+  font-size: 0.66rem;
+  color: var(--ink-muted);
+  font-variant-numeric: tabular-nums;
+}
+
+/* Integrated Filter Control Bar */
+.syllabus-control-bar {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.65rem;
+  align-items: center;
+  padding: 0.65rem 0;
+  border-bottom: 1px solid var(--rule-subtle);
+}
+
+.search-field-wrap {
+  flex: 1 1 260px;
+}
+
+.editorial-input {
+  width: 100%;
+  padding: 0.46rem 0.72rem;
+  background: var(--paper-elevated);
+  border: 1px solid var(--rule-strong);
+  border-radius: var(--radius-crisp);
+  font-family: var(--font-prose);
+  font-size: 0.9rem;
+  color: var(--ink-primary);
+}
+
+.editorial-input::placeholder {
+  color: var(--ink-muted);
+}
+
+.filter-controls {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.5rem;
+}
+
+.editorial-select {
+  padding: 0.45rem 0.68rem;
+  background: var(--paper-elevated);
+  border: 1px solid var(--rule-strong);
+  border-radius: var(--radius-crisp);
+  font-family: var(--font-mono);
+  font-size: 0.7rem;
+  letter-spacing: 0.04em;
+  color: var(--ink-primary);
+  cursor: pointer;
+}
+
+/* Tabular Reading Pace Specification Strip */
+.pace-spec-strip {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  align-items: center;
+  gap: 0.75rem 1.5rem;
+  padding: 0.6rem 0;
+  margin-bottom: 1.25rem;
+  border-bottom: 1px solid var(--rule-strong);
+  font-family: var(--font-mono);
+  font-size: 0.7rem;
+  letter-spacing: 0.05em;
+  color: var(--ink-secondary);
+  font-variant-numeric: tabular-nums;
+}
+
+.pace-track {
+  width: 220px;
+  height: 3px;
+  background: var(--paper-recessed);
+  position: relative;
+  overflow: hidden;
+}
+
+.pace-fill {
+  height: 100%;
+  background: var(--accent-vermilion);
+  transition: width 200ms var(--ease-snappy);
+}
+
+/* Master-Detail Stage */
+.syllabus-stage {
+  display: grid;
+  grid-template-columns: minmax(0, 1.26fr) minmax(320px, 0.94fr);
+  gap: 2.25rem;
+  align-items: start;
+}
+
+.index-table-head {
+  display: grid;
+  grid-template-columns: 54px minmax(0, 1.45fr) minmax(115px, 0.85fr) 74px;
+  gap: 0.75rem;
+  padding: 0 0.65rem 0.45rem;
+  border-bottom: 1px solid var(--ink-primary);
+  font-family: var(--font-mono);
+  font-size: 0.65rem;
+  font-weight: 600;
+  letter-spacing: 0.11em;
+  text-transform: uppercase;
+  color: var(--ink-muted);
+}
+
+.num-col {
+  text-align: right;
+}
+
+.works-index {
+  display: flex;
+  flex-direction: column;
+}
+
+/* Flush Editorial Row Dividers (Zero Card Soup) */
+.index-row {
+  appearance: none;
+  width: 100%;
+  background: transparent;
+  border: none;
+  border-bottom: 1px solid var(--rule-subtle);
+  padding: 0.68rem 0.65rem;
+  display: grid;
+  grid-template-columns: 54px minmax(0, 1.45fr) minmax(115px, 0.85fr) 74px;
+  gap: 0.75rem;
+  align-items: baseline;
+  text-align: left;
+  cursor: pointer;
+  position: relative;
+  transition: background-color 120ms var(--ease-snappy);
+}
+
+.index-row:hover {
+  background: var(--paper-hover);
+}
+
+.index-row.is-selected {
+  background: var(--paper-elevated);
+}
+
+.index-row.is-selected::before {
+  content: "";
+  position: absolute;
+  left: 0;
+  top: 0;
+  bottom: 0;
+  width: 2px;
+  background: var(--accent-vermilion);
+}
+
+.row-idx {
+  font-family: var(--font-mono);
+  font-size: 0.72rem;
+  color: var(--ink-muted);
+  font-variant-numeric: tabular-nums;
+}
+
+.index-row.is-selected .row-idx {
+  color: var(--accent-vermilion);
+  font-weight: 600;
+}
+
+.row-work-title {
+  font-family: var(--font-display);
+  font-size: 1rem;
+  font-weight: 600;
+  line-height: 1.24;
+  color: var(--ink-primary);
+}
+
+.row-work-author {
+  display: block;
+  margin-top: 0.12rem;
+  font-family: var(--font-prose);
+  font-size: 0.83rem;
+  color: var(--ink-secondary);
+}
+
+.row-meta-col {
+  font-family: var(--font-mono);
+  font-size: 0.66rem;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  color: var(--ink-muted);
+  line-height: 1.45;
+}
+
+.row-case-flag {
+  display: block;
+  color: var(--accent-vermilion);
+  font-weight: 600;
+}
+
+.row-extent-col {
+  text-align: right;
+  font-family: var(--font-mono);
+  font-size: 0.73rem;
+  color: var(--ink-primary);
+  font-variant-numeric: tabular-nums;
+}
+
+.extent-spark {
+  display: block;
+  width: 100%;
+  height: 2px;
+  background: var(--rule-subtle);
+  margin-top: 0.26rem;
+}
+
+.extent-spark-bar {
+  display: block;
+  height: 100%;
+  background: var(--ink-secondary);
+}
+
+.index-row.is-selected .extent-spark-bar {
+  background: var(--accent-vermilion);
+}
+
+/* Sticky Right-Hand Faber & Faber Proof Folio */
+.marginalia-folio {
+  position: sticky;
+  top: 3.6rem;
+  background: var(--paper-elevated);
+  border: 1px solid var(--rule-strong);
+  border-top: 2px solid var(--ink-primary);
+  padding: 1.5rem 1.6rem;
+}
+
+.folio-running-head {
+  display: flex;
+  justify-content: space-between;
+  align-items: baseline;
+  gap: 0.75rem;
+  padding-bottom: 0.65rem;
+  margin-bottom: 0.95rem;
+  border-bottom: 1px solid var(--rule-subtle);
+  font-family: var(--font-mono);
+  font-size: 0.67rem;
+  letter-spacing: 0.09em;
+  text-transform: uppercase;
+  color: var(--ink-muted);
+  font-variant-numeric: tabular-nums;
+}
+
+.marginalia-folio h3 {
+  font-size: 1.55rem;
+  letter-spacing: -0.02em;
+  line-height: 1.15;
+}
+
+.folio-byline {
+  margin-top: 0.25rem;
+  font-size: 0.92rem;
+  color: var(--ink-secondary);
+}
+
+.folio-spec-line {
+  margin-top: 0.6rem;
+  padding: 0.45rem 0;
+  border-top: 1px solid var(--rule-subtle);
+  border-bottom: 1px solid var(--rule-subtle);
+  font-family: var(--font-mono);
+  font-size: 0.67rem;
+  letter-spacing: 0.07em;
+  text-transform: uppercase;
+  color: var(--ink-muted);
+  font-variant-numeric: tabular-nums;
+}
+
+.folio-epigraph {
+  margin: 1rem 0;
+  padding-left: 1rem;
+  border-left: 2px solid var(--accent-vermilion);
+  font-family: var(--font-display);
+  font-style: italic;
+  font-size: 0.98rem;
+  line-height: 1.52;
+  color: var(--ink-primary);
+  max-width: 56ch;
+}
+
+.folio-rubric {
+  margin: 1rem 0 0.3rem;
+  font-family: var(--font-mono);
+  font-size: 0.66rem;
+  font-weight: 600;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: var(--ink-muted);
+}
+
+.folio-prose {
+  font-size: 0.92rem;
+  line-height: 1.64;
+  color: var(--ink-primary);
+  max-width: 60ch;
+}
+
+.thread-list {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.38rem;
+  margin-top: 0.4rem;
+}
+
+.thread-ref {
+  appearance: none;
+  background: var(--paper-base);
+  border: 1px solid var(--rule-strong);
+  border-radius: var(--radius-crisp);
+  padding: 0.24rem 0.52rem;
+  font-family: var(--font-mono);
+  font-size: 0.67rem;
+  color: var(--ink-secondary);
+  cursor: pointer;
+  font-variant-numeric: tabular-nums;
+  transition: background-color 120ms var(--ease-snappy), color 120ms var(--ease-snappy), border-color 120ms var(--ease-snappy);
+}
+
+.thread-ref:hover {
+  background: var(--ink-primary);
+  color: var(--paper-elevated);
+  border-color: var(--ink-primary);
+}
+
+.folio-footer-actions {
+  margin-top: 1.25rem;
+  padding-top: 0.95rem;
+  border-top: 1px solid var(--rule-subtle);
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.5rem;
+}
+
+/* Supplemental 1941 Reference Colophon */
+.companion-colophon {
+  margin-top: 3rem;
+  padding-top: 1.5rem;
+  border-top: 1px solid var(--rule-strong);
+}
+
+.companion-ledger {
+  margin-top: 0.75rem;
+  display: grid;
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+  gap: 1px;
+  background: var(--rule-solid-subtle);
+  border: 1px solid var(--rule-solid-subtle);
+}
+
+.companion-cell {
+  background: var(--paper-base);
+  padding: 0.75rem 0.85rem;
+  font-size: 0.82rem;
+  line-height: 1.45;
+}
+
+.companion-cell strong {
+  display: block;
+  font-family: var(--font-display);
+  font-size: 0.9rem;
+}
+
+.companion-cell span {
+  display: block;
+  margin-top: 0.18rem;
+  color: var(--ink-muted);
+  font-size: 0.76rem;
+}
+
+/* ==========================================================================
+   ROOM II: RECESSED SLATE ARCHITECTURAL PLATE (CHALKBOARD MATRIX)
+   ========================================================================== */
+
+.instrument-toolbar {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  align-items: center;
+  gap: 0.75rem;
+  margin-bottom: 1.15rem;
+}
+
+.chalkboard-stage {
+  display: grid;
+  grid-template-columns: minmax(0, 1.65fr) minmax(300px, 0.88fr);
+  gap: 1px;
+  background: var(--inst-rule);
+  border: 1px solid var(--rule-strong);
+  box-shadow: 0 12px 30px -14px rgba(18, 22, 20, 0.28);
+}
+
+.slate-plate {
+  background: radial-gradient(ellipse at 30% 22%, rgba(255, 255, 255, 0.045), transparent 58%),
+              linear-gradient(168deg, #17211d 0%, #101714 100%);
+  box-shadow: var(--inst-specular), inset 0 2px 12px rgba(0, 0, 0, 0.45);
+  padding: 0.65rem;
+  display: flex;
+  align-items: center;
+}
+
+.slate-svg {
+  width: 100%;
+  height: auto;
+  display: block;
+  user-select: none;
+}
+
+.chalk-node-group {
+  cursor: pointer;
+  transition: opacity 160ms var(--ease-snappy);
+}
+
+.chalk-node-group:hover circle.node-dot {
+  r: 9.5;
+}
+
+.chalk-foil-edge {
+  stroke-dasharray: 6 5;
+  animation: chalkMarch 18s linear infinite;
+}
+
+@keyframes chalkMarch {
+  to { stroke-dashoffset: -110; }
+}
+
+.chalk-draw-anim {
+  stroke-dasharray: 1400;
+  stroke-dashoffset: 1400;
+  animation: drawChalkLine 680ms var(--ease-snappy) forwards;
+}
+
+@keyframes drawChalkLine {
+  to { stroke-dashoffset: 0; }
+}
+
+.chalk-apparatus {
+  background: var(--inst-panel);
+  color: var(--inst-ink);
+  padding: 1.5rem 1.55rem;
+  box-shadow: var(--inst-specular);
+  display: flex;
+  flex-direction: column;
+}
+
+.chalk-apparatus .eyebrow {
+  color: var(--inst-ochre);
+}
+
+.chalk-apparatus h3 {
+  margin-top: 0.35rem;
+  color: #ffffff;
+  font-size: 1.48rem;
+  letter-spacing: -0.02em;
+}
+
+.chalk-source-ref {
+  margin-top: 0.2rem;
+  font-family: var(--font-mono);
+  font-size: 0.71rem;
+  letter-spacing: 0.05em;
+  color: var(--inst-muted);
+}
+
+.chalk-gloss-block {
+  margin: 1.1rem 0;
+  padding-left: 0.95rem;
+  border-left: 2px solid var(--inst-ochre);
+  font-size: 0.93rem;
+  line-height: 1.65;
+  color: var(--inst-ink);
+  max-width: 56ch;
+}
+
+.foil-chip-row {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.4rem;
+  margin-top: 0.45rem;
+}
+
+.btn-chalk-foil {
+  appearance: none;
+  background: var(--inst-elevated);
+  border: 1px solid var(--inst-rule);
+  border-radius: var(--radius-crisp);
+  color: var(--inst-ink);
+  padding: 0.3rem 0.58rem;
+  font-family: var(--font-mono);
+  font-size: 0.68rem;
+  letter-spacing: 0.04em;
+  cursor: pointer;
+  transition: border-color 140ms var(--ease-snappy), background-color 140ms var(--ease-snappy);
+}
+
+.btn-chalk-foil:hover {
+  border-color: var(--inst-ochre);
+  background: rgba(216, 181, 108, 0.14);
+}
+
+.chalk-schema-note {
+  margin-top: auto;
+  padding-top: 1rem;
+  border-top: 1px solid var(--inst-rule);
+  font-size: 0.78rem;
+  line-height: 1.5;
+  color: var(--inst-muted);
+}
+
+/* ==========================================================================
+   ROOM III: TWO-COLUMN BROADSHEET GALLEY PROOF (COUNTERFEIT CRITIC)
+   ========================================================================== */
+
+/* 10-Folio Hairline Selector Strip */
+.case-index-bar {
+  display: grid;
+  grid-template-columns: repeat(10, minmax(0, 1fr));
+  gap: 1px;
+  background: var(--rule-solid-strong);
+  border: 1px solid var(--rule-solid-strong);
+  margin-bottom: 1.5rem;
+}
+
+.case-index-cell {
+  appearance: none;
+  border: none;
+  background: var(--paper-base);
+  padding: 0.58rem 0.5rem;
+  text-align: left;
+  cursor: pointer;
+  display: flex;
+  flex-direction: column;
+  gap: 0.16rem;
+  position: relative;
+  transition: background-color 120ms var(--ease-snappy);
+}
+
+.case-index-cell:hover {
+  background: var(--paper-elevated);
+}
+
+.case-index-cell.is-active {
+  background: var(--paper-elevated);
+}
+
+.case-index-cell.is-active::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 2px;
+  background: var(--accent-vermilion);
+}
+
+.case-cell-top {
+  display: flex;
+  justify-content: space-between;
+  width: 100%;
+  font-family: var(--font-mono);
+  font-size: 0.66rem;
+  font-weight: 600;
+  color: var(--ink-muted);
+  font-variant-numeric: tabular-nums;
+}
+
+.case-index-cell.is-win .case-status-glyph {
+  color: var(--verdict-authentic);
+}
+
+.case-index-cell.is-miss .case-status-glyph {
+  color: var(--accent-vermilion);
+}
+
+.case-cell-name {
+  font-family: var(--font-display);
+  font-size: 0.8rem;
+  line-height: 1.2;
+  color: var(--ink-primary);
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+/* Broadsheet Primary Text Epigraph */
+.specimen-epigraph {
+  display: grid;
+  grid-template-columns: minmax(190px, 0.42fr) minmax(0, 1fr);
+  gap: 1rem 2rem;
+  padding: 1.35rem 0;
+  border-top: 1px solid var(--rule-strong);
+  border-bottom: 1px solid var(--rule-strong);
+  margin-bottom: 1.5rem;
+}
+
+.specimen-citation-rail h3 {
+  margin-top: 0.35rem;
+  font-size: 1.28rem;
+  line-height: 1.18;
+  letter-spacing: -0.02em;
+}
+
+.specimen-work-line {
+  margin-top: 0.35rem;
+  font-family: var(--font-mono);
+  font-size: 0.68rem;
+  letter-spacing: 0.05em;
+  color: var(--ink-secondary);
+}
+
+.specimen-passage-col blockquote {
+  margin: 0;
+  padding-left: 1.15rem;
+  border-left: 2px solid var(--ink-primary);
+  white-space: pre-line;
+  font-family: var(--font-display);
+  font-size: 1.04rem;
+  line-height: 1.56;
+  color: var(--ink-primary);
+  max-width: 62ch;
+}
+
+.specimen-directive {
+  margin-top: 0.85rem;
+  font-family: var(--font-mono);
+  font-size: 0.71rem;
+  letter-spacing: 0.04em;
+  color: var(--accent-vermilion);
+  max-width: 66ch;
+}
+
+/* Unified Two-Column Broadsheet Galley Proof Split by 1px Printer's Rule */
+.galley-duel {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 1px;
+  background: var(--rule-solid-strong);
+  border-top: 2px solid var(--ink-primary);
+  border-bottom: 1px solid var(--rule-solid-strong);
+  border-left: 1px solid var(--rule-solid-strong);
+  border-right: 1px solid var(--rule-solid-strong);
+}
+
+.galley-column {
+  position: relative;
+  background: var(--paper-elevated);
+  padding: 1.65rem clamp(1.2rem, 2.5vw, 2.1rem);
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  overflow: hidden;
+  transition: background-color 140ms var(--ease-snappy);
+}
+
+.galley-column.is-interactive {
+  cursor: crosshair;
+}
+
+.galley-column.is-interactive:hover {
+  background: #fcf7f5;
+}
+
+.galley-column.is-revealed-counterfeit {
+  background: #faf2f1;
+}
+
+.galley-column.is-revealed-authentic {
+  background: #f4f8f5;
+}
+
+.galley-folio-head {
+  display: flex;
+  justify-content: space-between;
+  align-items: baseline;
+  gap: 0.75rem;
+  padding-bottom: 0.7rem;
+  margin-bottom: 1rem;
+  border-bottom: 1px solid var(--rule-subtle);
+}
+
+.folio-id-mark {
+  font-family: var(--font-mono);
+  font-size: 0.7rem;
+  font-weight: 600;
+  letter-spacing: 0.11em;
+  text-transform: uppercase;
+  color: var(--ink-muted);
+}
+
+.folio-attribution-tag {
+  font-family: var(--font-mono);
+  font-size: 0.66rem;
+  font-weight: 600;
+  letter-spacing: 0.09em;
+  text-transform: uppercase;
+}
+
+.folio-attribution-tag.counterfeit {
+  color: var(--accent-vermilion);
+}
+
+.folio-attribution-tag.authentic {
+  color: var(--verdict-authentic);
+}
+
+.galley-subtitle {
+  font-family: var(--font-display);
+  font-size: 1.14rem;
+  font-weight: 600;
+  margin-bottom: 0.65rem;
+  line-height: 1.25;
+}
+
+.galley-prose {
+  font-size: 0.98rem;
+  line-height: 1.7;
+  color: var(--ink-primary);
+  max-width: 60ch;
+  margin-bottom: 1.4rem;
+}
+
+.btn-grease-strike {
+  appearance: none;
+  align-self: flex-start;
+  background: transparent;
+  border: 1px solid var(--accent-vermilion);
+  border-radius: var(--radius-crisp);
+  color: var(--accent-vermilion);
+  padding: 0.46rem 0.88rem;
+  font-family: var(--font-mono);
+  font-size: 0.69rem;
+  font-weight: 600;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  cursor: pointer;
+  transition: background-color 140ms var(--ease-snappy), color 140ms var(--ease-snappy);
+}
+
+.galley-column.is-interactive:hover .btn-grease-strike,
+.btn-grease-strike:hover {
+  background: var(--accent-vermilion);
+  color: var(--paper-elevated);
+}
+
+/* Tactile Crimson Grease-Pencil SVG Strike */
+.grease-overlay {
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+}
+
+.grease-svg {
+  width: 100%;
+  height: 100%;
+}
+
+.grease-stroke {
+  stroke: var(--accent-vermilion);
+  stroke-width: 7;
+  stroke-linecap: round;
+  fill: none;
+  opacity: 0.84;
+  stroke-dasharray: 900;
+  stroke-dashoffset: 900;
+  animation: slashPencil 420ms var(--ease-snappy) forwards;
+}
+
+.grease-stroke.second {
+  animation-delay: 130ms;
+}
+
+@keyframes slashPencil {
+  to { stroke-dashoffset: 0; }
+}
+
+.marginalia-slash-note {
+  padding-left: 0.85rem;
+  border-left: 2px solid var(--accent-vermilion);
+  font-family: var(--font-mono);
+  font-size: 0.75rem;
+  line-height: 1.5;
+  color: var(--accent-vermilion-dark);
+  max-width: 56ch;
+}
+
+.authentic-foot-note {
+  font-family: var(--font-mono);
+  font-size: 0.72rem;
+  letter-spacing: 0.04em;
+  color: var(--verdict-authentic);
+  font-weight: 600;
+}
+
+/* Revealed 3-Column Hairline Critical Apparatus */
+.apparatus-wrap {
+  margin-top: 1.5rem;
+  border: 1px solid var(--rule-solid-strong);
+  background: var(--paper-elevated);
+  animation: stageReveal 200ms var(--ease-snappy);
+}
+
+.apparatus-verdict-bar {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  align-items: center;
+  gap: 0.75rem 1.25rem;
+  padding: 0.9rem 1.25rem;
+  border-bottom: 1px solid var(--rule-solid-strong);
+}
+
+.apparatus-verdict-bar.is-win {
+  background: var(--verdict-authentic-tint);
+}
+
+.apparatus-verdict-bar.is-miss {
+  background: var(--accent-vermilion-tint);
+}
+
+.verdict-headline {
+  font-family: var(--font-display);
+  font-size: 1.08rem;
+  font-weight: 600;
+}
+
+.apparatus-verdict-bar.is-win .verdict-headline {
+  color: var(--verdict-authentic);
+}
+
+.apparatus-verdict-bar.is-miss .verdict-headline {
+  color: var(--accent-vermilion-dark);
+}
+
+.apparatus-columns {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 1px;
+  background: var(--rule-solid-subtle);
+}
+
+.apparatus-cell {
+  background: var(--paper-elevated);
+  padding: 1.2rem 1.3rem;
+}
+
+.apparatus-cell .eyebrow {
+  margin-bottom: 0.45rem;
+}
+
+.apparatus-quote {
+  margin-top: 0.65rem;
+  padding-left: 0.85rem;
+  border-left: 2px solid var(--accent-vermilion);
+  font-family: var(--font-display);
+  font-style: italic;
+  font-size: 0.91rem;
+  line-height: 1.54;
+  color: var(--ink-primary);
+}
+
+.signal-list {
+  margin: 0.65rem 0 0;
+  padding-left: 1.05rem;
+  font-size: 0.83rem;
+  line-height: 1.52;
+  color: var(--ink-secondary);
+}
+
+.signal-list li + li {
+  margin-top: 0.3rem;
+}
+
+/* ==========================================================================
+   ROOM IV: DIETER RAMS / BRAUN × 1941 ACOUSTIC & PROSODY LAB
+   ========================================================================== */
+
+.acoustic-stage {
+  display: grid;
+  grid-template-columns: minmax(0, 1.06fr) minmax(0, 1fr);
+  gap: 2rem;
+  align-items: start;
+}
+
+/* Dark Recessed Instrument Chassis */
+.acoustic-bay {
+  background: var(--inst-base);
+  color: var(--inst-ink);
+  border: 1px solid rgba(0, 0, 0, 0.55);
+  border-radius: var(--radius-bay);
+  box-shadow: var(--inst-specular), 0 12px 28px -12px rgba(15, 18, 17, 0.35);
+  padding: 1.35rem 1.45rem;
+}
+
+.bay-header-bar {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  align-items: center;
+  gap: 0.5rem;
+  padding-bottom: 0.8rem;
+  margin-bottom: 1.1rem;
+  border-bottom: 1px solid var(--inst-rule);
+}
+
+.bay-label {
+  font-family: var(--font-mono);
+  font-size: 0.66rem;
+  font-weight: 600;
+  letter-spacing: 0.11em;
+  color: var(--inst-muted);
+}
+
+.crackle-switch {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.4rem;
+  font-family: var(--font-mono);
+  font-size: 0.67rem;
+  letter-spacing: 0.05em;
+  color: var(--inst-muted);
+  cursor: pointer;
+}
+
+.crackle-switch input {
+  accent-color: var(--inst-ochre);
+}
+
+.turntable-instrument-row {
+  display: grid;
+  grid-template-columns: 204px minmax(0, 1fr);
+  gap: 1.15rem;
+  align-items: center;
+  margin-bottom: 1.15rem;
+}
+
+.platter-well {
+  width: 204px;
+  height: 204px;
+  background: var(--inst-well);
+  border: 1px solid var(--inst-rule);
+  border-radius: var(--radius-bay);
+  box-shadow: inset 0 2px 8px rgba(0, 0, 0, 0.65);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.record-disc {
+  transform-origin: 100px 110px;
+}
+
+.record-disc.spinning {
+  animation: spin78 1.54s linear infinite;
+}
+
+@keyframes spin78 {
+  to { transform: rotate(360deg); }
+}
+
+.tonearm-group {
+  transform-origin: 188px 34px;
+  transition: transform 460ms var(--ease-snappy);
+  transform: rotate(0deg);
+}
+
+.tonearm-group.engaged {
+  transform: rotate(23deg);
+}
+
+.scope-readout-col h3 {
+  margin: 0.28rem 0 0.2rem;
+  color: #ffffff;
+  font-size: 1.18rem;
+  line-height: 1.22;
+}
+
+.plate-submeta {
+  font-family: var(--font-mono);
+  font-size: 0.68rem;
+  color: var(--inst-muted);
+  font-variant-numeric: tabular-nums;
+}
+
+.scope-well {
+  margin-top: 0.75rem;
+  background: var(--inst-well);
+  border: 1px solid var(--inst-rule);
+  border-radius: var(--radius-crisp);
+  padding: 0.4rem 0.55rem 0.5rem;
+  box-shadow: inset 0 2px 6px rgba(0, 0, 0, 0.6);
+}
+
+.scope-scale {
+  display: flex;
+  justify-content: space-between;
+  font-family: var(--font-mono);
+  font-size: 0.58rem;
+  letter-spacing: 0.08em;
+  color: var(--inst-muted);
+  margin-bottom: 0.25rem;
+  font-variant-numeric: tabular-nums;
+}
+
+.oscilloscope-canvas {
+  width: 100%;
+  height: 70px;
+  display: block;
+}
+
+/* 4-Plate Hairline Matrix */
+.plate-matrix {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 1px;
+  background: var(--inst-rule);
+  border: 1px solid var(--inst-rule);
+  margin-bottom: 1rem;
+}
+
+.plate-cell {
+  appearance: none;
+  border: none;
+  background: var(--inst-panel);
+  color: var(--inst-ink);
+  padding: 0.65rem 0.8rem;
+  text-align: left;
+  cursor: pointer;
+  transition: background-color 140ms var(--ease-snappy);
+}
+
+.plate-cell:hover {
+  background: var(--inst-elevated);
+}
+
+.plate-cell.is-active {
+  background: var(--inst-elevated);
+  box-shadow: inset 2px 0 0 var(--inst-ochre);
+}
+
+.plate-cell-composer {
+  display: block;
+  font-family: var(--font-mono);
+  font-size: 0.67rem;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  color: var(--inst-ochre);
+}
+
+.plate-cell-work {
+  display: block;
+  margin-top: 0.14rem;
+  font-family: var(--font-display);
+  font-size: 0.88rem;
+  color: #ffffff;
+}
+
+.transport-bar {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 0.75rem;
+  padding-bottom: 0.95rem;
+  margin-bottom: 0.95rem;
+  border-bottom: 1px solid var(--inst-rule);
+}
+
+.btn-instrument-primary {
+  appearance: none;
+  background: var(--inst-ochre);
+  color: #151411;
+  border: 1px solid var(--inst-ochre);
+  border-radius: var(--radius-crisp);
+  padding: 0.48rem 0.9rem;
+  font-family: var(--font-mono);
+  font-size: 0.7rem;
+  font-weight: 600;
+  letter-spacing: 0.07em;
+  text-transform: uppercase;
+  cursor: pointer;
+  transition: filter 140ms var(--ease-snappy);
+}
+
+.btn-instrument-primary:hover {
+  filter: brightness(1.08);
+}
+
+.step-readout {
+  flex: 1 1 200px;
+  font-family: var(--font-mono);
+  font-size: 0.69rem;
+  color: var(--inst-ochre);
+  font-variant-numeric: tabular-nums;
+}
+
+.bay-commentary {
+  font-size: 0.89rem;
+  line-height: 1.62;
+  color: #d7d2c6;
+  max-width: 60ch;
+}
+
+/* Station B: Prosodic Scansion Staves */
+.prosody-folio {
+  background: var(--paper-elevated);
+  border: 1px solid var(--rule-strong);
+  border-top: 2px solid var(--ink-primary);
+  padding: 1.35rem 1.5rem;
+}
+
+.folio-top-bar {
+  padding-bottom: 0.75rem;
+  margin-bottom: 0.95rem;
+  border-bottom: 1px solid var(--rule-subtle);
+}
+
+.prosody-seg {
+  width: 100%;
+  margin-bottom: 1rem;
+}
+
+.prosody-seg .seg-btn {
+  flex: 1 1 auto;
+  text-align: center;
+}
+
+.prosody-meta-block h3 {
+  margin: 0.25rem 0 0.25rem;
+  font-size: 1.32rem;
+  letter-spacing: -0.02em;
+}
+
+.prosody-formula {
+  font-family: var(--font-mono);
+  font-size: 0.7rem;
+  color: var(--accent-vermilion);
+  letter-spacing: 0.04em;
+  margin-bottom: 0.45rem;
+}
+
+/* Clean Musical/Typographic Scansion Staves (Zero Syllable Box Soup) */
+.scansion-staves {
+  margin: 1.15rem 0;
+  border-top: 1px solid var(--rule-strong);
+}
+
+.stave-row {
+  padding: 0.75rem 0;
+  border-bottom: 1px solid var(--rule-subtle);
+}
+
+.stave-label {
+  font-family: var(--font-mono);
+  font-size: 0.63rem;
+  letter-spacing: 0.09em;
+  text-transform: uppercase;
+  color: var(--ink-muted);
+  margin-bottom: 0.35rem;
+}
+
+.stave-tokens {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: flex-end;
+  gap: 0.15rem 0.35rem;
+}
+
+.syl-unit {
+  display: inline-flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 0.18rem 0.34rem 0.22rem;
+  border-bottom: 1px solid transparent;
+  border-radius: var(--radius-crisp);
+  min-width: 2.05rem;
+  transition: background-color 110ms var(--ease-snappy), transform 110ms var(--ease-snappy);
+}
+
+.syl-unit.is-stressed {
+  border-bottom-color: var(--rule-strong);
+}
+
+.syl-unit.is-practice {
+  cursor: pointer;
+  border-bottom-color: var(--rule-solid-strong);
+  background: var(--paper-base);
+}
+
+.syl-unit.is-practice:hover {
+  background: var(--paper-recessed);
+}
+
+.syl-unit.is-pulsing {
+  background: var(--accent-vermilion);
+  color: var(--paper-elevated);
+  transform: translateY(-2px);
+}
+
+.syl-glyph {
+  font-family: var(--font-mono);
+  font-size: 0.76rem;
+  line-height: 1;
+  color: var(--ink-muted);
+  margin-bottom: 0.18rem;
+}
+
+.syl-unit.is-stressed .syl-glyph {
+  color: var(--accent-vermilion);
+  font-weight: 700;
+}
+
+.syl-unit.is-pulsing .syl-glyph {
+  color: #ffffff;
+}
+
+.syl-text {
+  font-family: var(--font-display);
+  font-size: 0.98rem;
+  line-height: 1.15;
+}
+
+.syl-unit.is-stressed .syl-text {
+  font-weight: 600;
+}
+
+.caesura-mark {
+  font-family: var(--font-mono);
+  font-size: 0.92rem;
+  font-weight: 600;
+  color: var(--accent-vermilion);
+  padding: 0 0.22rem 0.22rem;
+}
+
+.prosody-actions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.55rem;
+  align-items: center;
+  margin-bottom: 0.55rem;
+}
+
+.prosody-status-line {
+  font-family: var(--font-mono);
+  font-size: 0.68rem;
+  color: var(--ink-muted);
+  font-variant-numeric: tabular-nums;
+}
+
+/* ==========================================================================
+   ROOM V: 1941 SOCRATIC COLLOQUIUM & DANTEAN CARTOGRAPHY
+   ========================================================================== */
+
+.context-triptych {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 1px;
+  background: var(--rule-solid-strong);
+  border: 1px solid var(--rule-solid-strong);
+  margin-bottom: 2.25rem;
+}
+
+.triptych-col {
+  background: var(--paper-base);
+  padding: 1.15rem 1.25rem;
+}
+
+.triptych-col.is-accented {
+  background: var(--paper-elevated);
+  box-shadow: inset 0 2px 0 var(--accent-vermilion);
+}
+
+.triptych-col strong {
+  display: block;
+  margin: 0.3rem 0 0.35rem;
+  font-family: var(--font-display);
+  font-size: 1.05rem;
+}
+
+.triptych-col p {
+  font-size: 0.87rem;
+  color: var(--ink-secondary);
+}
+
+.colloquium-section + .colloquium-section {
+  margin-top: 2.75rem;
+  padding-top: 2rem;
+  border-top: 1px solid var(--rule-strong);
+}
+
+.section-rule-head {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) minmax(0, 1fr);
+  gap: 0.75rem 2rem;
+  align-items: end;
+  margin-bottom: 1.15rem;
+}
+
+.section-rule-head h3 {
+  margin-top: 0.28rem;
+  font-size: 1.45rem;
+  letter-spacing: -0.02em;
+}
+
+.section-subcopy {
+  font-size: 0.9rem;
+  color: var(--ink-secondary);
+}
+
+/* 3-Column Hairline Casting Matrix */
+.casting-matrix {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 1px;
+  background: var(--rule-solid-strong);
+  border: 1px solid var(--rule-solid-strong);
+}
+
+.cast-rail {
+  background: var(--paper-base);
+  display: flex;
+  flex-direction: column;
+}
+
+.cast-rail-head {
+  padding: 0.65rem 0.9rem;
+  border-bottom: 1px solid var(--rule-subtle);
+  font-family: var(--font-mono);
+  font-size: 0.66rem;
+  font-weight: 600;
+  letter-spacing: 0.09em;
+  text-transform: uppercase;
+  color: var(--ink-muted);
+}
+
+.cast-row {
+  appearance: none;
+  width: 100%;
+  border: none;
+  border-bottom: 1px solid var(--rule-subtle);
+  background: transparent;
+  padding: 0.78rem 0.9rem;
+  text-align: left;
+  cursor: pointer;
+  position: relative;
+  transition: background-color 120ms var(--ease-snappy);
+}
+
+.cast-row:last-child {
+  border-bottom: none;
+}
+
+.cast-row:hover {
+  background: var(--paper-hover);
+}
+
+.cast-row.is-selected {
+  background: var(--paper-elevated);
+}
+
+.cast-row.is-selected::before {
+  content: "";
+  position: absolute;
+  left: 0;
+  top: 0;
+  bottom: 0;
+  width: 2px;
+  background: var(--accent-vermilion);
+}
+
+.cast-name {
+  display: block;
+  font-family: var(--font-display);
+  font-size: 0.95rem;
+  font-weight: 600;
+}
+
+.cast-voice {
+  display: block;
+  margin-top: 0.14rem;
+  font-family: var(--font-mono);
+  font-size: 0.65rem;
+  color: var(--accent-vermilion);
+  letter-spacing: 0.04em;
+}
+
+.cast-stance {
+  display: block;
+  margin-top: 0.2rem;
+  font-size: 0.8rem;
+  color: var(--ink-secondary);
+}
+
+/* Ruled Examination Folio */
+.examination-folio {
+  margin-top: 1.25rem;
+  background: var(--paper-elevated);
+  border: 1px solid var(--rule-strong);
+  border-left: 3px solid var(--accent-vermilion);
+  padding: 1.45rem 1.65rem;
+}
+
+.examination-folio h4 {
+  margin: 0.3rem 0 0.25rem;
+  font-size: 1.32rem;
+  letter-spacing: -0.02em;
+}
+
+/* Dante Moral Cartography Hairline Grid */
+.cartography-ledger {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 1px;
+  background: var(--rule-solid-strong);
+  border: 1px solid var(--rule-solid-strong);
+}
+
+.cartography-cell {
+  background: var(--paper-elevated);
+  padding: 1.1rem 1.25rem;
+}
+
+.cartography-row-top {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  align-items: center;
+  gap: 0.65rem;
+}
+
+.cartography-char {
+  font-family: var(--font-display);
+  font-size: 1.04rem;
+  font-weight: 600;
+}
+
+.realm-seg {
+  display: inline-flex;
+  border: 1px solid var(--rule-strong);
+  border-radius: var(--radius-crisp);
+  overflow: hidden;
+}
+
+.btn-realm {
+  appearance: none;
+  border: none;
+  border-right: 1px solid var(--rule-subtle);
+  background: var(--paper-base);
+  padding: 0.34rem 0.65rem;
+  font-family: var(--font-mono);
+  font-size: 0.66rem;
+  font-weight: 600;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  color: var(--ink-secondary);
+  cursor: pointer;
+  transition: background-color 120ms var(--ease-snappy), color 120ms var(--ease-snappy);
+}
+
+.btn-realm:last-child {
+  border-right: none;
+}
+
+.btn-realm:hover {
+  background: var(--paper-recessed);
+}
+
+.btn-realm.is-correct {
+  background: var(--verdict-authentic);
+  color: #ffffff;
+}
+
+.btn-realm.is-wrong {
+  background: var(--accent-vermilion);
+  color: #ffffff;
+}
+
+.cartography-gloss {
+  margin-top: 0.75rem;
+  padding-left: 0.85rem;
+  border-left: 2px solid var(--ink-primary);
+  font-size: 0.85rem;
+  line-height: 1.56;
+  color: var(--ink-secondary);
+  max-width: 58ch;
+}
+
+/* ==========================================================================
+   COLOPHON FOOTER
+   ========================================================================== */
+
+.studio-footer {
+  border-top: 1px solid var(--rule-strong);
+  padding: 1.25rem 0 2.5rem;
+  font-family: var(--font-mono);
+  font-size: 0.68rem;
+  letter-spacing: 0.05em;
+  color: var(--ink-muted);
+}
+
+.footer-inner {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  gap: 0.65rem 1.5rem;
+}
+
+/* ==========================================================================
+   SPLIT-ARENA (660px–1040px) & MOBILE RESPONSIVE COMPOSURE
+   ========================================================================== */
+
+@media (max-width: 1080px) {
+  .masthead-hero,
+  .room-header,
+  .syllabus-stage,
+  .chalkboard-stage,
+  .acoustic-stage,
+  .section-rule-head {
+    grid-template-columns: 1fr;
+  }
+
+  .marginalia-folio {
+    position: static;
+  }
+
+  .arc-ledger {
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+  }
+
+  .case-index-bar {
+    grid-template-columns: repeat(5, minmax(0, 1fr));
+  }
+
+  .companion-ledger {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+
+  .apparatus-columns {
+    grid-template-columns: 1fr;
+  }
+}
+
+/* Critical Split-Arena Band (660px–860px) & Tablet */
+@media (max-width: 860px) {
+  .tab-kbd {
+    display: none;
+  }
+
+  .studio-tab {
+    padding: 0.65rem 0.55rem;
+    justify-content: center;
+  }
+
+  .tab-label {
+    font-size: 0.82rem;
+  }
+
+  .provenance-grid,
+  .context-triptych,
+  .casting-matrix,
+  .cartography-ledger,
+  .specimen-epigraph {
+    grid-template-columns: 1fr;
+  }
+}
+
+@media (max-width: 650px) {
+  .studio-nav {
+    grid-template-columns: repeat(5, minmax(115px, 1fr));
+    overflow-x: auto;
+  }
+
+  .arc-ledger,
+  .case-index-bar {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+
+  .galley-duel,
+  .turntable-instrument-row,
+  .plate-matrix,
+  .companion-ledger {
+    grid-template-columns: 1fr;
+  }
+
+  .index-table-head {
+    grid-template-columns: 42px minmax(0, 1fr) 64px;
+  }
+
+  .index-table-head span:nth-child(3) {
+    display: none;
+  }
+
+  .index-row {
+    grid-template-columns: 42px minmax(0, 1fr) 64px;
+  }
+
+  .row-meta-col {
+    display: none;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  *, *::before, *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
+  }
+}

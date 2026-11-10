@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>AETHERIA — Endless Relativistic &amp; Newtonian Portal Odyssey</title>
+  <link
+    rel="icon"
+    href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Ccircle cx='32' cy='32' r='26' fill='none' stroke='%23f4c26b' stroke-width='4'/%3E%3Ccircle cx='32' cy='32' r='14' fill='%2325b8d9' fill-opacity='0.55'/%3E%3C/svg%3E"
+  />
+  <link rel="stylesheet" href="./styles.css" />
+</head>
+<body>
+  <canvas id="portal-canvas" aria-label="Endless 3D Physics Portal Odyssey"></canvas>
+
+  <div id="hud-root">
+    <!-- Subtle Auto-Dimming Multiverse & Newtonian Telemetry -->
+    <aside class="telemetry-bar" aria-live="off">
+      <div class="telemetry-row">
+        <span class="telemetry-label">Realm</span>
+        <span class="telemetry-value" id="telemetry-world">I · Celestial Observatory</span>
+      </div>
+      <div class="telemetry-row">
+        <span class="telemetry-label">Regime</span>
+        <span class="telemetry-value telemetry-accent" id="telemetry-physics">1.00 g · Keplerian Rings</span>
+      </div>
+      <div class="telemetry-row telemetry-split">
+        <span>
+          <span class="telemetry-label">Vel </span>
+          <span class="telemetry-value" id="telemetry-speed">12.2 m/s</span>
+        </span>
+        <span>
+          <span class="telemetry-label">Load </span>
+          <span class="telemetry-value" id="telemetry-gload">1.00 G</span>
+        </span>
+      </div>
+      <div class="telemetry-row">
+        <span class="telemetry-label">Next Portal</span>
+        <span class="telemetry-value" id="telemetry-next">Abyssal Biolume · 168 m</span>
+      </div>
+      <div class="progress-track">
+        <div id="portal-progress-fill"></div>
+      </div>
+    </aside>
+
+    <!-- Poetic World Arrival Title (Dissolves Automatically) -->
+    <section id="chapter-banner" aria-live="polite">
+      <div class="chapter-eyebrow" id="chapter-roman">WORLD I</div>
+      <h1 class="chapter-heading" id="chapter-title">Celestial Observatory</h1>
+      <div class="chapter-rule"></div>
+      <p class="chapter-sub" id="chapter-subtitle">Keplerian Ringworld &amp; Euler Precessing Astrolabes</p>
+      <div class="chapter-classification" id="chapter-meta">KEPLERIAN ORBIT · ω(r) = √(GM/r³) · 1.00 G</div>
+    </section>
+
+    <!-- Whisper-Minimal Optional Physics & Cinema Controls -->
+    <nav class="controls-dock" aria-label="Experience Controls">
+      <button type="button" class="hud-btn" id="btn-probe" title="Launch Newtonian Test Mass (Click Canvas or Press Space)">
+        <span>Probe</span>
+        <span>◉</span>
+      </button>
+      <button type="button" class="hud-btn" id="btn-audio" title="Toggle Doppler Spatial Audio (M)">
+        <span class="audio-dot"></span>
+        <span id="btn-audio-label">Enable Sound</span>
+      </button>
+      <button type="button" class="hud-btn" id="btn-warp" title="Thruster Surge to Portal (N or Right Arrow)">
+        <span class="hide-sm">Thrust</span>
+        <span>⇥</span>
+      </button>
+      <button type="button" class="hud-btn" id="btn-hud" title="Toggle Pure Cinema Mode (H)">
+        <span class="hide-sm">HUD</span>
+        <span>◌</span>
+      </button>
+      <button type="button" class="hud-btn" id="btn-fullscreen" title="Toggle Fullscreen (F)">
+        <span>⛶</span>
+      </button>
+    </nav>
+  </div>
+
+  <div id="webgl-error" hidden></div>
+
+  <script type="module" src="./js/main.js"></script>
+</body>
+</html>

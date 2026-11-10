@@ -1,0 +1,599 @@
+{
+  "auditMetadata": {
+    "experiment": "Experiment 2: Literary Scholar — Anti-Jagged Multi-Agent Twist",
+    "studioTitle": "W.H. Auden's 1941 Seminar — Archival-Purist Studio & 'Spot the Counterfeit Critic'",
+    "courseCode": "English 135",
+    "courseTitle": "Fate and the Individual in European Literature",
+    "institution": "University of Michigan, Ann Arbor",
+    "term": "Fall Semester, 1941–1942",
+    "credits": 2,
+    "classroomSetting": "Angell Hall Seminar Room, Central Campus, Ann Arbor, Michigan",
+    "instructorResidence": "1227 Pontiac Trail, Ann Arbor (leased house shared with undergraduate housemate and cook Charles Miller; Auden drove a used Pontiac taught to him by Miller)",
+    "firstDayAnecdote": "Auden shocked students on opening day in September 1941 by arriving in a jersey, jeans, and torn sneakers, writing 'w. h. auden' in lowercase chalk across the Angell Hall blackboard before distributing his staggering mimeographed reading list.",
+    "notableStudentsAndAuditors": [
+      "Kenneth Millar (later famous as detective novelist Ross Macdonald)",
+      "Robert Hayden (renowned American poet who studied with Auden at Michigan)",
+      "Charles Miller (undergraduate housemate and memoirist of Auden in Ann Arbor)",
+      "Eunice Stevens (chronicler of Auden's Ann Arbor classroom notes)"
+    ],
+    "archivalProvenance": [
+      "Original mimeographed Fall 1941 English 135 syllabus uncovered by literary executor Edward Mendelson and publicized by Alan Jacobs",
+      "Edward Mendelson, Later Auden (Farrar, Straus and Giroux, 1999)",
+      "W.H. Auden, The Dyer's Hand and Other Essays (Random House, 1962)",
+      "W.H. Auden, The Enchafèd Flood: or, The Romantic Iconography of the Sea (1950)",
+      "W.H. Auden, The Sea and the Mirror: A Commentary on Shakespeare's The Tempest (1942–1944)",
+      "W.H. Auden, Lectures on Shakespeare (reconstructed from 1946–47 New School notes, Princeton UP, 2000)",
+      "W.H. Auden, 'The Public v. the Late Mr. William Butler Yeats' (Partisan Review, Spring 1939) & 'In Memory of W.B. Yeats' (1939)",
+      "W.H. Auden, 'K.'s Quest' (New Republic, 1941; collected in The Dyer's Hand)",
+      "W.H. Auden, Introduction to Charles Baudelaire, Intimate Journals (trans. Christopher Isherwood, 1947)"
+    ],
+    "jaggedAgiFailureDiagnosis": {
+      "draft1Flaw": "Historically literalist reproduction devolved into a 'brutal slog of joyless tests' replicating the punitive trauma of the 6,000-page workload without intellectual play.",
+      "draft2Flaw": "Over-correction into gamification produced a childish kiddie game about ringing bells, betraying the adult moral seriousness of Auden's 1941 crisis-year seminar.",
+      "scholarlyBlindSpot": "Unguided LLMs generate smooth, eloquent explanations of prosody, character, and meaning grounded in standard Romantic/Aristotelian/humanist textbook tropes—positions that Auden explicitly detested and argued against throughout his critical prose."
+    },
+    "totalWorks": 35,
+    "totalRequiredPages": 6240
+  },
+  "historicalArcs": [
+    {
+      "id": "arc-1",
+      "roman": "I",
+      "title": "Greek Necessity & Pagan Cosmos",
+      "dateSpan": "458 BCE – 441 BCE",
+      "summary": "The closed cosmos of Moira and Dike, where tragedy springs not from free-will sin (which might have been avoided) but from cosmic Necessity ('What a pity it had to be this way')."
+    },
+    {
+      "id": "arc-2",
+      "roman": "II",
+      "title": "Roman Order & Christian Choice",
+      "dateSpan": "23 BCE – 1320 CE",
+      "summary": "The collapse of classical civic Stoicism (Cochrane's thesis) and the Augustinian-Dantean revolution of historical time, personal will, disordered love, and supernatural Charity (Agape)."
+    },
+    {
+      "id": "arc-3",
+      "roman": "III",
+      "title": "Renaissance Ego, Power & Irony",
+      "dateSpan": "1597 – 1677",
+      "summary": "The autonomous self split between Machiavellian politics (Prince Hal), experimental nihilism (Iago), magic-artifice (Prospero), Jansenist dread (Pascal), and the comic-religious Knight (Falstaff, Don Quixote)."
+    },
+    {
+      "id": "arc-4",
+      "roman": "IV",
+      "title": "Romantic Rebels, Opera & Daemonism",
+      "dateSpan": "1762 – 1876",
+      "summary": "The ocean of unbounded possibility, Promethean defiance (Ahab, Faust), Kierkegaard's leap of faith, and the twin operatic heresies against historical marriage (Don Giovanni's serial novelty vs. Tristan's death-wish)."
+    },
+    {
+      "id": "arc-5",
+      "roman": "V",
+      "title": "Modern Anxiety, Bureaucracy & Faith",
+      "dateSpan": "1857 – 1939",
+      "summary": "Industrial anonymity, Baudelairean acedia, Dostoevskian freedom vs. the Grand Inquisitor, the ironical quest without a public map (Kafka's K.), and modern grace amid ancestral guilt."
+    }
+  ],
+  "reconstructedSyllabus35": [
+    {
+      "number": 1,
+      "author": "Aeschylus",
+      "title": "Agamemnon (The Oresteia)",
+      "year": "458 BCE",
+      "arc": "arc-1",
+      "genre": "Drama",
+      "pages": 95,
+      "edition1941": "Gilbert Murray / E.D.A. Morshead trans., Modern Library",
+      "pole": "Necessity",
+      "audenLens": "Ancestral curse (Ate) as an objective chain of blood-debt prior to individual interiority; Agamemnon puts on 'the strap of necessity' at Aulis."
+    },
+    {
+      "number": 2,
+      "author": "Sophocles",
+      "title": "Antigone (paired with Oedipus Rex in lecture)",
+      "year": "441 BCE",
+      "arc": "arc-1",
+      "genre": "Drama",
+      "pages": 85,
+      "edition1941": "R.C. Jebb trans., Random House Complete Greek Drama",
+      "pole": "Necessity",
+      "audenLens": "Collision of two objective duties (kinship piety vs. polis decree) inside the Tragedy of Necessity, contrasted against modern subjective conscience."
+    },
+    {
+      "number": 3,
+      "author": "Horace",
+      "title": "The Odes (Carmina)",
+      "year": "23 BCE",
+      "arc": "arc-2",
+      "genre": "Poetry",
+      "pages": 115,
+      "edition1941": "C.E. Bennett / Everyman Classical Library (Selected Books I–IV)",
+      "pole": "Order",
+      "audenLens": "Auden's lifelong metric model (Alcaics and Sapphics): civilized Roman urbanity building a fragile garden of stoic moderation against Fortuna and civil war."
+    },
+    {
+      "number": 4,
+      "author": "Charles Norris Cochrane",
+      "title": "Christianity and Classical Culture",
+      "year": "1940",
+      "arc": "arc-2",
+      "genre": "Philosophy",
+      "pages": 210,
+      "edition1941": "Clarendon Press / Oxford UP (1940 — Assigned Part III, 'Regeneration')",
+      "pole": "Choice",
+      "audenLens": "The intellectual spine of English 135: demonstrates why classical Virtus vs. Fortuna collapsed into paralysis until Augustine united will, nature, and history through the Trinity."
+    },
+    {
+      "number": 5,
+      "author": "St. Augustine",
+      "title": "Confessions",
+      "year": "397 CE",
+      "arc": "arc-2",
+      "genre": "Philosophy",
+      "pages": 230,
+      "edition1941": "E.B. Pusey trans., Everyman's Library (Books I–IX)",
+      "pole": "Choice",
+      "audenLens": "Invention of inward historical autobiography: the pear-tree theft proves human beings can choose evil gratuitously for the sheer pride of counterfeit autonomy."
+    },
+    {
+      "number": 6,
+      "author": "Dante Alighieri",
+      "title": "The Divine Comedy (Inferno, Purgatorio, Paradiso)",
+      "year": "1320",
+      "arc": "arc-2",
+      "genre": "Poetry",
+      "pages": 625,
+      "edition1941": "Carlyle-Okey-Wicksteed bilingual ed., Modern Library",
+      "pole": "Choice",
+      "audenLens": "The supreme architecture of ordered vs. disordered love. Hell is not an external torture chamber but the soul's stubbornly chosen self-enclosure; Purgatory is the joyful acceptance of corrective discipline."
+    },
+    {
+      "number": 7,
+      "author": "Miguel de Cervantes",
+      "title": "Don Quixote (Seminar Core Selections)",
+      "year": "1605",
+      "arc": "arc-3",
+      "genre": "Prose",
+      "pages": 260,
+      "edition1941": "Peter Motteux / Ozell trans., Modern Library Giant (Assigned Chapters)",
+      "pole": "Choice",
+      "audenLens": "Not a Romantic dreamer with poetic imagination, but the Comic-Religious Knight of Faith who remains utterly faithful despite constant worldly defeat, dying sane and humble."
+    },
+    {
+      "number": 8,
+      "author": "William Shakespeare",
+      "title": "Henry IV, Part 2",
+      "year": "1598",
+      "arc": "arc-3",
+      "genre": "Drama",
+      "pages": 130,
+      "edition1941": "Kittredge / Oxford Shakespeare",
+      "pole": "Choice",
+      "audenLens": "Prince Hal represents cold political calculation in the Fallen City; disreputable fat Falstaff is a parabolical comic symbol for supernatural Charity (Caritas)."
+    },
+    {
+      "number": 9,
+      "author": "William Shakespeare",
+      "title": "Hamlet",
+      "year": "1601",
+      "arc": "arc-3",
+      "genre": "Drama",
+      "pages": 150,
+      "edition1941": "Kittredge / Oxford Shakespeare",
+      "pole": "Irony",
+      "audenLens": "The brilliant theatrical aesthete forced into an ethical blood-revenge role he sees straight through: Hamlet lacks faith to forgive and lacks brute naivety to act without play-acting."
+    },
+    {
+      "number": 10,
+      "author": "William Shakespeare",
+      "title": "Othello",
+      "year": "1604",
+      "arc": "arc-3",
+      "genre": "Drama",
+      "pages": 135,
+      "edition1941": "Kittredge / Oxford Shakespeare",
+      "pole": "Daemonism",
+      "audenLens": "Christian Tragedy of Possibility: Iago is the hollow 'Practical Joker' and detached Baconian scientist experimenting on Othello to turn a moral subject into a predictable object."
+    },
+    {
+      "number": 11,
+      "author": "William Shakespeare",
+      "title": "The Tempest",
+      "year": "1611",
+      "arc": "arc-3",
+      "genre": "Drama",
+      "pages": 105,
+      "edition1941": "Kittredge / Oxford Shakespeare",
+      "pole": "Irony",
+      "audenLens": "Direct catalyst for Auden's The Sea and the Mirror: Prospero's authoritarian island magic fails to convert Antonio and must abdicate before unadorned grace and death."
+    },
+    {
+      "number": 12,
+      "author": "Ben Jonson",
+      "title": "Volpone",
+      "year": "1606",
+      "arc": "arc-3",
+      "genre": "Drama",
+      "pages": 125,
+      "edition1941": "Mermaid Series / Everyman",
+      "pole": "Daemonism",
+      "audenLens": "The comedy of monomaniacal 'humours' where Early Modern mercantile greed becomes idolatrous self-worship ('Good morning to the day; and next, my gold!')."
+    },
+    {
+      "number": 13,
+      "author": "Jean Racine",
+      "title": "Phèdre",
+      "year": "1677",
+      "arc": "arc-3",
+      "genre": "Drama",
+      "pages": 85,
+      "edition1941": "Robert Bruce Boswell trans. / French Classiques Larousse",
+      "pole": "Necessity",
+      "audenLens": "Jansenist tragedy inside claustrophobic Alexandrine couplets: Phèdre possesses full Christian moral lucidity of her sin while experiencing pagan Venus as irresistible predestination."
+    },
+    {
+      "number": 14,
+      "author": "Blaise Pascal",
+      "title": "Pensées",
+      "year": "1670",
+      "arc": "arc-3",
+      "genre": "Philosophy",
+      "pages": 215,
+      "edition1941": "W.F. Trotter trans., Modern Library (1941 — Sections I–VII)",
+      "pole": "Choice",
+      "audenLens": "Diagnosis of modern 'divertissement' (distraction): humanity's terror of sitting quietly alone in a room, suspended between the mathematical infinite and wretchedness."
+    },
+    {
+      "number": 15,
+      "author": "Christoph Willibald Gluck",
+      "title": "Orfeo ed Euridice (Libretto by Ranieri de' Calzabigi)",
+      "year": "1762",
+      "arc": "arc-4",
+      "genre": "Opera",
+      "pages": 45,
+      "edition1941": "G. Schirmer Opera Libretto Booklet",
+      "pole": "Order",
+      "audenLens": "The foundational myth of the lyric artist testing whether song can conquer Death—and failing at the moment of anxious backward glance."
+    },
+    {
+      "number": 16,
+      "author": "Wolfgang Amadeus Mozart",
+      "title": "Don Giovanni (Libretto by Lorenzo Da Ponte)",
+      "year": "1787",
+      "arc": "arc-4",
+      "genre": "Opera",
+      "pages": 80,
+      "edition1941": "G. Schirmer Bilingual Libretto",
+      "pole": "Daemonism",
+      "audenLens": "Via Kierkegaard's Either/Or: the pure Aesthetic-Immediate sensualist fleeing time through compulsive serial novelty until shattered by the Stone Guest's D-minor ethical verdict."
+    },
+    {
+      "number": 17,
+      "author": "Wolfgang Amadeus Mozart",
+      "title": "The Magic Flute (Libretto by Emanuel Schikaneder)",
+      "year": "1791",
+      "arc": "arc-4",
+      "genre": "Opera",
+      "pages": 75,
+      "edition1941": "G. Schirmer Libretto (later re-translated by Auden & Kallman)",
+      "pole": "Choice",
+      "audenLens": "Fairy-tale quest wedding Papageno's humble earthly creatureliness (Caliban redeemed!) with Tamino and Pamina's ethical trial through fire and water."
+    },
+    {
+      "number": 18,
+      "author": "William Blake",
+      "title": "The Marriage of Heaven and Hell",
+      "year": "1790",
+      "arc": "arc-4",
+      "genre": "Poetry",
+      "pages": 45,
+      "edition1941": "Nonesuch / Everyman Complete Blake",
+      "pole": "Daemonism",
+      "audenLens": "Auden's perilous Romantic precursor: brilliant psychological aphorisms exposing bourgeois hypocrisy, yet dangerously tempting moderns to equate vitalistic Energy with holiness."
+    },
+    {
+      "number": 19,
+      "author": "Ludwig van Beethoven",
+      "title": "Fidelio (Libretto by Sonnleithner & Treitschke)",
+      "year": "1814",
+      "arc": "arc-4",
+      "genre": "Opera",
+      "pages": 60,
+      "edition1941": "G. Schirmer Libretto Booklet",
+      "pole": "Choice",
+      "audenLens": "The supreme operatic counter-statement to Tristan: Leonore's conjugal fidelity (ethical Agape in marriage) descending into a political dungeon to rescue Florestan."
+    },
+    {
+      "number": 20,
+      "author": "Johann Wolfgang von Goethe",
+      "title": "Faust, Part I",
+      "year": "1808",
+      "arc": "arc-4",
+      "genre": "Drama",
+      "pages": 180,
+      "edition1941": "Bayard Taylor trans., Modern Library",
+      "pole": "Daemonism",
+      "audenLens": "Restless Western dynamism wagering its soul that no finite moment will ever merit 'Verweile doch!'—leaving Gretchen's ordinary life ruined in its wake."
+    },
+    {
+      "number": 21,
+      "author": "Søren Kierkegaard",
+      "title": "Fear and Trembling",
+      "year": "1843",
+      "arc": "arc-4",
+      "genre": "Philosophy",
+      "pages": 210,
+      "edition1941": "Walter Lowrie trans., Oxford University Press (1939)",
+      "pole": "Choice",
+      "audenLens": "Newly translated into English just before English 135: contrasts the publicly admired Tragic Hero (Agamemnon) with the silent, paradoxical Knight of Faith (Abraham)."
+    },
+    {
+      "number": 22,
+      "author": "Richard Wagner",
+      "title": "The Flying Dutchman (Der fliegende Holländer)",
+      "year": "1843",
+      "arc": "arc-4",
+      "genre": "Opera",
+      "pages": 55,
+      "edition1941": "Oliver Ditson / Schirmer Libretto",
+      "pole": "Daemonism",
+      "audenLens": "Romantic iconography of the cursed Sea Wanderer doomed to endless oceanic flux until ransomed by sacrificial fidelity."
+    },
+    {
+      "number": 23,
+      "author": "Herman Melville",
+      "title": "Moby-Dick; or, The Whale",
+      "year": "1851",
+      "arc": "arc-4",
+      "genre": "Prose",
+      "pages": 520,
+      "edition1941": "Modern Library Edition (Unabridged)",
+      "pole": "Daemonism",
+      "audenLens": "Christian Tragedy at sea: Ahab embodies Kierkegaardian defiant despair ('in hatred of existence willing to be oneself'), turning the Pequod polis into a totalitarian engine, while ironic Ishmael survives."
+    },
+    {
+      "number": 24,
+      "author": "Giuseppe Verdi",
+      "title": "La Traviata (Libretto by Francesco Maria Piave)",
+      "year": "1853",
+      "arc": "arc-4",
+      "genre": "Opera",
+      "pages": 60,
+      "edition1941": "G. Schirmer Libretto Booklet",
+      "pole": "Choice",
+      "audenLens": "The outcast courtesan Violetta exhibits truer sacrificial charity than bourgeois respectable morality (Germont père), exposing the cruelty of social respectability."
+    },
+    {
+      "number": 25,
+      "author": "Charles Baudelaire",
+      "title": "Intimate Journals & Selected Fleurs du mal",
+      "year": "1857",
+      "arc": "arc-5",
+      "genre": "Poetry",
+      "pages": 135,
+      "edition1941": "Christopher Isherwood trans. (Journals) / Dillon & Millay",
+      "pole": "Irony",
+      "audenLens": "Modern city prophet diagnosing acedia (spiritual sloth) and bourgeois 'Progress'; Dandyism as stoic armor, and consciousness of Evil as the dark proof of free will against Ennui."
+    },
+    {
+      "number": 26,
+      "author": "Richard Wagner",
+      "title": "Tristan und Isolde",
+      "year": "1865",
+      "arc": "arc-4",
+      "genre": "Opera",
+      "pages": 80,
+      "edition1941": "G. Schirmer Bilingual Libretto",
+      "pole": "Daemonism",
+      "audenLens": "Read via Denis de Rougemont: the supreme musicalization of Eros-as-Death-Wish, where unresolved chromatic longing rejects daylight, marriage, and finite personhood for Night."
+    },
+    {
+      "number": 27,
+      "author": "Henrik Ibsen",
+      "title": "Peer Gynt",
+      "year": "1867",
+      "arc": "arc-5",
+      "genre": "Drama",
+      "pages": 170,
+      "edition1941": "William & Charles Archer trans. / Everyman",
+      "pole": "Irony",
+      "audenLens": "The Troll motto ('To thyself be—enough!') vs. the human motto ('To thyself be true'): Peer peels his aesthetic onion at life's end and finds no core self inside."
+    },
+    {
+      "number": 28,
+      "author": "Arthur Rimbaud",
+      "title": "A Season in Hell (Une Saison en Enfer)",
+      "year": "1873",
+      "arc": "arc-5",
+      "genre": "Poetry",
+      "pages": 60,
+      "edition1941": "Delmore Schwartz trans., New Directions (1939)",
+      "pole": "Irony",
+      "audenLens": "Subject of Auden's 1938 sonnet: the boy-poet who pushed the Romantic claim that Poetry = Magical Alchemy to its limit, saw its lie, and honorably renounced verse for 'rugged reality'."
+    },
+    {
+      "number": 29,
+      "author": "Georges Bizet",
+      "title": "Carmen (Libretto by Meilhac & Halévy)",
+      "year": "1875",
+      "arc": "arc-4",
+      "genre": "Opera",
+      "pages": 70,
+      "edition1941": "G. Schirmer Libretto Booklet",
+      "pole": "Necessity",
+      "audenLens": "Fatalistic card-scene naturalism colliding with Don José's possessive romantic egoism; Carmen chooses death rather than tell a lie about her freedom."
+    },
+    {
+      "number": 30,
+      "author": "Richard Wagner",
+      "title": "Götterdämmerung (Twilight of the Gods)",
+      "year": "1876",
+      "arc": "arc-4",
+      "genre": "Opera",
+      "pages": 90,
+      "edition1941": "G. Schirmer Libretto Booklet",
+      "pole": "Necessity",
+      "audenLens": "Pagan mythic Necessity resurrected in 19th-century Europe—darkly resonant in Fall 1941 as contracts, gold, and power culminate in cosmic self-immolation."
+    },
+    {
+      "number": 31,
+      "author": "Fyodor Dostoevsky",
+      "title": "The Brothers Karamazov",
+      "year": "1880",
+      "arc": "arc-5",
+      "genre": "Prose",
+      "pages": 680,
+      "edition1941": "Constance Garnett trans., Modern Library Giant (Compact)",
+      "pole": "Choice",
+      "audenLens": "The Grand Inquisitor's temptation (miracle, mystery, and authority relieving mankind of the unbearable burden of freedom) answered silently by Christ's kiss and Alyosha's active charity."
+    },
+    {
+      "number": 32,
+      "author": "Henry Adams",
+      "title": "The Education of Henry Adams",
+      "year": "1918",
+      "arc": "arc-5",
+      "genre": "Prose",
+      "pages": 345,
+      "edition1941": "Modern Library Edition (Assigned Seminar Chapters)",
+      "pole": "Irony",
+      "audenLens": "'The Dynamo and the Virgin': American patrician irony confronting a 20th-century multiverse of impersonal technological force stripped of symbolic spiritual unity."
+    },
+    {
+      "number": 33,
+      "author": "Rainer Maria Rilke",
+      "title": "The Journal of My Other Self (Malte Laurids Brigge)",
+      "year": "1910",
+      "arc": "arc-5",
+      "genre": "Prose",
+      "pages": 240,
+      "edition1941": "M.D. Herter Norton trans., W.W. Norton (1930)",
+      "pole": "Irony",
+      "audenLens": "Urban dread in Paris hospitals where death is mass-produced like factory goods rather than ripened inside an individual life; extreme poetic inwardness."
+    },
+    {
+      "number": 34,
+      "author": "Franz Kafka",
+      "title": "The Castle (Das Schloss)",
+      "year": "1926",
+      "arc": "arc-5",
+      "genre": "Prose",
+      "pages": 340,
+      "edition1941": "Edwin & Willa Muir trans., Alfred A. Knopf (1930/1941)",
+      "pole": "Irony",
+      "audenLens": "Analyzed in Auden's 1941 essay 'K.'s Quest': the modern quest where Bunyan's guaranteed public map has vanished and K. anxiously tries to force vocation by bureaucratic litigation."
+    },
+    {
+      "number": 35,
+      "author": "T.S. Eliot",
+      "title": "The Family Reunion",
+      "year": "1939",
+      "arc": "arc-5",
+      "genre": "Drama",
+      "pages": 135,
+      "edition1941": "Harcourt, Brace and Company (1939)",
+      "pole": "Choice",
+      "audenLens": "Closing circle with Aeschylus #1: Harry, Lord Monchensey is pursued into an English drawing-room by the Eumenides until he stops fleeing ancestral guilt and recognizes them as 'bright angels' of vocation."
+    }
+  ],
+  "recommendedCriticalCompanions1941": [
+    "Ruth Benedict — Patterns of Culture (1934)",
+    "Margaret Mead — From the South Seas (1939)",
+    "Robert & Helen Lynd — Middletown (1929)",
+    "H.M. Chadwick — The Heroic Age (1912)",
+    "W.P. Ker — Epic and Romance (1897)",
+    "R.H.S. Crossman — Plato Today (1937)",
+    "C.S. Lewis — The Allegory of Love (1936)",
+    "Denis de Rougemont — Love in the Western World (trans. 1940)"
+  ],
+  "counterfeitCriticCases10": [
+    {
+      "caseNumber": 1,
+      "id": "falstaff-hal",
+      "title": "Falstaff & The Rejection at Westminster",
+      "work": "Shakespeare — Henry IV, Part 2 (Act V, sc. v)",
+      "primaryCitation": "W.H. Auden, 'The Prince's Dog', in The Dyer's Hand (1962), pp. 182–208",
+      "audenCoreThesis": "Falstaff is not a mere comic glutton or Lord of Misrule whom Hal must virtuously outgrow; Falstaff is a comic parabolical symbol for the supernatural order of Charity (Caritas)—a 'comic Christ' whose unconditional affection exposes the spiritual coldness of Prince Hal's worldly political efficiency.",
+      "aiCounterfeitTrap": "Standard LLMs default to the Tillyard/textbook coming-of-age reading: praising Prince Hal's Aristotelian golden mean between Hotspur's rashness and Falstaff's tavern sloth."
+    },
+    {
+      "caseNumber": 2,
+      "id": "oedipus-macbeth",
+      "title": "Tragic Flaw vs. Necessity & Possibility",
+      "work": "Sophocles — Antigone / Oedipus vs. Shakespeare — Othello / Macbeth",
+      "primaryCitation": "W.H. Auden, 'The Christian Tragedy' (1945) & Lectures on Shakespeare (1946–47)",
+      "audenCoreThesis": "Greek tragedy is the Tragedy of Necessity ('What a pity it had to be this way'), where guilt is objective fate rather than free-will sin; Christian tragedy is the Tragedy of Possibility ('What a pity it was this way when it might have been otherwise'), where damnation is freely chosen against open alternatives.",
+      "aiCounterfeitTrap": "Unguided AI collapses Greek and Elizabethan tragedy under a generic Aristotelian 'tragic flaw' (hamartia) rubric, moralizing Oedipus's temper and fatalizing Macbeth's ambition."
+    },
+    {
+      "caseNumber": 3,
+      "id": "meter-servants",
+      "title": "Dogmatic Meter vs. Organic Free Verse",
+      "work": "Horace — Odes & Auden's Prosodic Theory",
+      "primaryCitation": "W.H. Auden, 'Writing' & 'The Poet & The City', in The Dyer's Hand (1962), p. 22",
+      "audenCoreThesis": "Rhymes, meters, and strict stanzas are 'dogmatic limitations' acting like household servants that liberate the poet from egoistic whim; the free-verse poet is like Robinson Crusoe doing all his own laundry, which usually ends in 'squalor: empty bottles on the unswept floor, dirty sheets on the unmade bed.'",
+      "aiCounterfeitTrap": "Modern AI echoes Romantic-expressivist creative writing clichés: claiming strict meter is an artificial corset and free verse more authentically mirrors natural breath and raw emotion."
+    },
+    {
+      "caseNumber": 4,
+      "id": "yeats-nothing-happens",
+      "title": "'For Poetry Makes Nothing Happen'",
+      "work": "W.H. Auden — 'In Memory of W.B. Yeats' (1939)",
+      "primaryCitation": "W.H. Auden, 'The Public v. the Late Mr. William Butler Yeats' (Partisan Review, Spring 1939) & 'In Memory of W.B. Yeats'",
+      "audenCoreThesis": "Auden meant the line literally, without activist wink: if not a single poem had been written, the material and political history of mankind would be unchanged. Art is never political magic; its sole ethical dignity is disenchantment—refusing propaganda to bear truthful witness to human finitude.",
+      "aiCounterfeitTrap": "LLMs reflexively soften Auden's anti-propaganda rigor into uplifting graduation-speech humanism: claiming Auden meant ironically that poetry 'changes hearts, which in turn transform political history.'"
+    },
+    {
+      "caseNumber": 5,
+      "id": "quixote-ahab",
+      "title": "Don Quixote, Captain Ahab & Ishmael",
+      "work": "Cervantes — Don Quixote & Melville — Moby-Dick",
+      "primaryCitation": "W.H. Auden, The Enchafèd Flood (1950), Ch. 3 ('Ishmael–Don Quixote') & 'The Ironic Hero'",
+      "audenCoreThesis": "Don Quixote possesses zero Romantic poetic imagination—he is the self-forgetful Comic-Religious Knight of Faith who endures failure without despair and dies repentant; Ahab is his polar opposite, the demonic Hero of Defiant Despair consumed by pride.",
+      "aiCounterfeitTrap": "Standard AI romanticizes both Quixote and Ahab as kindred visionary idealists projecting heroic imagination onto a prosaic universe."
+    },
+    {
+      "caseNumber": 6,
+      "id": "iago-scientist",
+      "title": "Iago's Laboratory in Cyprus",
+      "work": "Shakespeare — Othello (Act III, sc. iii)",
+      "primaryCitation": "W.H. Auden, 'The Joker in the Pack', in The Dyer's Hand (1962), pp. 246–272",
+      "audenCoreThesis": "Iago is neither a careerist villain aggrieved over promotion nor a Romantic Satan; he is the 'Practical Joker' and detached Baconian experimental scientist ('putting Nature to the Question') who destroys Othello out of hollow curiosity simply to 'find out what Othello is really like' by reducing a free person into a conditioned thing.",
+      "aiCounterfeitTrap": "AI defaults to wounded military pride, sexual/racial jealousy, and Machiavellian ambition as Iago's psychological drivers."
+    },
+    {
+      "caseNumber": 7,
+      "id": "giovanni-tristan",
+      "title": "Twin Operatic Heresies Against Time",
+      "work": "Mozart — Don Giovanni vs. Wagner — Tristan und Isolde",
+      "primaryCitation": "W.H. Auden, Introduction to The Portable Greek Reader (1948) & 'Notes on Music and Opera' in The Dyer's Hand",
+      "audenCoreThesis": "Following Kierkegaard and Denis de Rougemont, Don Giovanni and Tristan are mirror-image flights from finite historical marriage (Agape): Giovanni flees time via compulsive serial novelty ('in real life he would be a bore'), while Tristan and Isolde crave obstacles and mutual death (Liebestod) rather than loving an actual neighbor in daylight.",
+      "aiCounterfeitTrap": "AI celebrates Don Giovanni as Enlightenment life-force rebelliousness and Wagner's Tristan as the supreme romantic apotheosis of interpersonal love."
+    },
+    {
+      "caseNumber": 8,
+      "id": "kafka-bunyan",
+      "title": "The Surveyor Without Bunyan's Map",
+      "work": "Franz Kafka — The Castle (1926)",
+      "primaryCitation": "W.H. Auden, 'K.'s Quest' (New Republic, 1941; collected in The Dyer's Hand, pp. 47–51)",
+      "audenCoreThesis": "Unlike Bunyan's Pilgrim—who walks a divinely certified public road—Kafka's K. inhabits the modern ironical quest where external guarantees have vanished; K.'s error is not failing to rebel against totalitarianism, but anxiously trying to extort grace and vocation through impatient, litigious calculation.",
+      "aiCounterfeitTrap": "Standard AI reads The Castle through postwar Orwellian/Camusian lenses as an absurdist political allegory of heroic individual resistance against totalitarian state bureaucracy."
+    },
+    {
+      "caseNumber": 9,
+      "id": "baudelaire-acedia",
+      "title": "Dandyism, Acedia & The Certainty of Evil",
+      "work": "Charles Baudelaire — Intimate Journals (Fusées & Mon cœur mis à nu)",
+      "primaryCitation": "W.H. Auden, Introduction to Baudelaire's Intimate Journals (trans. Christopher Isherwood, 1947)",
+      "audenCoreThesis": "Baudelaire is an anti-naturalist moralist tormented by acedia (spiritual sloth); his Dandyism is a desperate monastic asceticism of style, and his shock claim that love's pleasure lies in 'the certainty of doing evil' asserts human free will and moral accountability against the spiritually deadening boredom of bourgeois 'Progress.'",
+      "aiCounterfeitTrap": "LLMs frame Baudelaire as a bohemian hedonist celebrating transgressive sensuality to liberate natural instinct from religious guilt."
+    },
+    {
+      "caseNumber": 10,
+      "id": "prospero-caliban",
+      "title": "Prospero's Broken Wand & Caliban-as-Henry-James",
+      "work": "Shakespeare — The Tempest & Auden — The Sea and the Mirror",
+      "primaryCitation": "W.H. Auden, The Sea and the Mirror (1942–44) & 'Balaam and His Ass' in The Dyer's Hand",
+      "audenCoreThesis": "Prospero's island 'magic' represents the artist's authoritarian temptation to manipulate reality into harmony—a project shipwrecked by Antonio's cold refusal to repent and Caliban's unredeemed ache; speaking in the hyper-civilized prose of Henry James, Caliban exposes the abyss between the Aesthetic Mirror and actual Grace.",
+      "aiCounterfeitTrap": "Standard AI treats Prospero as Shakespeare's benevolent, all-wise surrogate whose redemptive art successfully heals nature and society before peaceful retirement."
+    }
+  ]
+}

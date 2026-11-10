@@ -1,0 +1,196 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Endless 3D Portals — The Deregulation Multiverse (480w Constitution vs. 204-Section Bureaucracy)</title>
+  <link rel="stylesheet" href="styles.css" />
+</head>
+<body>
+  <!-- Full-Bleed Real-Time WebGL2 Recursive FBO Portal & Continuum Physics Canvas -->
+  <canvas id="portal-canvas" aria-label="Endless 3D Portals WebGL2 Multiverse — Click to launch 3D physics spheres, drag to look"></canvas>
+
+  <div id="webgl-fallback" hidden>
+    <div>
+      <h2>WebGL2 Required</h2>
+      <p>Please enable WebGL2 hardware acceleration to experience the Endless 3D Portals Multiverse.</p>
+    </div>
+  </div>
+
+  <!-- Draggable Split-Screen Governance Fork Divider (Visible in Split A/B Mode) -->
+  <div id="split-overlay" hidden>
+    <div id="split-divider-line" title="Drag left/right to compare 480w Constitution vs. 204-Section Bureaucracy">
+      <div class="split-grip">
+        <span class="left-tag">◄ 480w CONSTITUTION</span>
+        <span>|</span>
+        <span class="right-tag">204-SEC BUREAUCRACY ►</span>
+      </div>
+    </div>
+  </div>
+
+  <!-- Cinematic Portal Threshold Title Card -->
+  <div id="world-title-card" aria-live="polite">
+    <div id="card-kicker">PORTAL THRESHOLD 01 • NOVELTY 0.96</div>
+    <h1 id="card-title">Relativistic Stairwell</h1>
+    <div id="card-sub">After M.C. Escher (Relativity, 1953)</div>
+  </div>
+
+  <!-- Article II Quarantined Pet-Trope Intercept Banner -->
+  <div id="quarantine-toast">
+    [!] <strong>ARTICLE II SEMANTIC NOVELTY INTERCEPT:</strong> Quarantined convergent trope
+    <em>"Cyclone of Circling Reindeer, Manta Rays &amp; Storks"</em> (Jaccard 0.94 &gt; 0.22)!
+    Total Blocked: <strong id="trope-block-count">4,118</strong>
+  </div>
+
+  <!-- Judge Camera Status Callout -->
+  <div id="judge-alert-pill" class="judge-pill ok" hidden></div>
+
+  <!-- Clean-View Restore Pill (When HUD toggled off with H) -->
+  <button id="restore-hud-pill" class="pill-btn glass-panel">Show HUD <kbd>H</kbd></button>
+
+  <!-- TOP HUD BAR -->
+  <header id="top-hud" class="hud-layer">
+    <!-- Left: Current Realm & Live Portal Ahead -->
+    <section class="glass-panel brand-panel">
+      <div class="kicker-row">
+        <span id="hud-world-index">REALM 01 / 06</span>
+        <span>CONTINUUM PHYSICS PORTAL ENGINE</span>
+      </div>
+      <h2 id="hud-world-title">Relativistic Stairwell</h2>
+      <p id="hud-world-sub">After M.C. Escher (Relativity, 1953) • Builder-01</p>
+      <div class="portal-meta-row">
+        <span id="hud-next-portal">Portal Ahead → Armilla, City of Pipes</span>
+        <div id="hud-palette-swatches" title="World Chromatic Palette"></div>
+      </div>
+    </section>
+
+    <!-- Center: THE SIGNATURE TWIST — Live Governance Regime Switcher -->
+    <section class="glass-panel regime-panel">
+      <div class="regime-label">Governance Regime (<kbd>B</kbd> cycle • <kbd>V</kbd> split • Click/<kbd>F</kbd> launch sphere)</div>
+      <div class="segmented-group">
+        <button class="seg-btn active" data-regime="0" title="480-word Minimalist Constitution: Crisp Newtonian & Continuum Physics, full chromatic freedom, zero plywood facades">
+          ¶ Constitutional 480w
+        </button>
+        <button class="seg-btn" data-regime="1" title="87,500-word / 204-Section Rulebook: §199.4 1.4m/s OSHA Speed Cap & e=0.05 No-Bounce, <=14% greige (§88.2), & §142.7 Hinged Plywood Billboard!">
+          § 204-Sec Bureaucracy
+        </button>
+        <button class="seg-btn" data-regime="2" title="Live side-by-side GPU & Physics fork comparing Sovereign Freedom vs. Committee Compliance">
+          A|B Split Fork
+        </button>
+      </div>
+    </section>
+
+    <!-- Right: Live Physics, Judge Scores & Governance Telemetry -->
+    <section class="glass-panel telemetry-panel">
+      <div class="telemetry-grid">
+        <div class="metric-item">
+          <span class="metric-lbl">Roaming Judge:</span>
+          <span id="metric-roaming-score" class="metric-val good">97.8%</span>
+        </div>
+        <div class="metric-item">
+          <span class="metric-lbl">Static Cam #1:</span>
+          <span id="metric-static-score" class="metric-val">95.4%</span>
+        </div>
+        <div class="metric-item">
+          <span class="metric-lbl">Velocity / Load:</span>
+          <span id="metric-kinematics" class="metric-val good">3.65 m/s • 1.00G</span>
+        </div>
+        <div class="metric-item">
+          <span class="metric-lbl">Field / Energy:</span>
+          <span id="metric-gravity-energy" class="metric-val">−Y • 31.7 J/kg</span>
+        </div>
+        <div class="metric-item">
+          <span class="metric-lbl">Cosine Novelty:</span>
+          <span id="metric-novelty" class="metric-val good">0.96</span>
+        </div>
+        <div class="metric-item">
+          <span class="metric-lbl">Rulebook Cap:</span>
+          <span id="metric-rule-words" class="metric-val">480 / 500 w</span>
+        </div>
+        <div class="metric-item">
+          <span class="metric-lbl">Token Overhead:</span>
+          <span id="metric-context-tax" class="metric-val">0.55% ctx</span>
+        </div>
+        <div class="metric-item">
+          <span class="metric-lbl">Portals / Rate:</span>
+          <span class="metric-val"><span id="metric-portals-count">0</span> • <span id="metric-fps" class="good">60 FPS</span></span>
+        </div>
+      </div>
+      <div id="hud-physics-note" class="physics-note">
+        Physics: Piecewise 4-Axis Gravity Tensor g(x) + RK4 Euler Precession
+      </div>
+      <div id="hud-violation-note" class="violation-note constitutional">
+        Acoustic: Dorian chamber harp intervals + Doppler shift
+      </div>
+    </section>
+  </header>
+
+  <!-- RIGHT INSPECTOR DRAWER (Constitution | Novelty Ban Ledger | 204-Sec Rulebook) -->
+  <aside id="inspector-drawer" class="hud-layer" hidden>
+    <div class="drawer-header">
+      <h3 id="drawer-title">The Anti-Jagged Builder Constitution</h3>
+      <button id="drawer-close" class="pill-btn" aria-label="Close Inspector">✕</button>
+    </div>
+    <div id="drawer-body"></div>
+  </aside>
+
+  <!-- BOTTOM CONTROLS DOCK -->
+  <footer id="bottom-hud" class="hud-layer">
+    <!-- Navigation, Physics Sandbox & Judge Camera Modes -->
+    <div class="glass-panel dock-panel">
+      <button class="seg-btn active" data-nav="autopilot" title="Coordinated banked-turn flight weaving endlessly through live FBO portals [P]">
+        ▸ Autopilot <kbd>P</kbd>
+      </button>
+      <button class="seg-btn" data-nav="freeroam" title="Newtonian WASD + Mouse-Drag Free Roam (Space Jump / E-Q Thrusters)">
+        WASD Roam
+      </button>
+      <button id="btn-gravity" class="pill-btn" title="Toggle Free-Roam Gravity Walk (with Space Jump & Escher 4-axis stairwell gravity!) vs. Zero-G Thrusters [G]">
+        Gravity: OFF <kbd>G</kbd>
+      </button>
+      <button id="btn-launch-sphere" class="pill-btn launch-btn" title="Launch a 3D Rigid-Body Physics Sphere across portals, waves, mirror sea, or into §142.7 plywood billboards! (Or click anywhere in 3D view) [F]">
+        • Fire Sphere <kbd>F</kbd>
+      </button>
+      <button class="seg-btn" data-nav="roaming_judge" title="Constitutional Article III: Unscripted off-axis orbital drone that exposes flat billboards [R]">
+        Roaming Judge <kbd>R</kbd>
+      </button>
+      <button class="seg-btn" data-nav="static_judge" title="Legacy Fable 5.2 Static Tripod #1: Snap to the exact camera coordinate gamed by §142.7 plywood flats [J]">
+        Tripod #1 <kbd>J</kbd>
+      </button>
+      <label class="speed-wrap" title="Autopilot Flight Speed (Governed at <=1.4 m/s in §199.4 Bureaucracy Mode)">
+        <span>Pace</span>
+        <input id="autopilot-speed" type="range" min="0.3" max="2.4" step="0.1" value="1.0" />
+      </label>
+    </div>
+
+    <!-- Quick Realm Selector (1-6) -->
+    <div class="glass-panel dock-panel">
+      <div id="world-dots-bar" aria-label="Jump to Realm 1 through 6"></div>
+    </div>
+
+    <!-- Governance Drawers, Pet-Trope Test, Spatial Audio & Clean View -->
+    <div class="glass-panel dock-panel">
+      <button class="pill-btn" data-drawer="constitution">¶ Constitution</button>
+      <button class="pill-btn" data-drawer="novelty">Novelty Ledger</button>
+      <button class="pill-btn" data-drawer="bureaucracy">§204 Rulebook</button>
+      <button id="btn-test-trope" class="pill-btn" title="Simulate uncoordinated Fable 5.2 agent attempting to spawn the banned Reindeer-Manta-Stork Cyclone [T]">
+        Trope Ban <kbd>T</kbd>
+      </button>
+      <button id="btn-audio" class="pill-btn" title="Toggle Generative Spatial WebAudio + Acoustic Doppler + Collision Foley [M]">
+        Audio: OFF
+      </button>
+      <button id="btn-hide-hud" class="pill-btn" title="Toggle Full-Bleed Clean View [H]">
+        Clean <kbd>H</kbd>
+      </button>
+    </div>
+  </footer>
+
+  <!-- Self-Contained Modular Scripts (Works over both HTTP & direct file://) -->
+  <script src="js/ledger_data.js"></script>
+  <script src="js/math_gl.js"></script>
+  <script src="js/geometry.js"></script>
+  <script src="js/shaders.js"></script>
+  <script src="js/audio.js"></script>
+  <script src="js/physics.js"></script>
+  <script src="js/main.js"></script>
+</body>
+</html>

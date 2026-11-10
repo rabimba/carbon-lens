@@ -1,0 +1,449 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>W.H. Auden · English 135 (Fall 1941) — Archival Seminar Studio</title>
+  <link rel="stylesheet" href="styles.css" />
+</head>
+<body>
+  <!-- Subtle Uncoated Cotton-Vellum Paper Tooth Overlay (0.022 opacity) -->
+  <svg class="paper-grain-defs" aria-hidden="true" width="0" height="0">
+    <filter id="paper-tooth">
+      <feTurbulence type="fractalNoise" baseFrequency="0.8" numOctaves="3" stitchTiles="stitch" />
+      <feColorMatrix type="saturate" values="0" />
+    </filter>
+  </svg>
+  <div class="paper-grain-overlay" aria-hidden="true"></div>
+
+  <!-- ====================================================================
+       ARCHITECTURAL MASTHEAD & COMMONPLACE LEDGER
+       ==================================================================== -->
+  <header class="masthead">
+    <div class="shell-frame">
+      <!-- Top Archival Colophon Bar -->
+      <div class="masthead-topbar">
+        <div class="colophon-id">
+          <span class="catalog-mark">w. h. auden</span>
+          <span class="dot-sep">·</span>
+          <span>ENGLISH 135</span>
+          <span class="dot-sep">·</span>
+          <span>ANGELL HALL RM. 2208</span>
+          <span class="dot-sep">·</span>
+          <span>ANN ARBOR, FALL 1941</span>
+        </div>
+
+        <div class="masthead-actions">
+          <div class="ledger-strip" id="ledger-pills" aria-live="polite"></div>
+          <div class="utility-group">
+            <button type="button" class="btn-quiet" id="btn-toggle-provenance" aria-expanded="false">
+              Colophon &amp; Archive
+            </button>
+            <button type="button" class="btn-quiet" id="btn-audio-mute">
+              Audio: On
+            </button>
+            <button type="button" class="btn-quiet" id="btn-reset-ledger" title="Clear local commonplace ledger">
+              Reset
+            </button>
+          </div>
+        </div>
+      </div>
+
+      <!-- Collapsible Historical Provenance Folio -->
+      <div class="provenance-drawer" id="provenance-drawer" hidden>
+        <div class="provenance-grid">
+          <div class="provenance-cell">
+            <div class="eyebrow">§ 01 · Archival Provenance</div>
+            <p>
+              Reconstructed from W.H. Auden’s original Fall 1941 University of Michigan mimeographed syllabus (preserved in the Auden Papers, documented in Edward Mendelson’s <em>Later Auden</em>, and digitized by Alan Jacobs) alongside housemate Charles Miller’s Pontiac Trail recollections.
+            </p>
+          </div>
+          <div class="provenance-cell">
+            <div class="eyebrow">§ 02 · Critical Corpus</div>
+            <p>
+              Every seminar gloss and red-pencil critique is anchored in Auden’s primary prose: <em>The Dyer’s Hand</em> (1962), <em>The Enchafèd Flood</em> (1950), <em>The Sea and the Mirror</em> (1942–44), <em>Lectures on Shakespeare</em>, and <em>“K.’s Quest”</em> (1941).
+            </p>
+          </div>
+          <div class="provenance-cell">
+            <div class="eyebrow">§ 03 · Counterfeit Criticism</div>
+            <p>
+              Conventional classroom summaries routinely attribute Romantic organicism, Aristotelian <em>hamartia</em>, or political messianism to texts Auden read through Kierkegaardian choice, comic charity, and strict formal artifice.
+            </p>
+          </div>
+        </div>
+      </div>
+
+      <!-- Editorial Hero Title Row -->
+      <div class="masthead-hero">
+        <div class="hero-title-col">
+          <div class="eyebrow">University of Michigan · Department of English · 2 Credit Hours</div>
+          <h1>Fate and the Individual in European Literature</h1>
+        </div>
+        <div class="hero-stat-col">
+          <blockquote class="masthead-epigraph">
+            “Greek tragedy is the tragedy of necessity: <em>‘What a pity it had to be this way.’</em> Christian tragedy is the tragedy of possibility: <em>‘What a pity it was this way when it might have been otherwise.’</em>”
+          </blockquote>
+        </div>
+      </div>
+    </div>
+  </header>
+
+  <!-- ====================================================================
+       ARCHITECTURAL KEYLINE NAVIGATION BAR (SHORTCUTS 1–5)
+       ==================================================================== -->
+  <div class="studio-nav-bar">
+    <div class="shell-frame">
+      <nav class="studio-nav" role="tablist" aria-label="1941 Seminar Studio Rooms">
+        <button type="button" class="studio-tab" role="tab" aria-selected="true" data-room="syllabus">
+          <span class="tab-num">I</span>
+          <span class="tab-label">1941 Syllabus</span>
+          <kbd class="tab-kbd">1</kbd>
+        </button>
+        <button type="button" class="studio-tab" role="tab" aria-selected="false" data-room="chalkboard">
+          <span class="tab-num">II</span>
+          <span class="tab-label">Slate Matrix</span>
+          <kbd class="tab-kbd">2</kbd>
+        </button>
+        <button type="button" class="studio-tab" role="tab" aria-selected="false" data-room="counterfeit">
+          <span class="tab-num">III</span>
+          <span class="tab-label">Counterfeit Critic</span>
+          <span class="rubric-dot" aria-hidden="true"></span>
+          <kbd class="tab-kbd">3</kbd>
+        </button>
+        <button type="button" class="studio-tab" role="tab" aria-selected="false" data-room="booth">
+          <span class="tab-num">IV</span>
+          <span class="tab-label">Acoustic &amp; Prosody Lab</span>
+          <kbd class="tab-kbd">4</kbd>
+        </button>
+        <button type="button" class="studio-tab" role="tab" aria-selected="false" data-room="colloquium">
+          <span class="tab-num">V</span>
+          <span class="tab-label">1941 Colloquium</span>
+          <kbd class="tab-kbd">5</kbd>
+        </button>
+      </nav>
+    </div>
+  </div>
+
+  <!-- ====================================================================
+       MAIN SEMINAR WORKSPACE
+       ==================================================================== -->
+  <main class="studio-main shell-frame">
+
+    <!-- ==================================================================
+         ROOM I: COMPLETE 35-WORK RECONSTRUCTED 1941 SYLLABUS INDEX
+         ================================================================== -->
+    <section class="room-panel active" id="room-syllabus" role="tabpanel">
+      <header class="room-header">
+        <div class="room-header-main">
+          <div class="eyebrow">§ I · Mimeographed Reading List · 35 Assigned Monuments · 6,240 Pages</div>
+          <h2>The Reconstructed Fall 1941 Syllabus</h2>
+        </div>
+        <p class="room-lead">
+          Arriving in Ann Arbor in a faded jersey and torn sneakers, Auden handed undergraduates—among them future novelist Kenneth Millar (Ross Macdonald)—a fifteen-week, 6,240-page sequence from Aeschylus’s <em>Agamemnon</em> to T.S. Eliot’s <em>The Family Reunion</em>. Select any entry to inspect its 1941 seminar proof folio.
+        </p>
+      </header>
+
+      <!-- 5-Arc Hairline Ledger Selector -->
+      <div class="arc-ledger" id="arc-ribbon"></div>
+
+      <!-- Integrated Filter & Page-Weight Specification Bar -->
+      <div class="syllabus-control-bar">
+        <div class="search-field-wrap">
+          <input
+            type="search"
+            id="syllabus-search"
+            class="editorial-input"
+            placeholder="Filter 35 works by author, title, Kierkegaard, acedia, charity, prosody…"
+            aria-label="Filter the 1941 syllabus"
+          />
+        </div>
+        <div class="filter-controls">
+          <select id="genre-filter" class="editorial-select" aria-label="Filter by genre">
+            <option value="all">Genre: All (35)</option>
+            <option value="Drama">Drama (11)</option>
+            <option value="Opera">Opera Libretti (9)</option>
+            <option value="Prose">Novels &amp; Prose (7)</option>
+            <option value="Poetry">Poetry (5)</option>
+            <option value="Philosophy">Philosophy &amp; Theology (4)</option>
+          </select>
+          <select id="pole-filter" class="editorial-select" aria-label="Filter by dialectical pole">
+            <option value="all">Pole: All Axes</option>
+            <option value="Necessity">Necessity &amp; Fate</option>
+            <option value="Order">Classical Order</option>
+            <option value="Choice">Christian Choice &amp; Agape</option>
+            <option value="Daemonism">Daemonism &amp; Defiance</option>
+            <option value="Irony">Modern Irony &amp; Anxiety</option>
+          </select>
+        </div>
+      </div>
+
+      <!-- Tabular Reading Pace Specification Strip -->
+      <div class="pace-spec-strip" id="page-burden-bar"></div>
+
+      <!-- Master-Detail Split: Syllabus Index & Sticky Marginalia Folio -->
+      <div class="syllabus-stage">
+        <div class="index-ledger-wrap">
+          <div class="index-table-head" aria-hidden="true">
+            <span>NO.</span>
+            <span>WORK &amp; AUTHOR</span>
+            <span>CLASSIFICATION</span>
+            <span class="num-col">EXTENT</span>
+          </div>
+          <div class="works-index" id="works-grid"></div>
+        </div>
+
+        <aside class="marginalia-folio" id="work-inspector" aria-live="polite"></aside>
+      </div>
+
+      <!-- Supplemental 1941 Reference Shelf -->
+      <div class="companion-colophon">
+        <div class="eyebrow">§ Supplemental Anthropological &amp; Critical Volumes Listed on the 1941 Mimeograph</div>
+        <div class="companion-ledger" id="companion-grid"></div>
+      </div>
+    </section>
+
+    <!-- ==================================================================
+         ROOM II: INTERACTIVE ANGELL HALL SLATE CHALKBOARD MATRIX
+         ================================================================== -->
+    <section class="room-panel" id="room-chalkboard" role="tabpanel">
+      <header class="room-header">
+        <div class="room-header-main">
+          <div class="eyebrow">§ II · Angell Hall Blackboard Schemas · Dialectical Coordinate Geometry</div>
+          <h2>The Slate Matrix</h2>
+        </div>
+        <p class="room-lead">
+          Auden routinely covered entire classroom blackboards with schematic coordinate planes mapping Pagan Necessity against Christian Choice, Kierkegaard’s Three Existential Spheres, and the iconography of Sea, Desert, and City. Select any chalk locus to trace its dialectical foils.
+        </p>
+      </header>
+
+      <div class="instrument-toolbar">
+        <div class="segmented-track" id="chalk-schema-tabs" role="group" aria-label="Blackboard diagram schemas"></div>
+        <button type="button" class="btn-quiet" id="btn-chalk-redraw">
+          Redraw Chalk Geometry
+        </button>
+      </div>
+
+      <div class="chalkboard-stage">
+        <div class="slate-plate" id="slate-svg-container"></div>
+        <aside class="chalk-apparatus" id="chalktray-card" aria-live="polite"></aside>
+      </div>
+    </section>
+
+    <!-- ==================================================================
+         ROOM III: AUDEN'S RED GREASE-PENCIL — SPOT THE COUNTERFEIT CRITIC
+         ================================================================== -->
+    <section class="room-panel" id="room-counterfeit" role="tabpanel">
+      <header class="room-header">
+        <div class="room-header-main">
+          <div class="eyebrow">§ III · Critical Attribution Proof · 10 Primary-Source Literary Cruxes</div>
+          <h2>Spot the Counterfeit Critic</h2>
+        </div>
+        <div class="room-header-side">
+          <p class="room-lead">
+            Beside each primary passage stand two seminar galley proofs of matched authority: one grounded in Auden’s published criticism, and one <strong>Plausible Counterfeit</strong> voicing conventional Romantic or Aristotelian tropes Auden explicitly rejected. Strike the counterfeit folio with Auden’s red grease-pencil.
+          </p>
+          <div class="tabular-score-line" id="counterfeit-score-readout"></div>
+        </div>
+      </header>
+
+      <!-- 10-Folio Index Selector Bar -->
+      <div class="case-index-bar" id="case-strip" role="navigation" aria-label="Counterfeit Critic Cases I through X"></div>
+
+      <!-- Primary Specimen Epigraph -->
+      <div class="specimen-epigraph" id="specimen-box"></div>
+
+      <!-- Unified Two-Column Broadsheet Galley Proof Duel -->
+      <div class="galley-duel" id="duel-grid"></div>
+
+      <!-- Unlocked Critical Apparatus -->
+      <div id="dossier-container"></div>
+    </section>
+
+    <!-- ==================================================================
+         ROOM IV: THE 78-RPM VICTROLA & PROSODIC SCANSION LAB
+         ================================================================== -->
+    <section class="room-panel" id="room-booth" role="tabpanel">
+      <header class="room-header">
+        <div class="room-header-main">
+          <div class="eyebrow">§ IV · 1227 Pontiac Trail Listening Sessions · WebAudio Synthesis &amp; Scansion</div>
+          <h2>Acoustic &amp; Prosody Lab</h2>
+        </div>
+        <p class="room-lead">
+          In Ann Arbor, Auden played 78-RPM operatic pressings to pit Mozart and Beethoven against Wagnerian chromaticism while drilling young poets—including Robert Hayden—in strict Horatian, Old English, and Dantean meters as liberating <em>“household servants.”</em>
+        </p>
+      </header>
+
+      <div class="acoustic-stage">
+        <!-- Station A: 1941 Recessed Acoustic Turntable & Oscilloscope Bay -->
+        <div class="acoustic-bay">
+          <div class="bay-header-bar">
+            <span class="bay-label">STATION A · 78.26 RPM ACOUSTIC TURNTABLE &amp; HARMONIC OSCILLOSCOPE</span>
+            <label class="crackle-switch">
+              <input type="checkbox" id="chk-shellac-crackle" checked />
+              <span>Shellac Surface Grain</span>
+            </label>
+          </div>
+
+          <div class="turntable-instrument-row">
+            <div class="platter-well" aria-hidden="true">
+              <svg viewBox="0 0 220 220" width="196" height="196">
+                <!-- Strobe Calibration Ring -->
+                <circle cx="100" cy="110" r="88" fill="none" stroke="rgba(255,255,255,0.12)" stroke-width="1" stroke-dasharray="2 4" />
+                <!-- Spinning 78-RPM Shellac Disc -->
+                <g id="svg-record-disc" class="record-disc">
+                  <circle cx="100" cy="110" r="81" fill="#0d0f0e" stroke="#2a2e2c" stroke-width="1.5" />
+                  <circle cx="100" cy="110" r="70" fill="none" stroke="#1e2220" stroke-width="1" stroke-dasharray="20 6" />
+                  <circle cx="100" cy="110" r="57" fill="none" stroke="#222624" stroke-width="0.9" />
+                  <circle cx="100" cy="110" r="44" fill="none" stroke="#1e2220" stroke-width="1" stroke-dasharray="14 5" />
+                  <circle cx="100" cy="110" r="26" fill="#9c221f" stroke="#c8a45d" stroke-width="1.2" />
+                  <text x="100" y="105" text-anchor="middle" fill="#f3eee3" font-family="monospace" font-size="6" letter-spacing="0.8">ARCHIVE</text>
+                  <text x="100" y="119" text-anchor="middle" fill="#d9ceb8" font-family="monospace" font-size="5.5">78 RPM · 1941</text>
+                  <circle cx="100" cy="110" r="3.2" fill="#d8b878" />
+                </g>
+                <!-- Precision Counterweighted Tonearm -->
+                <g id="svg-tonearm" class="tonearm-group">
+                  <circle cx="188" cy="34" r="10" fill="#2c3230" stroke="#8c9490" stroke-width="1.5" />
+                  <circle cx="188" cy="34" r="3.5" fill="#c8a45d" />
+                  <path d="M 188 34 L 171 122 L 143 140" fill="none" stroke="#d2cbc0" stroke-width="3.5" stroke-linecap="round" stroke-linejoin="round" />
+                  <rect x="136" y="135" width="11" height="8" rx="1.5" fill="#c8a45d" transform="rotate(-28 142 139)" />
+                </g>
+              </svg>
+            </div>
+
+            <div class="scope-readout-col">
+              <div id="victrola-plate-info"></div>
+              <div class="scope-well">
+                <div class="scope-scale" aria-hidden="true">
+                  <span>+1.0V</span>
+                  <span>A4=440HZ · TIME DOMAIN</span>
+                  <span>-1.0V</span>
+                </div>
+                <canvas id="oscilloscope-canvas" class="oscilloscope-canvas" width="360" height="76"></canvas>
+              </div>
+            </div>
+          </div>
+
+          <!-- Hairline 4-Plate Selector Matrix -->
+          <div class="plate-matrix" id="plate-selector"></div>
+
+          <div class="transport-bar">
+            <button type="button" class="btn-instrument-primary" id="btn-victrola-play">
+              Engage Stylus · Play 78-RPM Plate
+            </button>
+            <div class="step-readout" id="victrola-step-tracker" aria-live="polite"></div>
+          </div>
+
+          <p class="bay-commentary" id="victrola-musical-thesis"></p>
+        </div>
+
+        <!-- Station B: Prosodic Scansion Stave Folio -->
+        <div class="prosody-folio">
+          <div class="folio-top-bar">
+            <span class="eyebrow">STATION B · STRICT METRICAL STAVES (“METERS AS HOUSEHOLD SERVANTS”)</span>
+          </div>
+
+          <div class="segmented-track prosody-seg" id="meter-tabs" role="group" aria-label="Strict poetic forms"></div>
+
+          <div id="prosody-meta" class="prosody-meta-block"></div>
+
+          <div class="scansion-staves" id="scansion-sheet"></div>
+
+          <div class="prosody-actions">
+            <button type="button" class="btn-editorial-primary" id="btn-prosody-pulse">
+              Pulse Stanza in WebAudio
+            </button>
+            <button type="button" class="btn-quiet" id="btn-prosody-practice">
+              Practice Mode: Mark Stresses
+            </button>
+          </div>
+          <div id="prosody-practice-status" class="prosody-status-line"></div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ==================================================================
+         ROOM V: HUMANE REIMAGINING OF THE INFAMOUS 1941 FINAL EXAM
+         ================================================================== -->
+    <section class="room-panel" id="room-colloquium" role="tabpanel">
+      <header class="room-header">
+        <div class="room-header-main">
+          <div class="eyebrow">§ V · January 1942 Examination Archive · Comparative Structural Synthesis</div>
+          <h2>The 1941 Socratic Colloquium</h2>
+        </div>
+        <p class="room-lead">
+          Auden’s original January 1942 final demanded instant structural synthesis across 6,240 pages—or, by Ann Arbor legend, reciting six cantos of Dante by heart—prompting student outcry that the exam was <em>“impossible and inhumane.”</em> Explore Auden’s comparative method interactively across two seminar exercises.
+        </p>
+      </header>
+
+      <!-- 3-Column Hairline Historical Context Ledger -->
+      <div class="context-triptych">
+        <div class="triptych-col">
+          <div class="eyebrow">01 · January 1942 Outcry</div>
+          <strong>The Exhaustion of Pure Volume</strong>
+          <p>
+            Demanding rote recall across thirty-five masterworks in a two-credit course punished undergraduates without illuminating Auden’s underlying philosophical architecture.
+          </p>
+        </div>
+        <div class="triptych-col">
+          <div class="eyebrow">02 · Auden’s True Aim</div>
+          <strong>Cross-Epochal Counterpoint</strong>
+          <p>
+            Auden cared nothing for textbook plot summaries; he wanted students to hear how Sophocles, Cervantes, Shakespeare, Kierkegaard, and Kafka interrogate one another across millennia.
+          </p>
+        </div>
+        <div class="triptych-col is-accented">
+          <div class="eyebrow">03 · Interactive Colloquy</div>
+          <strong>Ensemble Casting &amp; Moral Geography</strong>
+          <p>
+            Commission any of twenty-seven cross-era chamber opera trios below, then test Auden’s distinction between <em>Inferno</em> and <em>Purgatorio</em> across six syllabus figures.
+          </p>
+        </div>
+      </div>
+
+      <!-- Part I: Cross-Era Chamber Opera Libretto Commission -->
+      <div class="colloquium-section">
+        <div class="section-rule-head">
+          <div>
+            <div class="eyebrow">Exercise I · Combinatorial Dramaturgy (27 Ensembles)</div>
+            <h3>Commission a Cross-Era Chamber Opera Trio</h3>
+          </div>
+          <p class="section-subcopy">
+            Select one voice from each historical sphere to generate Auden’s blue-book evaluation of their vocal counterpoint and ethical collision.
+          </p>
+        </div>
+
+        <div class="casting-matrix" id="colloquium-columns"></div>
+        <div class="examination-folio" id="bluebook-output" aria-live="polite"></div>
+      </div>
+
+      <!-- Part II: Dante's Moral Cartography -->
+      <div class="colloquium-section">
+        <div class="section-rule-head">
+          <div>
+            <div class="eyebrow">Exercise II · After Dante’s Commedia (#06)</div>
+            <h3>Moral Cartography: <em>Inferno</em> vs. <em>Purgatorio</em></h3>
+          </div>
+          <p class="section-subcopy">
+            In Auden’s reading of Dante, <em>Inferno</em> holds souls who proudly cling to self-enclosure, whereas <em>Purgatorio</em> holds sinners who acknowledge their sickness and desire healing. Assign each figure below.
+          </p>
+        </div>
+
+        <div class="cartography-ledger" id="cartography-grid"></div>
+      </div>
+    </section>
+
+  </main>
+
+  <footer class="studio-footer">
+    <div class="shell-frame footer-inner">
+      <span>W.H. Auden · English 135 (Fall 1941, University of Michigan) · Primary-Source Audit: <code>archival_audit.json</code></span>
+      <span class="tabular">35 Works · 6,240 Pages · 10 Attribution Proofs</span>
+    </div>
+  </footer>
+
+  <script src="js/data-syllabus.js" defer></script>
+  <script src="js/data-counterfeit.js" defer></script>
+  <script src="js/audio.js" defer></script>
+  <script src="js/app.js" defer></script>
+</body>
+</html>

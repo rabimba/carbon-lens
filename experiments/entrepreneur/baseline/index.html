@@ -1,0 +1,482 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>CiteSignal — Municipal Mechanical, Elevator &amp; Fire Compliance Triggers</title>
+  <link rel="stylesheet" href="assets/styles.css" />
+</head>
+<body>
+
+  <!-- Strict Safety Air-Gap Top Bar -->
+  <div class="airgap-bar">
+    <div>
+      <span class="airgap-badge">● AIR-GAP PROTOTYPE LOCK ACTIVE</span>
+      <span style="margin-left:8px;">100% local offline execution · Zero live emails sent · Zero government submissions · Zero external payment charges</span>
+    </div>
+    <div>
+      <a href="docs/SCREENING_MEMO.md" target="_blank" rel="noopener" style="color:#93c5fd;margin-right:12px;">Screening Memo</a>
+      <a href="docs/BUSINESS_PLAN_AND_ECONOMICS.md" target="_blank" rel="noopener" style="color:#93c5fd;margin-right:12px;">Economics &amp; Plan</a>
+      <a href="docs/FOUNDER_RUNBOOK_20MIN.md" target="_blank" rel="noopener" style="color:#93c5fd;">20-Min/Mo Runbook</a>
+    </div>
+  </div>
+
+  <!-- Sticky Navigation & Dual-Experience Mode Switcher -->
+  <header class="topbar">
+    <div class="topbar-inner">
+      <div class="brand-lockup">
+        <div class="brand-mark">CS</div>
+        <div>
+          <span class="brand-title">CiteSignal</span>
+          <span class="brand-sub">B2B Commercial Boiler, Elevator &amp; Fire-Code Trigger Intelligence</span>
+        </div>
+      </div>
+
+      <div class="mode-switch" role="tablist" aria-label="Application Experience Switcher">
+        <button id="btn-mode-storefront" class="mode-btn active" type="button">Customer Storefront</button>
+        <button id="btn-mode-founder" class="mode-btn" type="button">Founder Ops Console (&le;20m/mo)</button>
+      </div>
+    </div>
+  </header>
+
+  <!-- ===================================================================== -->
+  <!-- VIEW 1: CUSTOMER B2B STOREFRONT & LIVE PUBLIC-RECORD LEAD EXPLORER     -->
+  <!-- ===================================================================== -->
+  <main id="view-storefront" class="container">
+    <section class="hero">
+      <span class="hero-eyebrow">SEAT-CAPPED MUNICIPAL COMPLIANCE INTELLIGENCE · NYC · CHICAGO · TX TRIANGLE</span>
+      <h1>Reach commercial building engineers the morning a mandatory safety inspection fails.</h1>
+      <p>
+        CiteSignal cross-joins municipal boiler defects (<code>52dp-yji6</code>), OATH/DOB safety summonses (<code>6bgk-3dad</code>, <code>22u3-xenr</code>), and overdue Texas TDLR elevator certifications (<code>ELBI#</code>) with commercial tax-lot ownership—stripping 100% of residential noise so your estimating desk lands high-margin statutory cures before RFP bidding wars start.
+      </p>
+      <div class="hero-actions">
+        <a href="#territory-section" class="btn btn-primary">Check Territory Seat Availability</a>
+        <a href="#live-explorer-section" class="btn btn-outline-light">Inspect 17 Live Commercial Triggers</a>
+        <button id="hero-btn-founder" type="button" class="btn btn-outline-light">Open Founder 20-Min Ops Console &rarr;</button>
+      </div>
+
+      <div class="hero-kpis">
+        <div class="hero-kpi">
+          <strong id="kpi-verified-count">17 Buildings</strong>
+          <span>Active Commercial Triggers in Current Cycle</span>
+        </div>
+        <div class="hero-kpi">
+          <strong id="kpi-repair-pool">$277,350</strong>
+          <span>Estimated Midpoint Contractor Job Scope</span>
+        </div>
+        <div class="hero-kpi">
+          <strong id="kpi-penalty-pool">$88,250+</strong>
+          <span>Statutory Owner Fine Exposure Driving Urgency</span>
+        </div>
+        <div class="hero-kpi">
+          <strong>Max 4 Seats</strong>
+          <span>Strict Per-Territory Contractor Cap (or 1-of-1 Lock)</span>
+        </div>
+      </div>
+    </section>
+
+    <!-- Live Public-Record Lead Explorer -->
+    <section id="live-explorer-section" class="section-block">
+      <div class="section-hdr">
+        <div>
+          <h2>Live Commercial Compliance Trigger Feed</h2>
+          <p id="lead-filter-count">Loading verified municipal records...</p>
+        </div>
+        <div>
+          <a href="deliverables/digests/NYC_BOILER_MECHANICAL_weekly_digest.html" target="_blank" rel="noopener" class="btn btn-outline btn-sm">View Sample HTML Subscriber Email</a>
+        </div>
+      </div>
+
+      <div class="filter-bar">
+        <div class="filter-group">
+          <label for="flt-query">Search Address, BIN, ELBI#, Boiler Make, Owner</label>
+          <input id="flt-query" type="search" placeholder="e.g. Broadway, LaSalle, Congress, Cleaver-Brooks..." />
+        </div>
+        <div class="filter-group">
+          <label for="flt-metro">Metro Market</label>
+          <select id="flt-metro">
+            <option value="ALL">All Active Metros (3)</option>
+            <option value="NYC">New York City (DOB / OATH + PLUTO)</option>
+            <option value="CHICAGO">Chicago Loop (DOB 22u3-xenr)</option>
+            <option value="TX_TRIANGLE">Texas Triangle (Austin &amp; Dallas TDLR)</option>
+          </select>
+        </div>
+        <div class="filter-group">
+          <label for="flt-trade">Licensed Trade Specialty</label>
+          <select id="flt-trade">
+            <option value="ALL">All Commercial Trades</option>
+            <option value="BOILER_MECHANICAL">Boiler / Steam / Chiller Mechanical</option>
+            <option value="ELEVATOR_CONVEYANCE">Elevator &amp; Vertical Conveyance</option>
+            <option value="FIRE_SUPPRESSION">Standpipe, Fire Pump &amp; Sprinkler</option>
+          </select>
+        </div>
+        <div class="filter-group">
+          <label for="flt-urgency">Statutory Urgency</label>
+          <select id="flt-urgency">
+            <option value="ALL">All Active Triggers</option>
+            <option value="OVERDUE">Past Statutory Deadline Only</option>
+            <option value="CRITICAL90">Urgency Score &ge; 88/100</option>
+          </select>
+        </div>
+      </div>
+
+      <div id="lead-explorer-list" class="leads-grid"></div>
+    </section>
+
+    <!-- ROI & Payback Calculator + Why Contractors Subscribe -->
+    <section class="section-block two-col">
+      <div class="card">
+        <h2 style="margin:0 0 6px;font-size:19px;">Contractor ROI &amp; Payback Calculator</h2>
+        <p style="margin:0 0 16px;font-size:13px;color:var(--ink-muted);">Model how a single cured commercial boiler, QEI elevator, or fire-pump job covers an entire year of CiteSignal.</p>
+
+        <div class="slider-row">
+          <div class="slider-hdr"><span>Avg. Commercial Remediation Ticket</span><strong id="lbl-roi-ticket">$5,800</strong></div>
+          <input id="rng-roi-ticket" type="range" min="2000" max="20000" step="200" value="5800" />
+        </div>
+        <div class="slider-row">
+          <div class="slider-hdr"><span>Shop Gross Margin %</span><strong id="lbl-roi-margin">42%</strong></div>
+          <input id="rng-roi-margin" type="range" min="25" max="65" step="1" value="42" />
+        </div>
+        <div class="slider-row">
+          <div class="slider-hdr"><span>Verified Triggers Contacted / Month</span><strong id="lbl-roi-leads">8 bldgs/mo</strong></div>
+          <input id="rng-roi-leads" type="range" min="2" max="25" step="1" value="8" />
+        </div>
+        <div class="slider-row">
+          <div class="slider-hdr"><span>Trigger-to-Signed-Work-Order Rate</span><strong id="lbl-roi-close">12.5%</strong></div>
+          <input id="rng-roi-close" type="range" min="5" max="30" step="0.5" value="12.5" />
+        </div>
+        <div class="form-field" style="margin-top:10px;">
+          <label for="sel-roi-plan">Compare Subscription Tier</label>
+          <select id="sel-roi-plan">
+            <option value="199">Pro Metro Trade Feed — $199/month (Max 4 Seats)</option>
+            <option value="499">Exclusive Territory Lock — $499/month (1-of-1 Seat)</option>
+          </select>
+        </div>
+
+        <div class="roi-result-grid">
+          <div class="roi-stat"><strong id="roi-out-rev">$5,800/mo</strong><span>Expected New Job Revenue</span></div>
+          <div class="roi-stat"><strong id="roi-out-profit" style="color:var(--emerald);">$2,237/mo</strong><span>Net Gross Profit After Sub</span></div>
+          <div class="roi-stat"><strong id="roi-out-mult">12.2x</strong><span>Monthly Return on Spend</span></div>
+          <div class="roi-stat"><strong id="roi-out-payback">12.2 mos</strong><span>Sub Covered by Just 1 Job</span></div>
+        </div>
+      </div>
+
+      <div class="card" style="display:flex;flex-direction:column;justify-content:space-between;">
+        <div>
+          <h2 style="margin:0 0 8px;font-size:19px;">Why Raw City Portals Cost Estimators Hours</h2>
+          <p style="margin:0 0 14px;font-size:13px;color:var(--ink-secondary);">
+            Municipal open-data dumps contain millions of unjoined rows—over 80% are walkup apartments, paint/trash tickets, or historical filings already cured months ago.
+          </p>
+          <ul class="price-list" style="margin-top:8px;">
+            <li><strong>Commercial Tax-Lot Cross-Join:</strong> Every NYC `52dp-yji6` &amp; `6bgk-3dad` citation is joined against `PLUTO (64uk-42ks)` to isolate Class O/L commercial properties and attach the owner entity.</li>
+            <li><strong>Statutory Penalty Quantification:</strong> Flags exact cure windows (NYC 90-day boiler affirmation, OATH Class-1 hearing dates, TX Occ. Code Ch. 51 up to $5,000/day exposure).</li>
+            <li><strong>Zero Sales Calls · Self-Serve Portal:</strong> Provision in 60 seconds, receive Monday 6:00 AM CSV + HTML dispatches, and pause or cancel in 1 click anytime.</li>
+            <li><strong>14-Day Zero-Argue Guarantee:</strong> Unhappy with lead quality in your first 14 days? 1-click full refund, zero questions asked.</li>
+          </ul>
+        </div>
+        <div style="background:var(--surface-alt);padding:14px 16px;border-radius:8px;border:1px solid var(--border-subtle);font-size:13px;">
+          <strong>Want to test a single drop before subscribing?</strong> Grab any <strong>$149 30-Day Instant Audit Pack</strong> below—100% of your $149 credits toward Month 1 if you upgrade within 14 days.
+        </div>
+      </div>
+    </section>
+
+    <!-- Pricing Tiers + Live Seat-Capped Territory Availability -->
+    <section id="territory-section" class="section-block">
+      <div class="section-hdr">
+        <div>
+          <h2>Transparent Seat-Capped Pricing &amp; Live Territory Matrix</h2>
+          <p>No demo calls. Select an open trade territory below to test our air-gapped self-serve provisioning flow.</p>
+        </div>
+      </div>
+
+      <div class="pricing-grid">
+        <div class="price-card">
+          <div>
+            <span class="pill pill-mono">FRICTIONLESS ENTRY WEDGE</span>
+            <div class="price-num">$149 <span>/ one-time</span></div>
+            <strong style="font-size:15px;">30-Day Instant Audit Pack</strong>
+            <ul class="price-list">
+              <li>Immediate CSV + JSON download of all active uncured commercial violations in 1 metro/trade</li>
+              <li>Includes owner entities, cure deadlines &amp; outreach scripts</li>
+              <li><strong>100% of $149 credited</strong> if you upgrade to Pro or Exclusive within 14 days</li>
+            </ul>
+          </div>
+          <button class="btn btn-outline" data-checkout-tier="AUDIT" data-territory="TX_AUSTIN_ELEVATOR">Download $149 Audit Pack</button>
+        </div>
+
+        <div class="price-card featured">
+          <span class="featured-tag">MOST POPULAR · MAX 4 SEATS</span>
+          <div>
+            <span class="pill pill-navy">RECURRING WEEKLY FEED</span>
+            <div class="price-num">$199 <span>/ month</span></div>
+            <strong style="font-size:15px;">Pro Commercial Trade Feed</strong>
+            <ul class="price-list">
+              <li>Every Monday 6:00 AM HTML Dossier + CRM-ready CSV for 1 Metro &amp; Trade</li>
+              <li>Hard-capped at <strong>4 contractors max</strong> per territory</li>
+              <li>100% commercial-filtered + statutory fine calculations</li>
+              <li>1-click self-serve billing portal &amp; 14-day auto-refund</li>
+            </ul>
+          </div>
+          <button class="btn btn-dark" data-checkout-tier="PRO" data-territory="NYC_BOILER_MECHANICAL">Claim Pro Seat ($199/mo)</button>
+        </div>
+
+        <div class="price-card">
+          <div>
+            <span class="pill pill-overdue">1-OF-1 TERRITORY MONOPOLY</span>
+            <div class="price-num">$499 <span>/ month</span></div>
+            <strong style="font-size:15px;">Exclusive Territory Lock</strong>
+            <ul class="price-list">
+              <li><strong>Closes public Pro seats</strong>—your shop is the sole CiteSignal subscriber in that trade territory</li>
+              <li>Daily morning trigger alerts as soon as municipal portals sync</li>
+              <li>Priority CAD/PLUTO owner entity resolution on quarantined filings</li>
+            </ul>
+          </div>
+          <button class="btn btn-outline" data-checkout-tier="EXCLUSIVE" data-territory="CHICAGO_BOILER_MECHANICAL">Lock Exclusive Seat ($499/mo)</button>
+        </div>
+      </div>
+
+      <div class="table-wrap">
+        <table>
+          <thead>
+            <tr>
+              <th>Trade Territory</th>
+              <th>Metro</th>
+              <th>Trade Category</th>
+              <th>Live Seat Status</th>
+              <th>Self-Serve Provisioning</th>
+            </tr>
+          </thead>
+          <tbody id="territory-tbody"></tbody>
+        </table>
+      </div>
+    </section>
+
+    <!-- Sample Generated Deliverables Vault -->
+    <section class="section-block">
+      <div class="section-hdr">
+        <div>
+          <h2>Verify Real Generated Pipeline Deliverables</h2>
+          <p>Every file below was compiled locally by <code>pipeline/run_pipeline.py</code> from authentic municipal open-data schemas.</p>
+        </div>
+      </div>
+      <div class="table-wrap">
+        <table>
+          <thead>
+            <tr>
+              <th>Weekly Subscriber Digest Feed</th>
+              <th>Verified Commercial Volume</th>
+              <th>Midpoint Pipeline Scope</th>
+              <th>Inspect Deliverable</th>
+            </tr>
+          </thead>
+          <tbody id="deliverables-digest-list"></tbody>
+        </table>
+      </div>
+    </section>
+  </main>
+
+  <!-- ===================================================================== -->
+  <!-- VIEW 2: FOUNDER 20-MINUTE / MONTH OPERATIONS CONSOLE                  -->
+  <!-- ===================================================================== -->
+  <main id="view-founder" class="container hidden">
+    <section class="ops-timer-banner">
+      <div>
+        <span class="pill pill-ok" style="margin-bottom:6px;">MONTHLY OPERATOR SOP · FIRST TUESDAY OF MONTH</span>
+        <h1 style="margin:0 0 4px;font-size:24px;">Founder 20-Minute Operations Console</h1>
+        <p style="margin:0;color:#94a3b8;font-size:13px;">
+          99.4% of ingestion, PLUTO cross-joins, digest dispatches, Stripe webhooks, and unsubscribes run via autonomous cron. Complete the 4 human gates below in &le;20 minutes.
+        </p>
+      </div>
+      <div style="text-align:right;">
+        <div id="founder-timer-display" class="timer-readout">20:00</div>
+        <div style="display:flex;gap:8px;margin-top:6px;">
+          <button id="btn-timer-toggle" type="button" class="btn btn-primary btn-sm">Start 20-Min Monthly Session</button>
+          <button id="btn-timer-reset" type="button" class="btn btn-outline-light btn-sm">Reset</button>
+        </div>
+      </div>
+    </section>
+
+    <!-- 4-Step Monthly Progress Cards -->
+    <div class="step-pills">
+      <div id="card-step1" class="step-card done">
+        <strong>1. Telemetry &amp; Payouts (4m)</strong>
+        <span>Auto-reconciled MRR, Stripe ledger &amp; Socrata schema health</span>
+      </div>
+      <div id="card-step2" class="step-card">
+        <strong>2. Quarantine Triage (6m)</strong>
+        <span>1-click resolve edge-case buildings held back by QA gates</span>
+      </div>
+      <div id="card-step3" class="step-card">
+        <strong>3. Outbound Batch Gate (5m)</strong>
+        <span>Approve CAN-SPAM checked Live-Lead Proof emails</span>
+      </div>
+      <div id="card-step4" class="step-card">
+        <strong>4. Auto-Refund Close (2m)</strong>
+        <span>Confirm Zero-Argue refund queue &amp; export audit log</span>
+      </div>
+    </div>
+
+    <!-- Executive KPIs -->
+    <div class="kpi-grid-4">
+      <div class="stat-tile">
+        <div class="lbl">Simulated Active Seat MRR</div>
+        <div id="fkpi-mrr" class="val">$3,289/mo</div>
+        <div id="fkpi-arr" class="sub">$39,468 ARR active seat ledger</div>
+      </div>
+      <div class="stat-tile">
+        <div class="lbl">Year-1 Net Profit (Selected Model)</div>
+        <div id="fkpi-y1net" class="val">$38,482</div>
+        <div id="fkpi-y1sub" class="sub">Exceeds $20,000 goal by $18,482</div>
+      </div>
+      <div class="stat-tile">
+        <div class="lbl">Monte Carlo Prob &ge; $20k/yr</div>
+        <div id="fkpi-mc" class="val">86.4%</div>
+        <div id="fkpi-mcsub" class="sub">P50 Median: $28,614 (1,000 runs)</div>
+      </div>
+      <div class="stat-tile">
+        <div class="lbl">Avg. Founder Workload</div>
+        <div id="fkpi-time" class="val">14.8 min/mo</div>
+        <div class="sub">Hard-capped &le; 20.0 min/mo</div>
+      </div>
+    </div>
+
+    <!-- Interactive Cohort Chart & Stress Simulator -->
+    <section class="section-block">
+      <div class="section-hdr">
+        <div>
+          <h2>12-Month Net Profit Trajectory &amp; Live Stress Simulator</h2>
+          <p>Includes Month 1–2 mailbox warmup, $149 Audit-to-Pro upgrade credit deductions, 3.5% auto-refund reserve, Stripe fees, and $64/mo infra.</p>
+        </div>
+        <div class="mode-switch">
+          <button type="button" class="mode-btn" data-fin-scenario="conservative">Conservative ($23.4k)</button>
+          <button type="button" class="mode-btn active" data-fin-scenario="base">Base Case ($38.5k)</button>
+          <button type="button" class="mode-btn" data-fin-scenario="upside">Upside ($60.7k)</button>
+          <button type="button" class="mode-btn" data-fin-scenario="custom">Custom Sliders</button>
+        </div>
+      </div>
+
+      <div id="custom-sim-controls" class="card hidden" style="margin-bottom:16px;">
+        <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:16px;">
+          <div>
+            <div class="slider-hdr"><span>Monthly Proof Emails Sent</span><strong id="lbl-sim-vol">180</strong></div>
+            <input id="sim-vol" type="range" min="90" max="280" step="5" value="180" style="width:100%;" />
+          </div>
+          <div>
+            <div class="slider-hdr"><span>Zero-Call Paid Checkout %</span><strong id="lbl-sim-conv">1.33%</strong></div>
+            <input id="sim-conv" type="range" min="0.55" max="2.40" step="0.05" value="1.33" style="width:100%;" />
+          </div>
+          <div>
+            <div class="slider-hdr"><span>Monthly SMB Logo Churn %</span><strong id="lbl-sim-churn">5.8%</strong></div>
+            <input id="sim-churn" type="range" min="3.0" max="11.0" step="0.2" value="5.8" style="width:100%;" />
+          </div>
+        </div>
+      </div>
+
+      <div class="two-col">
+        <div class="chart-box">
+          <strong style="font-size:14px;display:block;margin-bottom:8px;">Cumulative Year-1 Net Profit vs. $20,000 Target</strong>
+          <div id="fin-svg-container"></div>
+        </div>
+        <div class="table-wrap" style="max-height:285px;overflow-y:auto;">
+          <table>
+            <thead>
+              <tr>
+                <th>Mo</th>
+                <th>Proofs</th>
+                <th>Active Seats</th>
+                <th>MRR</th>
+                <th>Mo Net</th>
+                <th>Cum. Net</th>
+                <th>Time</th>
+              </tr>
+            </thead>
+            <tbody id="fin-schedule-tbody"></tbody>
+          </table>
+        </div>
+      </div>
+    </section>
+
+    <!-- Step 2: Quarantine Queue -->
+    <section class="section-block">
+      <div class="section-hdr">
+        <div>
+          <h2>Step 2 — Quarantine Exception Queue (6-Min Monthly Gate)</h2>
+          <p>Ambiguous records caught by automated QA gates are held here rather than polluting subscriber digests.</p>
+        </div>
+        <span id="quarantine-badge" class="pill pill-soon">3 Pending</span>
+      </div>
+      <div class="table-wrap">
+        <table>
+          <thead>
+            <tr>
+              <th>ID / Metro</th>
+              <th>Property &amp; Source</th>
+              <th>Quarantine Trigger Reason</th>
+              <th>1-Click Founder Decision</th>
+            </tr>
+          </thead>
+          <tbody id="quarantine-tbody"></tbody>
+        </table>
+      </div>
+    </section>
+
+    <!-- Step 3: Air-Gapped Outbound Proof Batch Approval -->
+    <section class="section-block">
+      <div class="section-hdr">
+        <div>
+          <h2>Step 3 — Live-Lead Proof Outbound Batch (5-Min Safety Gate)</h2>
+          <p id="outbound-batch-status">Loading air-gapped batch...</p>
+        </div>
+        <button id="btn-approve-outbound" type="button" class="btn btn-emerald">1-Click Approve Monthly Proof Batch (Air-Gapped)</button>
+      </div>
+      <div class="table-wrap">
+        <table>
+          <thead>
+            <tr>
+              <th>Licensed Commercial Contractor</th>
+              <th>Open Territory</th>
+              <th>Matched Local Public Proof Trigger</th>
+              <th>Inspect Draft</th>
+            </tr>
+          </thead>
+          <tbody id="outbound-tbody"></tbody>
+        </table>
+      </div>
+    </section>
+
+    <!-- Step 4: Zero-Argue Refund Closeout & Session Audit Log -->
+    <section class="section-block two-col">
+      <div class="card">
+        <h2 style="margin:0 0 8px;font-size:18px;">Step 4 — Zero-Argue Refund &amp; Monthly Sign-Off (2m)</h2>
+        <p style="font-size:13px;color:var(--ink-secondary);margin:0 0 14px;">
+          To enforce the &le;20 min/month ceiling ruthlessly, CiteSignal never debates support tickets: any subscriber requesting a refund within 14 days receives an instant 1-click Stripe refund and automatic seat release.
+        </p>
+        <div style="display:flex;flex-wrap:wrap;gap:10px;margin-bottom:14px;">
+          <button id="btn-complete-step4" type="button" class="btn btn-dark">Mark Monthly Session Complete</button>
+          <button id="btn-export-audit" type="button" class="btn btn-outline">Export Session Audit JSON</button>
+          <a href="deliverables/founder_packets/2026_11_FOUNDER_20MIN_BRIEF.md" target="_blank" rel="noopener" class="btn btn-outline">Open Monthly Brief (.MD)</a>
+        </div>
+      </div>
+
+      <div class="card">
+        <strong style="display:block;font-size:13px;margin-bottom:8px;">Live Local Session Audit Trail (Air-Gapped)</strong>
+        <div id="founder-audit-log" class="audit-log"></div>
+      </div>
+    </section>
+  </main>
+
+  <!-- Shared Modal Dialog -->
+  <div id="modal-backdrop" class="modal-backdrop hidden" role="dialog" aria-modal="true" aria-labelledby="modal-title">
+    <div class="modal-panel">
+      <div class="modal-hdr">
+        <h3 id="modal-title">Details</h3>
+        <button id="modal-close-btn" class="close-x" type="button" aria-label="Close modal">&times;</button>
+      </div>
+      <div id="modal-body"></div>
+    </div>
+  </div>
+
+  <script src="data/dashboard_bundle.js"></script>
+  <script src="assets/app.js"></script>
+</body>
+</html>

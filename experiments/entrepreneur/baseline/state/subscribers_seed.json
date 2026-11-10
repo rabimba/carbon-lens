@@ -1,0 +1,129 @@
+{
+  "airgap_mode": true,
+  "billing_provider_mode": "STRIPE_SIMULATED_AIRGAP",
+  "territories": [
+    {
+      "territory_id": "NYC_BOILER_MECHANICAL",
+      "metro": "NYC",
+      "trade_bucket": "BOILER_MECHANICAL",
+      "display_name": "NYC Commercial Boiler & Steam Plant Defects",
+      "pro_seat_cap": 4,
+      "pro_seats_filled": 3,
+      "exclusive_locked": false,
+      "exclusive_holder": null,
+      "monthly_pro_price": 199,
+      "monthly_exclusive_price": 499,
+      "audit_pack_price": 149
+    },
+    {
+      "territory_id": "NYC_ELEVATOR_CONVEYANCE",
+      "metro": "NYC",
+      "trade_bucket": "ELEVATOR_CONVEYANCE",
+      "display_name": "NYC Commercial Elevator Cat-1/Cat-5 & OATH Violations",
+      "pro_seat_cap": 4,
+      "pro_seats_filled": 0,
+      "exclusive_locked": true,
+      "exclusive_holder": "Apex Gotham Conveyance Partners (Exclusive Seat Lock)",
+      "monthly_pro_price": 199,
+      "monthly_exclusive_price": 499,
+      "audit_pack_price": 149
+    },
+    {
+      "territory_id": "NYC_FIRE_SUPPRESSION",
+      "metro": "NYC",
+      "trade_bucket": "FIRE_SUPPRESSION",
+      "display_name": "NYC Standpipe, Sprinkler & Fire Pump Violations",
+      "pro_seat_cap": 4,
+      "pro_seats_filled": 2,
+      "exclusive_locked": false,
+      "exclusive_holder": null,
+      "monthly_pro_price": 199,
+      "monthly_exclusive_price": 499,
+      "audit_pack_price": 149
+    },
+    {
+      "territory_id": "CHICAGO_BOILER_MECHANICAL",
+      "metro": "CHICAGO",
+      "trade_bucket": "BOILER_MECHANICAL",
+      "display_name": "Chicago Loop Commercial Boiler & Chiller Violations",
+      "pro_seat_cap": 4,
+      "pro_seats_filled": 2,
+      "exclusive_locked": false,
+      "exclusive_holder": null,
+      "monthly_pro_price": 199,
+      "monthly_exclusive_price": 499,
+      "audit_pack_price": 149
+    },
+    {
+      "territory_id": "CHICAGO_ELEVATOR_FIRE",
+      "metro": "CHICAGO",
+      "trade_bucket": "ELEVATOR_CONVEYANCE",
+      "display_name": "Chicago High-Rise Elevator & Fire Pump Citations",
+      "pro_seat_cap": 4,
+      "pro_seats_filled": 0,
+      "exclusive_locked": true,
+      "exclusive_holder": "Windy City Vertical & Life-Safety Corp (Exclusive Seat Lock)",
+      "monthly_pro_price": 199,
+      "monthly_exclusive_price": 499,
+      "audit_pack_price": 149
+    },
+    {
+      "territory_id": "TX_AUSTIN_ELEVATOR",
+      "metro": "TX_TRIANGLE",
+      "trade_bucket": "ELEVATOR_CONVEYANCE",
+      "display_name": "Austin / Travis County TDLR Overdue Commercial Elevators",
+      "pro_seat_cap": 4,
+      "pro_seats_filled": 2,
+      "exclusive_locked": false,
+      "exclusive_holder": null,
+      "monthly_pro_price": 199,
+      "monthly_exclusive_price": 499,
+      "audit_pack_price": 149
+    },
+    {
+      "territory_id": "TX_DALLAS_ELEVATOR",
+      "metro": "TX_TRIANGLE",
+      "trade_bucket": "ELEVATOR_CONVEYANCE",
+      "display_name": "Dallas Core & Uptown TDLR Overdue Commercial Elevators",
+      "pro_seat_cap": 4,
+      "pro_seats_filled": 0,
+      "exclusive_locked": true,
+      "exclusive_holder": "DFW Premier Traction Compliance LLC (Exclusive Seat Lock)",
+      "monthly_pro_price": 199,
+      "monthly_exclusive_price": 499,
+      "audit_pack_price": 149
+    }
+  ],
+  "founder_time_logs": [
+    {
+      "month": "Month 1 (Launch Setup - Automated)",
+      "telemetry_min": 4.0,
+      "quarantine_min": 6.5,
+      "outbound_approval_min": 5.0,
+      "refund_billing_min": 2.0,
+      "total_minutes": 17.5,
+      "ceiling_minutes": 20.0,
+      "notes": "Reviewed 4 mixed-use PLUTO edge cases; approved initial 60-contractor proof batch."
+    },
+    {
+      "month": "Month 2 (Projected Steady-State)",
+      "telemetry_min": 3.5,
+      "quarantine_min": 5.0,
+      "outbound_approval_min": 4.5,
+      "refund_billing_min": 3.0,
+      "total_minutes": 16.0,
+      "ceiling_minutes": 20.0,
+      "notes": "1-click auto-refund issued on 1 Pro seat; territory seat re-filled within 72h."
+    },
+    {
+      "month": "Month 3 (Projected Steady-State)",
+      "telemetry_min": 3.0,
+      "quarantine_min": 5.5,
+      "outbound_approval_min": 4.5,
+      "refund_billing_min": 2.0,
+      "total_minutes": 15.0,
+      "ceiling_minutes": 20.0,
+      "notes": "Zero schema drift across Socrata 52dp-yji6, 6bgk-3dad, 22u3-xenr, and TDLR CSV."
+    }
+  ]
+}

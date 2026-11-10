@@ -1,0 +1,1620 @@
+/* ==========================================================================
+   ENGLISH 135: FATE AND THE INDIVIDUAL IN EUROPEAN LITERATURE (FALL 1941)
+   Design Lineage: 1941 Michigan Archival Monograph × Swiss International Grid
+   Secondary Lineage: Braun / Linear Precision Instrument (Slate & Victrola Bays)
+   ========================================================================== */
+
+:root {
+  /* 3-Step Cotton Rag Paper Tonal Ladder */
+  --paper-base: #f5f1e8;
+  --paper-elevated: #fbf9f4;
+  --paper-recessed: #eae3d4;
+
+  /* 3-Step Iron-Gall Charcoal Ink Ladder (WCAG AA/AAA Verified) */
+  --ink-primary: #181614;
+  --ink-secondary: #48423a;
+  --ink-muted: #6c6459;
+
+  /* 2 Architectural Hairline Rules */
+  --rule-subtle: rgba(24, 22, 20, 0.11);
+  --rule-strong: rgba(24, 22, 20, 0.22);
+
+  /* Editorial Signal Pigments (< 8% Screen Area) */
+  --accent-vermilion: #9e2a1f;
+  --accent-vermilion-soft: rgba(158, 42, 31, 0.08);
+  --signal-verified: #20543d;
+  --signal-verified-soft: rgba(32, 84, 61, 0.08);
+
+  /* Legacy Alias Tokens (Preserving JS Inline References with Disciplined Palette) */
+  --crimson-stamp: #9e2a1f;
+  --forest-sage: #20543d;
+  --fountain-blue: #181614;
+  --mimeo-purple: #6c6459;
+
+  /* Precision Dark Instrument Ladder (Slate Blackboard & 1227 Pontiac Acoustic Bay) */
+  --slate-base: #111513;
+  --slate-panel: #171d1a;
+  --slate-elevated: #1f2723;
+  --slate-rule: rgba(244, 241, 232, 0.13);
+  --chalk-white: #f2efe6;
+  --chalk-yellow: #e8c66b;
+  --chalk-coral: #e58f82;
+  --chalk-cyan: #8ecbc0;
+
+  /* Strict 3-Role Typographic System */
+  --font-serif: "Iowan Old Style", "Palatino Linotype", Palatino, Baskerville, Georgia, serif;
+  --font-sans: -apple-system, BlinkMacSystemFont, "Inter", "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+  --font-typewriter: "JetBrains Mono", "SF Mono", "Courier Prime", "Roboto Mono", Menlo, Consolas, monospace;
+
+  /* Modular Spacing & Plumb-Line Geometry */
+  --container-max: 1280px;
+  --gutter-inline: clamp(1.125rem, 3vw, 2.5rem);
+  --radius-micro: 2px;
+  --radius-sm: 4px;
+  --ease-snappy: 160ms cubic-bezier(0.22, 1, 0.36, 1);
+}
+
+*, *::before, *::after {
+  box-sizing: border-box;
+}
+
+html {
+  scroll-behavior: smooth;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+body {
+  margin: 0;
+  background-color: var(--paper-base);
+  color: var(--ink-primary);
+  font-family: var(--font-serif);
+  font-size: 1rem;
+  line-height: 1.65;
+  min-height: 100vh;
+  font-variant-numeric: oldstyle-nums;
+}
+
+button, input, select, textarea {
+  font-family: inherit;
+  color: inherit;
+}
+
+button:focus-visible,
+input:focus-visible,
+select:focus-visible,
+[tabindex]:focus-visible {
+  outline: 2px solid var(--accent-vermilion);
+  outline-offset: 2px;
+}
+
+h1, h2, h3, h4 {
+  text-wrap: balance;
+  font-variant-numeric: lining-nums;
+}
+
+p, li {
+  text-wrap: pretty;
+}
+
+/* ==========================================================================
+   STICKY ARCHIVAL MASTHEAD & SHARED PLUMB-LINE HEADER
+   ========================================================================== */
+
+.masthead {
+  background: #141210;
+  color: #f3efe6;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.12);
+  position: sticky;
+  top: 0;
+  z-index: 90;
+}
+
+.masthead-inner {
+  max-width: var(--container-max);
+  margin: 0 auto;
+  padding: 0.75rem var(--gutter-inline);
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: space-between;
+  gap: 0.75rem 1.5rem;
+}
+
+.brand-block {
+  display: flex;
+  align-items: center;
+  gap: 0.875rem;
+  min-width: 0;
+}
+
+.brand-crest {
+  width: 38px;
+  height: 38px;
+  border-radius: var(--radius-micro);
+  background: #1d1a17;
+  border: 1px solid rgba(255, 255, 255, 0.18);
+  display: grid;
+  place-items: center;
+  flex-shrink: 0;
+  font-family: var(--font-typewriter);
+  font-weight: 600;
+  color: #e8c66b;
+  font-size: 0.76rem;
+  letter-spacing: 0.04em;
+  font-variant-numeric: tabular-nums;
+}
+
+.brand-kicker {
+  font-family: var(--font-typewriter);
+  font-size: 0.68rem;
+  text-transform: uppercase;
+  letter-spacing: 0.11em;
+  color: rgba(243, 239, 230, 0.64);
+  margin: 0;
+}
+
+.brand-title {
+  margin: 0.1rem 0 0;
+  font-size: clamp(1.02rem, 1.45vw, 1.2rem);
+  font-weight: 600;
+  letter-spacing: -0.015em;
+  line-height: 1.2;
+  color: #faf7f0;
+}
+
+.masthead-controls {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  flex-wrap: wrap;
+}
+
+.page-meter-box {
+  background: #1c1916;
+  border: 1px solid rgba(255, 255, 255, 0.12);
+  border-radius: var(--radius-micro);
+  padding: 0.35rem 0.75rem;
+  min-width: 230px;
+  font-variant-numeric: tabular-nums;
+}
+
+.page-meter-top {
+  display: flex;
+  justify-content: space-between;
+  align-items: baseline;
+  font-family: var(--font-typewriter);
+  font-size: 0.69rem;
+  letter-spacing: 0.03em;
+  color: rgba(243, 239, 230, 0.74);
+  margin-bottom: 0.25rem;
+  gap: 0.75rem;
+}
+
+.page-meter-count {
+  color: #faf7f0;
+  font-weight: 600;
+  font-variant-numeric: tabular-nums;
+}
+
+.page-meter-track {
+  height: 3px;
+  background: rgba(255, 255, 255, 0.12);
+  overflow: hidden;
+}
+
+.page-meter-fill {
+  height: 100%;
+  width: 0%;
+  background: var(--accent-vermilion);
+  transition: width 320ms cubic-bezier(0.22, 1, 0.36, 1);
+}
+
+.pill-btn {
+  background: #1c1916;
+  color: rgba(243, 239, 230, 0.88);
+  border: 1px solid rgba(255, 255, 255, 0.14);
+  padding: 0.42rem 0.72rem;
+  border-radius: var(--radius-micro);
+  font-family: var(--font-typewriter);
+  font-size: 0.71rem;
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
+  cursor: pointer;
+  display: inline-flex;
+  align-items: center;
+  gap: 0.35rem;
+  transition: background var(--ease-snappy), border-color var(--ease-snappy), color var(--ease-snappy);
+}
+
+.pill-btn:hover {
+  background: #26221e;
+  border-color: rgba(255, 255, 255, 0.32);
+  color: #ffffff;
+}
+
+.pill-btn.active-toggle {
+  background: rgba(158, 42, 31, 0.28);
+  border-color: #d45b4f;
+  color: #ffdcd8;
+}
+
+/* ==========================================================================
+   SWISS ARCHITECTURAL ROOM NAVIGATION
+   ========================================================================== */
+
+.room-nav-wrap {
+  background: #191714;
+  border-top: 1px solid rgba(255, 255, 255, 0.08);
+}
+
+.room-nav {
+  max-width: var(--container-max);
+  margin: 0 auto;
+  padding: 0 var(--gutter-inline);
+  display: flex;
+  gap: 0;
+  overflow-x: auto;
+  scrollbar-width: none;
+}
+
+.room-nav::-webkit-scrollbar {
+  display: none;
+}
+
+.room-tab {
+  background: transparent;
+  color: rgba(243, 239, 230, 0.65);
+  border: none;
+  border-bottom: 2px solid transparent;
+  padding: 0.68rem 0.9rem;
+  font-family: var(--font-sans);
+  font-size: 0.8rem;
+  font-weight: 500;
+  letter-spacing: 0.01em;
+  cursor: pointer;
+  white-space: nowrap;
+  display: inline-flex;
+  align-items: center;
+  gap: 0.45rem;
+  transition: color var(--ease-snappy), border-color var(--ease-snappy), background var(--ease-snappy);
+}
+
+.room-tab:first-child {
+  padding-left: 0;
+}
+
+.room-tab:hover {
+  color: #faf7f0;
+}
+
+.room-tab.active {
+  color: #ffffff;
+  border-bottom-color: var(--accent-vermilion);
+  font-weight: 600;
+}
+
+.tab-badge {
+  font-family: var(--font-typewriter);
+  font-size: 0.68rem;
+  color: rgba(243, 239, 230, 0.56);
+  font-variant-numeric: tabular-nums;
+}
+
+.room-tab.active .tab-badge {
+  color: #e8c66b;
+}
+
+/* ==========================================================================
+   RUNNING EPIGRAPH STRIP ("WYSTAN SAYS")
+   ========================================================================== */
+
+.aphorism-strip {
+  background: var(--paper-recessed);
+  border-bottom: 1px solid var(--rule-subtle);
+}
+
+.aphorism-inner {
+  max-width: var(--container-max);
+  margin: 0 auto;
+  padding: 0.55rem var(--gutter-inline);
+  display: flex;
+  align-items: baseline;
+  justify-content: space-between;
+  gap: 1rem;
+  font-size: 0.89rem;
+}
+
+.aphorism-quote-wrap {
+  display: flex;
+  align-items: baseline;
+  gap: 0.75rem;
+  flex-wrap: wrap;
+}
+
+.aphorism-label {
+  font-family: var(--font-typewriter);
+  font-size: 0.68rem;
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+  color: var(--accent-vermilion);
+  font-weight: 600;
+  flex-shrink: 0;
+}
+
+.aphorism-text {
+  font-style: italic;
+  color: var(--ink-primary);
+  max-width: 72ch;
+}
+
+.aphorism-ctx {
+  font-family: var(--font-sans);
+  font-size: 0.75rem;
+  color: var(--ink-muted);
+}
+
+/* ==========================================================================
+   MAIN STAGE & MONOGRAPH SECTION HEADERS
+   ========================================================================== */
+
+.main-stage {
+  max-width: var(--container-max);
+  margin: 0 auto;
+  padding: 2.5rem var(--gutter-inline) 5rem;
+}
+
+.room-panel {
+  display: none;
+  animation: fadeRoom 180ms cubic-bezier(0.22, 1, 0.36, 1);
+}
+
+.room-panel.active {
+  display: block;
+}
+
+@keyframes fadeRoom {
+  from { opacity: 0; transform: translateY(4px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+.section-header {
+  margin-bottom: 2rem;
+  border-bottom: 1px solid var(--rule-strong);
+  padding-bottom: 1.25rem;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  align-items: flex-end;
+  gap: 1.25rem;
+}
+
+.section-kicker {
+  font-family: var(--font-typewriter);
+  font-size: 0.69rem;
+  text-transform: uppercase;
+  letter-spacing: 0.12em;
+  color: var(--accent-vermilion);
+  margin: 0 0 0.45rem;
+  font-weight: 600;
+}
+
+.section-title {
+  margin: 0;
+  font-size: clamp(1.85rem, 2.8vw, 2.5rem);
+  line-height: 1.08;
+  letter-spacing: -0.026em;
+  font-weight: 700;
+  color: var(--ink-primary);
+}
+
+.section-subtitle {
+  margin: 0.65rem 0 0;
+  max-width: 64ch;
+  color: var(--ink-secondary);
+  font-size: 1rem;
+  line-height: 1.62;
+}
+
+/* ==========================================================================
+   BUTTONS & ARCHITECTURAL CONTROLS
+   ========================================================================== */
+
+.btn-primary {
+  background: var(--accent-vermilion);
+  color: #faf8f4;
+  border: 1px solid var(--accent-vermilion);
+  padding: 0.62rem 1.15rem;
+  border-radius: var(--radius-micro);
+  font-family: var(--font-sans);
+  font-weight: 600;
+  font-size: 0.85rem;
+  letter-spacing: 0.01em;
+  cursor: pointer;
+  transition: background var(--ease-snappy), border-color var(--ease-snappy), transform var(--ease-snappy);
+}
+
+.btn-primary:hover {
+  background: #7f2017;
+  border-color: #7f2017;
+}
+
+.btn-primary:active {
+  transform: translateY(1px);
+}
+
+.btn-secondary {
+  background: var(--paper-elevated);
+  color: var(--ink-primary);
+  border: 1px solid var(--rule-strong);
+  padding: 0.62rem 1.05rem;
+  border-radius: var(--radius-micro);
+  font-family: var(--font-sans);
+  font-weight: 500;
+  font-size: 0.84rem;
+  cursor: pointer;
+  transition: background var(--ease-snappy), border-color var(--ease-snappy);
+}
+
+.btn-secondary:hover {
+  background: var(--paper-recessed);
+  border-color: var(--ink-primary);
+}
+
+/* ==========================================================================
+   ROOM 1: BROADSHEET MONOGRAPH FRONTISPIECE (WELCOME TO ANGELL HALL)
+   ========================================================================== */
+
+.welcome-hero {
+  display: grid;
+  grid-template-columns: minmax(0, 1.25fr) minmax(320px, 0.9fr);
+  gap: 2.5rem;
+  align-items: start;
+  padding-bottom: 3rem;
+  border-bottom: 1px solid var(--rule-strong);
+}
+
+.hero-copy {
+  min-width: 0;
+}
+
+.hero-headline {
+  font-size: clamp(2.15rem, 3.5vw, 3.15rem);
+  line-height: 1.06;
+  letter-spacing: -0.03em;
+  margin: 0.25rem 0 1.1rem;
+  color: var(--ink-primary);
+  max-width: 20ch;
+}
+
+.hero-lead {
+  font-size: 1.02rem;
+  color: var(--ink-secondary);
+  margin: 0 0 1rem;
+  max-width: 63ch;
+  line-height: 1.66;
+}
+
+/* Continuous 1px Hairline Specification Strip */
+.lore-stats {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 1px;
+  background: var(--rule-strong);
+  border: 1px solid var(--rule-strong);
+  margin: 1.75rem 0;
+  max-width: 64ch;
+}
+
+.lore-stat-card {
+  background: var(--paper-elevated);
+  padding: 0.85rem 0.9rem;
+  text-align: left;
+}
+
+.lore-stat-num {
+  display: block;
+  font-family: var(--font-typewriter);
+  font-size: 1.3rem;
+  font-weight: 600;
+  letter-spacing: -0.02em;
+  color: var(--ink-primary);
+  font-variant-numeric: tabular-nums;
+  line-height: 1.15;
+}
+
+.lore-stat-label {
+  display: block;
+  margin-top: 0.2rem;
+  font-family: var(--font-sans);
+  font-size: 0.72rem;
+  color: var(--ink-muted);
+  line-height: 1.3;
+}
+
+.hero-cta-row {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.625rem;
+  margin-top: 1.5rem;
+}
+
+/* Precision Slate Frontispiece Plate */
+.hero-portrait-card {
+  background: var(--slate-panel);
+  border: 1px solid var(--ink-primary);
+  border-radius: var(--radius-micro);
+  padding: 1rem;
+  color: var(--chalk-white);
+  box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.08);
+}
+
+.portrait-caption {
+  font-family: var(--font-typewriter);
+  font-size: 0.71rem;
+  letter-spacing: 0.03em;
+  color: rgba(242, 239, 230, 0.68);
+  margin: 0.65rem 0 0;
+  padding-top: 0.55rem;
+  border-top: 1px solid var(--slate-rule);
+}
+
+/* 5-Stage Intellectual Genealogy (Continuous 1px Keyline Grid) */
+.arc-section {
+  margin-top: 3rem;
+}
+
+.arc-grid {
+  display: grid;
+  grid-template-columns: repeat(5, 1fr);
+  gap: 1px;
+  background: var(--rule-strong);
+  border: 1px solid var(--rule-strong);
+  margin-top: 1.25rem;
+}
+
+.arc-card {
+  background: var(--paper-elevated);
+  padding: 1.25rem 1.15rem;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  transition: background var(--ease-snappy);
+}
+
+.arc-card:hover {
+  background: #ffffff;
+}
+
+.arc-dates {
+  font-family: var(--font-typewriter);
+  font-size: 0.69rem;
+  letter-spacing: 0.06em;
+  color: var(--accent-vermilion);
+  font-weight: 600;
+  font-variant-numeric: tabular-nums;
+}
+
+.arc-card h4 {
+  margin: 0.35rem 0 0.55rem;
+  font-size: 1.02rem;
+  line-height: 1.24;
+  letter-spacing: -0.01em;
+}
+
+.arc-card p {
+  font-size: 0.86rem;
+  color: var(--ink-secondary);
+  margin: 0 0 0.7rem;
+  line-height: 1.55;
+}
+
+.arc-key-badge {
+  font-family: var(--font-typewriter);
+  font-size: 0.69rem;
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
+  color: var(--ink-primary);
+  padding-top: 0.55rem;
+  border-top: 1px solid var(--rule-subtle);
+  width: 100%;
+}
+
+/* 4-Station Architectural Directory */
+.doors-grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 1px;
+  background: var(--rule-strong);
+  border: 1px solid var(--rule-strong);
+  margin-top: 3rem;
+}
+
+.door-card {
+  background: var(--paper-base);
+  border: none;
+  padding: 1.35rem 1.2rem;
+  cursor: pointer;
+  text-align: left;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  transition: background var(--ease-snappy);
+}
+
+.door-card:hover {
+  background: var(--paper-elevated);
+}
+
+.door-kicker {
+  font-family: var(--font-typewriter);
+  font-size: 0.68rem;
+  letter-spacing: 0.1em;
+  color: var(--ink-muted);
+  text-transform: uppercase;
+}
+
+.door-card h3 {
+  margin: 0.35rem 0 0.5rem;
+  font-size: 1.12rem;
+  letter-spacing: -0.015em;
+  color: var(--ink-primary);
+}
+
+.door-card:hover h3 {
+  color: var(--accent-vermilion);
+}
+
+.door-card p {
+  margin: 0;
+  font-size: 0.87rem;
+  color: var(--ink-secondary);
+  line-height: 1.55;
+}
+
+/* ==========================================================================
+   ROOM 2: SWISS HAIRLINE MONOGRAPH SYLLABUS CATALOG
+   ========================================================================== */
+
+.syllabus-toolbar {
+  border-top: 1px solid var(--rule-subtle);
+  border-bottom: 1px solid var(--rule-strong);
+  padding: 0.9rem 0;
+  margin-bottom: 1rem;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.65rem 1rem;
+  align-items: center;
+  justify-content: space-between;
+}
+
+/* Recessed Segmented Filter Tracks (Replacing Floating Capsule Pills) */
+.filter-group {
+  display: inline-flex;
+  flex-wrap: wrap;
+  gap: 2px;
+  padding: 3px;
+  background: var(--paper-recessed);
+  border: 1px solid var(--rule-subtle);
+  border-radius: var(--radius-sm);
+}
+
+.filter-chip {
+  background: transparent;
+  border: 1px solid transparent;
+  color: var(--ink-secondary);
+  padding: 0.32rem 0.68rem;
+  border-radius: var(--radius-micro);
+  font-family: var(--font-sans);
+  font-size: 0.77rem;
+  font-weight: 500;
+  cursor: pointer;
+  transition: background var(--ease-snappy), color var(--ease-snappy), border-color var(--ease-snappy);
+}
+
+/* Standalone utility filter-chip outside .filter-group */
+:not(.filter-group) > .filter-chip {
+  background: var(--paper-elevated);
+  border-color: var(--rule-strong);
+  padding: 0.52rem 0.85rem;
+}
+
+.filter-chip:hover {
+  color: var(--ink-primary);
+}
+
+.filter-chip.active {
+  background: var(--paper-elevated);
+  border-color: var(--rule-strong);
+  color: var(--ink-primary);
+  font-weight: 600;
+  box-shadow: 0 1px 2px rgba(0, 0, 0, 0.04);
+}
+
+:not(.filter-group) > .filter-chip.active {
+  background: var(--ink-primary);
+  border-color: var(--ink-primary);
+  color: var(--paper-elevated);
+}
+
+.search-input {
+  padding: 0.48rem 0.75rem;
+  border: 1px solid var(--rule-strong);
+  border-radius: var(--radius-micro);
+  background: var(--paper-elevated);
+  font-family: var(--font-sans);
+  font-size: 0.83rem;
+  min-width: 220px;
+  flex: 1 1 220px;
+  max-width: 320px;
+}
+
+.search-input::placeholder {
+  color: var(--ink-muted);
+}
+
+/* Continuous 1px Keyline Ledger Grid (Eliminating Card Soup) */
+.syllabus-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+  gap: 1px;
+  background: var(--rule-strong);
+  border: 1px solid var(--rule-strong);
+}
+
+.work-card {
+  background: var(--paper-elevated);
+  padding: 1.25rem 1.25rem 1.1rem;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  position: relative;
+  cursor: pointer;
+  transition: background var(--ease-snappy);
+}
+
+.work-card:hover {
+  background: #ffffff;
+}
+
+.work-card.stamped {
+  background: #f6f8f5;
+}
+
+.work-top-row {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  gap: 0.75rem;
+  margin-bottom: 0.65rem;
+}
+
+.work-call-no {
+  font-family: var(--font-typewriter);
+  font-size: 0.69rem;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: var(--ink-muted);
+  font-variant-numeric: tabular-nums;
+}
+
+.work-pages-wrap {
+  text-align: right;
+  min-width: 64px;
+}
+
+.work-pages-pill {
+  display: block;
+  font-family: var(--font-typewriter);
+  font-size: 0.71rem;
+  color: var(--ink-secondary);
+  font-variant-numeric: tabular-nums;
+  line-height: 1.1;
+}
+
+.work-sparkbar {
+  display: block;
+  height: 2px;
+  background: var(--rule-subtle);
+  margin-top: 4px;
+  width: 56px;
+  margin-left: auto;
+}
+
+.work-sparkbar-fill {
+  display: block;
+  height: 100%;
+  background: var(--ink-muted);
+}
+
+.work-author {
+  font-family: var(--font-sans);
+  font-size: 0.74rem;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.07em;
+  color: var(--ink-muted);
+  margin: 0;
+}
+
+.work-title {
+  margin: 0.2rem 0 0.5rem;
+  font-size: 1.16rem;
+  line-height: 1.25;
+  letter-spacing: -0.015em;
+  color: var(--ink-primary);
+}
+
+.work-card:hover .work-title {
+  color: var(--accent-vermilion);
+}
+
+.work-tagline {
+  font-size: 0.89rem;
+  color: var(--ink-secondary);
+  margin: 0 0 1rem;
+  line-height: 1.56;
+  max-width: 54ch;
+}
+
+.work-footer {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 0.5rem;
+  padding-top: 0.65rem;
+  border-top: 1px solid var(--rule-subtle);
+}
+
+/* Monochrome Typographic Metadata (Passing the Badge Diet!) */
+.sphere-tag {
+  font-family: var(--font-typewriter);
+  font-size: 0.69rem;
+  letter-spacing: 0.03em;
+  color: var(--ink-muted);
+}
+
+.stamp-mark {
+  font-family: var(--font-typewriter);
+  font-size: 0.68rem;
+  font-weight: 600;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  color: var(--signal-verified);
+  border: 1px solid var(--signal-verified);
+  padding: 0.1rem 0.42rem;
+  border-radius: var(--radius-micro);
+  font-variant-numeric: tabular-nums;
+}
+
+.open-slip-cue {
+  font-family: var(--font-typewriter);
+  font-size: 0.7rem;
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
+  color: var(--ink-secondary);
+  transition: color var(--ease-snappy);
+}
+
+.work-card:hover .open-slip-cue {
+  color: var(--accent-vermilion);
+}
+
+/* ==========================================================================
+   MODAL CALL-SLIP FOLIO READER
+   ========================================================================== */
+
+.modal-backdrop {
+  position: fixed;
+  inset: 0;
+  background: rgba(18, 16, 14, 0.72);
+  z-index: 200;
+  display: none;
+  align-items: center;
+  justify-content: center;
+  padding: 1.25rem;
+}
+
+.modal-backdrop.open {
+  display: flex;
+}
+
+.dossier-modal {
+  background: var(--paper-elevated);
+  border: 1px solid var(--ink-primary);
+  border-radius: var(--radius-micro);
+  max-width: 780px;
+  width: 100%;
+  max-height: 90vh;
+  overflow-y: auto;
+  padding: 2rem 2.25rem;
+  box-shadow: 0 20px 50px -12px rgba(0, 0, 0, 0.42);
+  position: relative;
+}
+
+.modal-close-btn {
+  position: sticky;
+  top: 0;
+  float: right;
+  background: var(--paper-base);
+  border: 1px solid var(--rule-strong);
+  border-radius: var(--radius-micro);
+  width: 32px;
+  height: 32px;
+  font-size: 1.1rem;
+  cursor: pointer;
+  line-height: 1;
+}
+
+.modal-close-btn:hover {
+  background: var(--ink-primary);
+  color: var(--paper-elevated);
+}
+
+.dossier-prose {
+  max-width: 64ch;
+}
+
+/* Clean Editorial Ink Bars Instead of Colored Rounded Boxes */
+.dossier-quote-box {
+  border-left: 2px solid var(--accent-vermilion);
+  padding: 0.25rem 0 0.25rem 1.25rem;
+  margin: 1.35rem 0;
+  max-width: 64ch;
+}
+
+.dossier-auden-box {
+  background: var(--paper-base);
+  border-left: 2px solid var(--ink-primary);
+  padding: 0.9rem 1.25rem;
+  margin: 1.35rem 0;
+  max-width: 66ch;
+}
+
+.spark-quiz-box {
+  border-top: 1px solid var(--rule-strong);
+  padding-top: 1.25rem;
+  margin-top: 1.5rem;
+}
+
+.spark-option-btn {
+  display: block;
+  width: 100%;
+  max-width: 68ch;
+  text-align: left;
+  background: var(--paper-elevated);
+  border: 1px solid var(--rule-strong);
+  border-radius: var(--radius-micro);
+  padding: 0.65rem 0.9rem;
+  margin-top: 0.45rem;
+  font-size: 0.91rem;
+  line-height: 1.5;
+  cursor: pointer;
+  transition: background var(--ease-snappy), border-color var(--ease-snappy);
+}
+
+.spark-option-btn:hover {
+  background: var(--paper-recessed);
+  border-color: var(--ink-primary);
+}
+
+.spark-option-btn.correct {
+  background: var(--signal-verified-soft);
+  border-color: var(--signal-verified);
+  color: var(--ink-primary);
+  font-weight: 600;
+}
+
+.spark-option-btn.wrong {
+  background: var(--accent-vermilion-soft);
+  border-color: var(--accent-vermilion);
+}
+
+/* ==========================================================================
+   ROOM 3: ANGELL HALL MINERAL SLATE ARCHITECTURAL BAY
+   ========================================================================== */
+
+.blackboard-frame {
+  background: var(--slate-panel);
+  border: 1px solid var(--ink-primary);
+  border-radius: var(--radius-micro);
+  color: var(--chalk-white);
+  padding: 1.5rem;
+  box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.07);
+}
+
+.chalk-tabs-row {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  align-items: center;
+  gap: 0.75rem;
+  border-bottom: 1px solid var(--slate-rule);
+  padding-bottom: 0.9rem;
+  margin-bottom: 1.25rem;
+}
+
+.chalk-tab-list {
+  display: inline-flex;
+  flex-wrap: wrap;
+  gap: 2px;
+  padding: 3px;
+  background: var(--slate-base);
+  border: 1px solid var(--slate-rule);
+  border-radius: var(--radius-sm);
+}
+
+.chalk-tab-btn {
+  background: transparent;
+  color: rgba(242, 239, 230, 0.72);
+  border: 1px solid transparent;
+  padding: 0.38rem 0.75rem;
+  border-radius: var(--radius-micro);
+  font-family: var(--font-typewriter);
+  font-size: 0.74rem;
+  cursor: pointer;
+  transition: all var(--ease-snappy);
+}
+
+.chalk-tab-btn:hover {
+  color: #ffffff;
+}
+
+.chalk-tab-btn.active {
+  background: var(--slate-elevated);
+  border-color: rgba(232, 198, 107, 0.45);
+  color: var(--chalk-yellow);
+  font-weight: 600;
+}
+
+.chalk-heading {
+  font-family: var(--font-typewriter);
+  color: var(--chalk-yellow);
+  font-size: 1.05rem;
+  letter-spacing: 0.04em;
+  margin: 0 0 0.25rem;
+}
+
+.chalk-citation {
+  font-family: var(--font-sans);
+  font-size: 0.8rem;
+  color: rgba(242, 239, 230, 0.66);
+  margin: 0 0 1.1rem;
+  max-width: 68ch;
+}
+
+.chalk-table {
+  width: 100%;
+  border-collapse: collapse;
+  margin-top: 0.5rem;
+  font-size: 0.91rem;
+}
+
+.chalk-table th,
+.chalk-table td {
+  border: 1px solid var(--slate-rule);
+  padding: 0.75rem 0.9rem;
+  text-align: left;
+  vertical-align: top;
+}
+
+.chalk-table th {
+  font-family: var(--font-typewriter);
+  font-size: 0.71rem;
+  color: var(--chalk-cyan);
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  background: var(--slate-base);
+}
+
+.chalk-row-interactive {
+  cursor: pointer;
+  transition: background var(--ease-snappy);
+}
+
+.chalk-row-interactive:hover {
+  background: rgba(255, 255, 255, 0.04);
+}
+
+.chalk-row-interactive.selected {
+  background: rgba(232, 198, 107, 0.11);
+}
+
+.chalk-commentary-tray {
+  margin-top: 1.15rem;
+  background: var(--slate-base);
+  border-left: 2px solid var(--chalk-yellow);
+  padding: 0.9rem 1.15rem;
+  font-size: 0.93rem;
+  max-width: 68ch;
+}
+
+.spheres-chalk-grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 1px;
+  background: var(--slate-rule);
+  border: 1px solid var(--slate-rule);
+}
+
+.sphere-chalk-box {
+  background: var(--slate-panel);
+  padding: 1.15rem;
+  border: none;
+}
+
+/* Chalk Character Sorter (Architectural Ledger) */
+.sorter-panel {
+  margin-top: 2.25rem;
+  padding-top: 1.75rem;
+  border-top: 1px solid var(--rule-strong);
+}
+
+.sorter-chips-pool {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.45rem;
+  margin: 0.9rem 0 1rem;
+}
+
+.char-chalk-chip {
+  background: var(--paper-elevated);
+  color: var(--ink-primary);
+  border: 1px solid var(--rule-strong);
+  padding: 0.42rem 0.8rem;
+  border-radius: var(--radius-micro);
+  font-family: var(--font-typewriter);
+  font-size: 0.78rem;
+  cursor: pointer;
+  transition: all var(--ease-snappy);
+}
+
+.char-chalk-chip:hover {
+  border-color: var(--ink-primary);
+  background: #ffffff;
+}
+
+.char-chalk-chip.selected {
+  background: var(--ink-primary);
+  color: var(--chalk-yellow);
+  border-color: var(--ink-primary);
+}
+
+.char-chalk-chip.sorted {
+  opacity: 0.42;
+  text-decoration: line-through;
+  cursor: default;
+}
+
+.sorter-buckets-grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 1px;
+  background: var(--slate-rule);
+  border: 1px solid var(--ink-primary);
+}
+
+.sorter-bucket {
+  background: var(--slate-panel);
+  color: var(--chalk-white);
+  padding: 1rem;
+  min-height: 148px;
+  cursor: pointer;
+  transition: background var(--ease-snappy);
+}
+
+.sorter-bucket:hover {
+  background: var(--slate-elevated);
+}
+
+.sorter-bucket h4 {
+  margin: 0 0 0.25rem;
+  font-family: var(--font-typewriter);
+  font-size: 0.74rem;
+  letter-spacing: 0.06em;
+  color: var(--chalk-cyan);
+}
+
+.smuggled-notebook {
+  margin: 0 0 1.5rem;
+  background: var(--paper-elevated);
+  border: 1px solid var(--rule-strong);
+  border-left: 3px solid var(--accent-vermilion);
+  padding: 1.25rem 1.5rem;
+}
+
+/* ==========================================================================
+   ROOM 4: 1227 PONTIAC ST. PRECISION ACOUSTIC CONSOLE & BROADSHEET LIBRETTO
+   ========================================================================== */
+
+.victrola-layout {
+  display: grid;
+  grid-template-columns: 350px minmax(0, 1fr);
+  gap: 2rem;
+  align-items: start;
+}
+
+.victrola-cabinet {
+  background: #141210;
+  border: 1px solid #2c2723;
+  border-radius: var(--radius-micro);
+  padding: 1.25rem;
+  color: #f3efe6;
+  box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.08);
+  position: sticky;
+  top: 6.5rem;
+}
+
+.turntable-stage {
+  position: relative;
+  width: 248px;
+  height: 248px;
+  margin: 0.65rem auto 1rem;
+  background: #0b0a09;
+  border-radius: 50%;
+  border: 1px solid rgba(255, 255, 255, 0.14);
+  display: grid;
+  place-items: center;
+  box-shadow: inset 0 3px 10px rgba(0, 0, 0, 0.85);
+}
+
+.shellac-disc {
+  width: 222px;
+  height: 222px;
+  border-radius: 50%;
+  background: repeating-radial-gradient(circle, #151515 0px, #151515 2px, #222222 3px, #121212 4px);
+  display: grid;
+  place-items: center;
+  transition: transform 0.3s ease;
+}
+
+.shellac-disc.spinning {
+  animation: spin78 1.65s linear infinite;
+}
+
+@keyframes spin78 {
+  from { transform: rotate(0deg); }
+  to { transform: rotate(360deg); }
+}
+
+.record-center-label {
+  width: 82px;
+  height: 82px;
+  border-radius: 50%;
+  background: var(--accent-vermilion);
+  border: 1px solid rgba(255, 255, 255, 0.35);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  padding: 0.35rem;
+  font-family: var(--font-typewriter);
+  font-size: 0.58rem;
+  color: #faf7f0;
+  position: relative;
+}
+
+.record-spindle {
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+  background: #d8c394;
+  margin-bottom: 0.2rem;
+}
+
+.tonearm-svg {
+  position: absolute;
+  top: -8px;
+  right: -10px;
+  width: 122px;
+  height: 185px;
+  pointer-events: none;
+  transform-origin: 98px 28px;
+  transform: rotate(-22deg);
+  transition: transform 520ms cubic-bezier(0.22, 1, 0.36, 1);
+}
+
+.tonearm-svg.engaged {
+  transform: rotate(12deg);
+}
+
+.scope-box {
+  background: #0c0f0d;
+  border: 1px solid rgba(255, 255, 255, 0.12);
+  border-radius: var(--radius-micro);
+  padding: 0.5rem 0.6rem;
+  margin-top: 0.85rem;
+  font-variant-numeric: tabular-nums;
+}
+
+/* 3x3 Shared-Keyline Record Index */
+.record-crate {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 1px;
+  background: var(--rule-strong);
+  border: 1px solid var(--rule-strong);
+  margin-bottom: 1.75rem;
+}
+
+.sleeve-btn {
+  background: var(--paper-elevated);
+  border: none;
+  border-left: 3px solid transparent;
+  padding: 0.7rem 0.8rem;
+  text-align: left;
+  cursor: pointer;
+  transition: background var(--ease-snappy);
+  font-variant-numeric: tabular-nums;
+}
+
+.sleeve-btn:hover {
+  background: #ffffff;
+}
+
+.sleeve-btn.active {
+  background: #ffffff;
+  border-left-color: var(--accent-vermilion) !important;
+}
+
+.libretto-card {
+  border-top: 2px solid var(--ink-primary);
+  padding-top: 1.5rem;
+}
+
+/* Broadsheet Side-by-Side Bilingual Columns (Single Vertical Rule, Zero Box-Inside-Box) */
+.bilingual-columns {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 1.5rem;
+  border-top: 1px solid var(--rule-subtle);
+  border-bottom: 1px solid var(--rule-subtle);
+  padding: 1.15rem 0;
+  margin: 1.25rem 0;
+  white-space: pre-line;
+  font-size: 0.91rem;
+  line-height: 1.6;
+}
+
+.bilingual-columns > div:last-child {
+  border-left: 1px solid var(--rule-subtle);
+  padding-left: 1.5rem;
+}
+
+/* ==========================================================================
+   ROOM 5: MERCIFULLY HUMANE ASSIGNMENT STUDIO
+   ========================================================================== */
+
+.workshop-subtabs {
+  display: inline-flex;
+  flex-wrap: wrap;
+  gap: 2px;
+  padding: 3px;
+  background: var(--paper-recessed);
+  border: 1px solid var(--rule-subtle);
+  border-radius: var(--radius-sm);
+  margin-bottom: 1.75rem;
+}
+
+.workshop-tab-btn {
+  background: transparent;
+  border: 1px solid transparent;
+  padding: 0.48rem 0.9rem;
+  border-radius: var(--radius-micro);
+  font-family: var(--font-sans);
+  font-weight: 500;
+  font-size: 0.82rem;
+  color: var(--ink-secondary);
+  cursor: pointer;
+  transition: all var(--ease-snappy);
+}
+
+.workshop-tab-btn:hover {
+  color: var(--ink-primary);
+}
+
+.workshop-tab-btn.active {
+  background: var(--paper-elevated);
+  border-color: var(--rule-strong);
+  color: var(--ink-primary);
+  font-weight: 600;
+}
+
+.horace-meter-bar {
+  border-top: 2px solid var(--ink-primary);
+  border-bottom: 1px solid var(--rule-strong);
+  padding: 1rem 0;
+  margin-bottom: 1.5rem;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  align-items: baseline;
+  gap: 1rem;
+  font-variant-numeric: tabular-nums;
+}
+
+.assignment-card {
+  border-bottom: 1px solid var(--rule-strong);
+  padding: 1.5rem 0;
+}
+
+.assignment-card:last-child {
+  border-bottom: none;
+}
+
+.tercet-verse {
+  font-family: var(--font-serif);
+  font-size: 1.06rem;
+  border-left: 2px solid var(--accent-vermilion);
+  padding: 0.25rem 0 0.25rem 1.25rem;
+  margin: 0.9rem 0 1.1rem;
+  max-width: 62ch;
+}
+
+/* ==========================================================================
+   ROOM 6: RULED BLUE BOOK EXAMINATION FOLIO & CERTIFICATE
+   ========================================================================== */
+
+.exam-mode-banner {
+  border-top: 2px solid var(--ink-primary);
+  border-bottom: 1px solid var(--rule-strong);
+  padding: 1rem 0;
+  margin-bottom: 1.75rem;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  align-items: center;
+  gap: 1rem;
+  font-variant-numeric: tabular-nums;
+}
+
+.bluebook-sheet {
+  border-bottom: 1px solid var(--rule-strong);
+  padding: 1.5rem 0;
+}
+
+.hint-ribbon {
+  background: var(--paper-recessed);
+  border-left: 2px solid var(--ink-muted);
+  padding: 0.55rem 0.9rem;
+  font-size: 0.85rem;
+  color: var(--ink-secondary);
+  margin: 0.75rem 0;
+  max-width: 66ch;
+}
+
+.synthesis-studio {
+  border-top: 2px solid var(--ink-primary);
+  padding-top: 2.25rem;
+  margin-top: 2.5rem;
+}
+
+.synthesis-selectors {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 1.1rem 1.5rem;
+  margin: 1.5rem 0;
+}
+
+.synthesis-select-box label {
+  display: block;
+  font-family: var(--font-typewriter);
+  font-size: 0.69rem;
+  letter-spacing: 0.09em;
+  text-transform: uppercase;
+  color: var(--ink-muted);
+  font-weight: 600;
+  margin-bottom: 0.35rem;
+}
+
+.synthesis-select-box select,
+.synthesis-textarea {
+  width: 100%;
+  padding: 0.58rem 0.75rem;
+  border: 1px solid var(--rule-strong);
+  border-radius: var(--radius-micro);
+  background: var(--paper-elevated);
+  font-size: 0.89rem;
+}
+
+.diploma-card {
+  background: var(--paper-elevated);
+  border: 1px solid var(--ink-primary);
+  outline: 1px solid var(--rule-strong);
+  outline-offset: -6px;
+  padding: 2.25rem;
+  margin-top: 2rem;
+  position: relative;
+  font-variant-numeric: tabular-nums;
+}
+
+/* ==========================================================================
+   RESPONSIVE COMPOSURE (1440px DESKTOP -> 660px-980px SPLIT-SCREEN -> MOBILE)
+   ========================================================================== */
+
+@media (max-width: 1060px) {
+  .welcome-hero {
+    grid-template-columns: 1fr;
+    gap: 2rem;
+  }
+
+  .hero-portrait-card {
+    max-width: 560px;
+  }
+
+  .arc-grid {
+    grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+  }
+
+  .doors-grid,
+  .sorter-buckets-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  .victrola-layout {
+    grid-template-columns: 1fr;
+  }
+
+  .victrola-cabinet {
+    position: static;
+    max-width: 520px;
+  }
+}
+
+@media (max-width: 650px) {
+  .lore-stats {
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  .doors-grid,
+  .spheres-chalk-grid,
+  .sorter-buckets-grid,
+  .record-crate,
+  .bilingual-columns,
+  .synthesis-selectors {
+    grid-template-columns: 1fr;
+  }
+
+  .bilingual-columns > div:last-child {
+    border-left: none;
+    border-top: 1px solid var(--rule-subtle);
+    padding-left: 0;
+    padding-top: 1rem;
+  }
+
+  .dossier-modal {
+    padding: 1.35rem 1.25rem;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  html {
+    scroll-behavior: auto;
+  }
+  .shellac-disc.spinning {
+    animation: none;
+  }
+  .room-panel,
+  .page-meter-fill,
+  .tonearm-svg {
+    transition: none;
+    animation: none;
+  }
+}
+
+@media print {
+  .masthead,
+  .room-nav-wrap,
+  .aphorism-strip,
+  .no-print {
+    display: none !important;
+  }
+  body {
+    background: #ffffff;
+  }
+  .diploma-card {
+    border: 2px solid #000000;
+    box-shadow: none;
+  }
+}

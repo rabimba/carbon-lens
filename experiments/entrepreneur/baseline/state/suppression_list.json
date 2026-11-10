@@ -1,0 +1,13 @@
+{
+  "updated_at": "2026-11-09T00:00:00Z",
+  "policy": "CAN-SPAM & One-Click Unsubscribe Global Suppression Ledger. Any email or domain listed here is permanently excluded from outbound proof drafts.",
+  "suppressed_emails": [
+    "optout@hillcountrylift.example"
+  ],
+  "suppressed_domains": [
+    "do-not-contact-contractor.example"
+  ],
+  "suppressed_contractor_ids": [
+    "TX-LIC-3003"
+  ]
+}

@@ -1,0 +1,490 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>English 135: Fate &amp; the Individual in European Literature — W. H. Auden (Michigan, 1941)</title>
+  <link rel="stylesheet" href="styles.css" />
+</head>
+<body>
+  <!-- =====================================================================
+       STICKY ARCHIVAL MASTHEAD & 6,000-PAGE MERCIFUL PROGRESS METER
+       ===================================================================== -->
+  <header class="masthead">
+    <div class="masthead-inner">
+      <div class="brand-block">
+        <div class="brand-crest" aria-hidden="true">1941</div>
+        <div>
+          <p class="brand-kicker">University of Michigan &middot; English 135 &middot; Prof. W. H. Auden</p>
+          <h1 class="brand-title">Fate and the Individual in European Literature</h1>
+        </div>
+      </div>
+
+      <div class="masthead-controls">
+        <div class="page-meter-box" title="Every syllabus folio you inspect &amp; stamp adds its pages to your seminar total">
+          <div class="page-meter-top">
+            <span>PAGES: <strong class="page-meter-count" id="pagesCounterText">0 / 7,210</strong></span>
+            <span id="stampsCounterText">0 Stamps</span>
+          </div>
+          <div class="page-meter-track" role="progressbar" aria-valuemin="0" aria-valuemax="7210" aria-valuenow="0" id="pagesProgressBarWrap">
+            <div class="page-meter-fill" id="pagesMeterFill"></div>
+          </div>
+        </div>
+
+        <button type="button" class="pill-btn" id="askWystanBtn" title="Draw another classroom remark from Prof. Auden">
+          <span>&sect; Ask Wystan</span>
+        </button>
+
+        <button type="button" class="pill-btn" id="audioMuteBtn" aria-pressed="false" title="Toggle Victrola &amp; seminar sound effects">
+          <span id="audioMuteLabel">Audio: On</span>
+        </button>
+      </div>
+    </div>
+
+    <!-- 6 SEMINAR ROOM TABS (ROMAN NUMERAL INDEX) -->
+    <div class="room-nav-wrap">
+      <nav class="room-nav" aria-label="Seminar Rooms">
+        <button type="button" class="room-tab active" data-room="welcome">
+          I. Angell Hall
+        </button>
+        <button type="button" class="room-tab" data-room="syllabus">
+          II. The Syllabus <span class="tab-badge" id="badgeSyllabus">0/41</span>
+        </button>
+        <button type="button" class="room-tab" data-room="blackboard">
+          III. Blackboard <span class="tab-badge" id="badgeBlackboard">0/8</span>
+        </button>
+        <button type="button" class="room-tab" data-room="victrola">
+          IV. Victrola <span class="tab-badge" id="badgeVictrola">0/9</span>
+        </button>
+        <button type="button" class="room-tab" data-room="assignments">
+          V. Studio Labs <span class="tab-badge" id="badgeAssignments">0/3</span>
+        </button>
+        <button type="button" class="room-tab" data-room="exam">
+          VI. Blue Book Exam <span class="tab-badge" id="badgeExam">0/8</span>
+        </button>
+      </nav>
+    </div>
+  </header>
+
+  <!-- RUNNING EPIGRAPH STRIP -->
+  <aside class="aphorism-strip" aria-live="polite">
+    <div class="aphorism-inner">
+      <div class="aphorism-quote-wrap">
+        <span class="aphorism-label">&sect; Wystan Says</span>
+        <div>
+          <span class="aphorism-text" id="aphorismQuoteText"></span>
+          <span class="aphorism-ctx" id="aphorismContextText"></span>
+        </div>
+      </div>
+    </div>
+  </aside>
+
+  <!-- =====================================================================
+       MAIN STAGE: SIX INTERACTIVE SEMINAR ROOMS
+       ===================================================================== -->
+  <main class="main-stage">
+
+    <!-- ROOM I: WELCOME TO ANGELL HALL -->
+    <section class="room-panel active" id="room-welcome" aria-labelledby="welcomeHeading">
+      <div class="welcome-hero">
+        <div class="hero-copy">
+          <p class="section-kicker">Ann Arbor, Michigan &middot; Autumn 1941 &middot; Two Undergraduate Credits</p>
+          <h2 class="hero-headline" id="welcomeHeading">Literature&rsquo;s Most Notorious Seminar, Reborn Without the Sleepless Nights.</h2>
+          <p class="hero-lead">
+            In September 1941, thirty-four-year-old poet <strong>W. H. Auden</strong> walked into Room 2225, Angell Hall wearing a faded jersey and worn sneakers, banned note-taking, and handed stunned undergraduates a single mimeographed sheet: <strong>41 works spanning more than 6,000 required pages</strong>—from Aeschylus, Augustine, and Dante to Shakespeare, Mozart, Wagner, Dostoevsky, Melville, Muncie anthropology, and Kafka.
+          </p>
+          <p class="hero-lead">
+            When Auden unveiled his final evaluation—including memorizing six cantos of Dante—a student delegation formally protested it as <em>&ldquo;impossible and inhumane.&rdquo;</em> Here, every grueling ordeal becomes an engaging scholarly studio grounded in Auden&rsquo;s own critical writings.
+          </p>
+
+          <div class="lore-stats">
+            <div class="lore-stat-card">
+              <span class="lore-stat-num">41</span>
+              <span class="lore-stat-label">Assigned Works &amp; Operas</span>
+            </div>
+            <div class="lore-stat-card">
+              <span class="lore-stat-num">6,410+</span>
+              <span class="lore-stat-label">Required Pages (2 Credits)</span>
+            </div>
+            <div class="lore-stat-card">
+              <span class="lore-stat-num">09</span>
+              <span class="lore-stat-label">78-RPM Opera Libretti</span>
+            </div>
+            <div class="lore-stat-card">
+              <span class="lore-stat-num">2,400</span>
+              <span class="lore-stat-label">Years: Argos to Wishwood</span>
+            </div>
+          </div>
+
+          <div class="hero-cta-row">
+            <button type="button" class="btn-primary" data-goto-room="syllabus">Inspect the 1941 Syllabus &rarr;</button>
+            <button type="button" class="btn-secondary" data-goto-room="blackboard">Auden&rsquo;s Slate Diagrams</button>
+            <button type="button" class="btn-secondary" data-goto-room="victrola">1227 Pontiac St. Victrola</button>
+          </div>
+        </div>
+
+        <!-- ARCHIVAL SVG PLATE: AUDEN AT THE ANGELL HALL SLATE -->
+        <div class="hero-portrait-card">
+          <svg viewBox="0 0 420 300" width="100%" role="img" aria-label="Chalkboard diagram of W. H. Auden lecturing on Necessity versus Possibility in Angell Hall, 1941">
+            <rect x="4" y="4" width="412" height="292" fill="#141917" stroke="rgba(242,239,230,0.18)" stroke-width="1" />
+            <text x="20" y="30" fill="#e8c66b" font-family="SF Mono, Courier New, monospace" font-size="10.5" letter-spacing="0.06em">FIG. 1 — ENGLISH 135: NO NOTE-TAKING, PLEASE</text>
+            <line x1="20" y1="40" x2="400" y2="40" stroke="#f2efe6" stroke-opacity="0.2" />
+
+            <!-- Necessity vs Possibility Schematic -->
+            <rect x="20" y="56" width="150" height="66" fill="none" stroke="#8ecbc0" stroke-width="1" />
+            <text x="30" y="75" fill="#8ecbc0" font-family="SF Mono, Courier New, monospace" font-size="10" font-weight="600">GREEK NECESSITY</text>
+            <text x="30" y="93" fill="#f2efe6" font-family="Georgia, serif" font-size="10" font-style="italic">&ldquo;Had to be this way&rdquo;</text>
+            <text x="30" y="110" fill="#f2efe6" fill-opacity="0.68" font-family="Georgia, serif" font-size="9.5">Agamemnon &middot; Antigone</text>
+
+            <line x1="176" y1="89" x2="218" y2="89" stroke="#e8c66b" stroke-width="1.2" />
+            <polygon points="220,89 213,85.5 213,92.5" fill="#e8c66b" />
+            <text x="176" y="81" fill="#e8c66b" font-family="SF Mono, Courier New, monospace" font-size="8">AUGUSTINE</text>
+
+            <rect x="226" y="56" width="174" height="66" fill="none" stroke="#e58f82" stroke-width="1" />
+            <text x="236" y="75" fill="#e58f82" font-family="SF Mono, Courier New, monospace" font-size="10" font-weight="600">RADICAL POSSIBILITY</text>
+            <text x="236" y="93" fill="#f2efe6" font-family="Georgia, serif" font-size="10" font-style="italic">&ldquo;Might have been otherwise&rdquo;</text>
+            <text x="236" y="110" fill="#f2efe6" fill-opacity="0.68" font-family="Georgia, serif" font-size="9.5">Dante &middot; Iago &middot; Ahab &middot; K.</text>
+
+            <!-- Kierkegaard Existential Triad -->
+            <polygon points="116,150 40,250 192,250" fill="none" stroke="#f2efe6" stroke-opacity="0.45" stroke-width="1" />
+            <text x="72" y="144" fill="#e8c66b" font-family="SF Mono, Courier New, monospace" font-size="9">RELIGIOUS (AGAPE)</text>
+            <text x="20" y="267" fill="#8ecbc0" font-family="SF Mono, Courier New, monospace" font-size="8.5">AESTHETIC (GIOVANNI)</text>
+            <text x="138" y="267" fill="#8ecbc0" font-family="SF Mono, Courier New, monospace" font-size="8.5">ETHICAL (FIDELIO)</text>
+            <circle cx="116" cy="214" r="3" fill="#e58f82" />
+            <text x="86" y="231" fill="#f2efe6" fill-opacity="0.82" font-family="Georgia, serif" font-size="9">Divided Will</text>
+
+            <!-- Architectural Silhouette of Auden Lecturing -->
+            <g transform="translate(278, 144)">
+              <path d="M 22 46 Q 11 30 20 18 T 16 -4" fill="none" stroke="#f2efe6" stroke-opacity="0.35" stroke-width="1.2" stroke-dasharray="3 2" />
+              <line x1="25" y1="49" x2="39" y2="51" stroke="#f2efe6" stroke-width="2" />
+              <circle cx="24" cy="49" r="1.5" fill="#e58f82" />
+              <path d="M 42 22 C 38 8, 62 4, 72 14 C 81 12, 86 24, 80 36 C 78 50, 65 58, 52 56 C 43 54, 40 42, 42 22 Z" fill="#cfc5b1" opacity="0.88" />
+              <path d="M 40 24 C 38 9, 58 3, 75 12 C 82 16, 84 26, 79 31 C 74 21, 56 18, 42 26 Z" fill="#4f4539" />
+              <path d="M 18 136 C 22 86, 38 66, 60 64 C 84 66, 102 86, 108 136 Z" fill="#2c3833" stroke="#f2efe6" stroke-opacity="0.22" />
+              <path d="M 18 104 L -12 76" stroke="#2c3833" stroke-width="11" stroke-linecap="round" />
+              <line x1="-14" y1="74" x2="-24" y2="66" stroke="#e8c66b" stroke-width="3" stroke-linecap="round" />
+            </g>
+          </svg>
+          <p class="portrait-caption">PLATE I &middot; ROOM 2225, ANGELL HALL &middot; &ldquo;PUT DOWN YOUR FOUNTAIN PENS AND THINK.&rdquo;</p>
+        </div>
+      </div>
+
+      <!-- THE 5-STAGE INTELLECTUAL ARC OF THE COURSE -->
+      <div class="arc-section">
+        <p class="section-kicker">&sect; Architectural Overview</p>
+        <h3 class="section-title" style="font-size:clamp(1.45rem, 2.2vw, 1.85rem);">Auden&rsquo;s Five-Act Genealogy of Fate &amp; Freedom</h3>
+        <p class="section-subtitle">Select any historical movement below to inspect its primary texts in the 1941 catalog.</p>
+        <div class="arc-grid" id="intellectualArcGrid"></div>
+      </div>
+
+      <!-- 4 INTERACTIVE STATIONS -->
+      <div class="doors-grid">
+        <button type="button" class="door-card" data-goto-room="syllabus">
+          <span class="door-kicker">Station II &middot; Monograph Catalog</span>
+          <h3>The 6,000-Page Syllabus</h3>
+          <p>Examine all 41 assigned texts, study what Auden wrote on each, and log 7,210 pages through 60-second Seminar Sparks.</p>
+        </button>
+        <button type="button" class="door-card" data-goto-room="blackboard">
+          <span class="door-kicker">Station III &middot; Angell Hall Slate</span>
+          <h3>Blackboard Taxonomies</h3>
+          <p>Study four structural chalk diagrams, place eight figures onto Auden&rsquo;s existential matrix, and read Kenneth Millar&rsquo;s contraband notes.</p>
+        </button>
+        <button type="button" class="door-card" data-goto-room="victrola">
+          <span class="door-kicker">Station IV &middot; 1227 Pontiac St.</span>
+          <h3>Victrola &amp; Nine Libretti</h3>
+          <p>Audition synthesized 78-RPM orchestral motifs across all nine assigned operas—from Don Giovanni to the Tristan Chord.</p>
+        </button>
+        <button type="button" class="door-card" data-goto-room="assignments">
+          <span class="door-kicker">Stations V–VI &middot; Studio &amp; Folio</span>
+          <h3>Humane Labs &amp; Blue Book</h3>
+          <p>Restore Dante&rsquo;s terza rima, calibrate Horatian poise, diagnose bad-faith alibis, and sit the comparative Final Exam.</p>
+        </button>
+      </div>
+    </section>
+
+    <!-- ROOM II: THE 1941 SYLLABUS CATALOG -->
+    <section class="room-panel" id="room-syllabus" aria-labelledby="syllabusHeading">
+      <div class="section-header">
+        <div>
+          <p class="section-kicker">English 135 &middot; Complete Fall 1941 Reading List</p>
+          <h2 class="section-title" id="syllabusHeading">All 41 Works on Auden&rsquo;s Syllabus</h2>
+          <p class="section-subtitle">24 Required Masterworks, 9 Opera Libretti, and 8 Anthropological &amp; Critical Studies. Select any folio entry to read Auden&rsquo;s critical commentary and stamp its pages into your record.</p>
+        </div>
+        <div style="display:flex; gap:0.5rem; flex-wrap:wrap; align-items:center;">
+          <button type="button" class="filter-chip" id="unreadOnlyChip">Show Unstamped Only</button>
+          <button type="button" class="btn-secondary" id="surpriseWorkBtn">&sect; Random Unread Text</button>
+          <button type="button" class="btn-secondary" id="resetProgressBtn" title="Clear saved Blue Book stamps">Reset Record</button>
+        </div>
+      </div>
+
+      <div class="syllabus-toolbar">
+        <div class="filter-group" id="sectionFilterGroup" role="group" aria-label="Filter by syllabus section">
+          <button type="button" class="filter-chip active" data-sec="all">All (41)</button>
+          <button type="button" class="filter-chip" data-sec="primary">Primary (24)</button>
+          <button type="button" class="filter-chip" data-sec="opera">Libretti (09)</button>
+          <button type="button" class="filter-chip" data-sec="critical">Criticism (08)</button>
+        </div>
+
+        <div class="filter-group" id="sphereFilterGroup" role="group" aria-label="Filter by existential sphere">
+          <button type="button" class="filter-chip active" data-sphere="all">All Spheres</button>
+          <button type="button" class="filter-chip" data-sphere="Necessity">Necessity</button>
+          <button type="button" class="filter-chip" data-sphere="Aesthetic">Aesthetic</button>
+          <button type="button" class="filter-chip" data-sphere="Ethical">Ethical</button>
+          <button type="button" class="filter-chip" data-sphere="Religious">Religious</button>
+          <button type="button" class="filter-chip" data-sphere="Possibility">Possibility</button>
+        </div>
+
+        <input type="search" id="syllabusSearchInput" class="search-input" placeholder="Search 41 works, authors, or themes…" aria-label="Search syllabus works" />
+      </div>
+
+      <p id="syllabusCountSummary" style="font-family:var(--font-typewriter); font-size:0.74rem; color:var(--ink-muted); margin:0 0 0.85rem; font-variant-numeric:tabular-nums;"></p>
+      <div class="syllabus-grid" id="syllabusCardsGrid"></div>
+    </section>
+
+    <!-- ROOM III: THE ANGELL HALL BLACKBOARD -->
+    <section class="room-panel" id="room-blackboard" aria-labelledby="blackboardHeading">
+      <div class="section-header">
+        <div>
+          <p class="section-kicker">Angell Hall, Room 2225 &middot; Structural Schematics</p>
+          <h2 class="section-title" id="blackboardHeading">Auden&rsquo;s Blackboard Taxonomies</h2>
+          <p class="section-subtitle">A compulsive taxonomist, Auden covered blackboards with architectural matrices mapping Necessity, Nature, Art, and Choice. Inspect his four boards below, sort eight protagonists onto the slate, or open Kenneth Millar&rsquo;s contraband back-row diary.</p>
+        </div>
+        <button type="button" class="btn-secondary" id="toggleSmuggledNotesBtn">&sect; Contraband Student Notes (1941)</button>
+      </div>
+
+      <!-- SMUGGLED STUDENT NOTEBOOK DRAWER -->
+      <div class="smuggled-notebook" id="smuggledNotesDrawer" hidden>
+        <div style="display:flex; justify-content:space-between; align-items:baseline; flex-wrap:wrap; gap:0.5rem; margin-bottom:0.85rem; padding-bottom:0.55rem; border-bottom:1px solid var(--rule-subtle);">
+          <strong style="font-family:var(--font-typewriter); font-size:0.74rem; letter-spacing:0.08em; color:var(--accent-vermilion);">CONTRABAND BACK-ROW NOTEBOOK &middot; SEPT. 1941 – JAN. 1942</strong>
+          <span style="font-family:var(--font-sans); font-size:0.76rem; color:var(--ink-muted);">Reconstructed from memoirs of Kenneth Millar (Ross Macdonald) &amp; Charles H. Miller</span>
+        </div>
+        <div id="smuggledNotesList"></div>
+      </div>
+
+      <!-- MAIN SLATE BLACKBOARD BAY -->
+      <div class="blackboard-frame">
+        <div class="chalk-tabs-row">
+          <div class="chalk-tab-list" id="blackboardTabButtons"></div>
+          <span style="font-family:var(--font-typewriter); font-size:0.7rem; letter-spacing:0.06em; color:var(--chalk-cyan);">SELECT ANY ROW OR COORDINATE FOR LECTURE COMMENTARY</span>
+        </div>
+        <div id="blackboardActiveContent"></div>
+      </div>
+
+      <!-- INTERACTIVE CHALK CHARACTER SORTER -->
+      <div class="sorter-panel">
+        <div style="display:flex; justify-content:space-between; align-items:baseline; flex-wrap:wrap; gap:0.5rem;">
+          <div>
+            <p class="section-kicker" style="margin-bottom:0.2rem;">&sect; Applied Taxonomy Exercise</p>
+            <h3 style="margin:0; font-size:1.35rem; letter-spacing:-0.015em;">Place Each Protagonist Onto Auden&rsquo;s Existential Matrix</h3>
+          </div>
+          <span id="sorterProgressLabel" style="font-family:var(--font-typewriter); font-size:0.78rem; font-weight:600; color:var(--ink-primary); font-variant-numeric:tabular-nums;">0 / 8 Chalked</span>
+        </div>
+        <p style="margin:0.45rem 0 0.75rem; color:var(--ink-secondary); font-size:0.93rem; max-width:64ch;">
+          <strong>Step 1:</strong> Select a protagonist below. <strong>Step 2:</strong> Click the existential quadrant where Auden argues they genuinely belong—ignoring their self-serving deterministic alibis.
+        </p>
+
+        <div class="sorter-chips-pool" id="sorterChipsPool"></div>
+        <div id="sorterClueBanner" class="hint-ribbon">Select a protagonist above to inspect their dossier clue, then choose one of the four slate quadrants below.</div>
+
+        <div class="sorter-buckets-grid" id="sorterBucketsGrid">
+          <div class="sorter-bucket" data-bucket="necessity">
+            <h4>I. COSMIC NECESSITY</h4>
+            <p style="font-size:0.78rem; opacity:0.74; margin:0 0 0.5rem;">Impersonal Moira &amp; Unwritten Law</p>
+            <div class="bucket-items" id="bucket-necessity"></div>
+          </div>
+          <div class="sorter-bucket" data-bucket="aesthetic">
+            <h4>II. AESTHETIC IMMEDIACY</h4>
+            <p style="font-size:0.78rem; opacity:0.74; margin:0 0 0.5rem;">Desire, Evasion &amp; Uncommitted Mood</p>
+            <div class="bucket-items" id="bucket-aesthetic"></div>
+          </div>
+          <div class="sorter-bucket" data-bucket="demonic">
+            <h4>III. DEMONIC DEFIANCE</h4>
+            <p style="font-size:0.78rem; opacity:0.74; margin:0 0 0.5rem;">Pride &amp; Nihilism Disguised as Fate</p>
+            <div class="bucket-items" id="bucket-demonic"></div>
+          </div>
+          <div class="sorter-bucket" data-bucket="ethical-religious">
+            <h4>IV. ETHICAL VOW &amp; GRACE</h4>
+            <p style="font-size:0.78rem; opacity:0.74; margin:0 0 0.5rem;">Kept Fidelity &amp; Transfigured Vocation</p>
+            <div class="bucket-items" id="bucket-ethical-religious"></div>
+          </div>
+        </div>
+
+        <div id="sorterFeedbackBox" style="margin-top:0.85rem; font-size:0.92rem; font-weight:600; max-width:66ch;"></div>
+      </div>
+    </section>
+
+    <!-- ROOM IV: 1227 PONTIAC STREET VICTROLA & 9 OPERA LIBRETTI -->
+    <section class="room-panel" id="room-victrola" aria-labelledby="victrolaHeading">
+      <div class="section-header">
+        <div>
+          <p class="section-kicker">Evening Listening Parlor &middot; 1227 Pontiac Street, Ann Arbor</p>
+          <h2 class="section-title" id="victrolaHeading">78-RPM Acoustic Console &amp; Opera Libretti</h2>
+          <p class="section-subtitle">&ldquo;In drama, characters are victims of situation; in opera, nobody sings unless they choose to sing.&rdquo; Select any of the nine syllabus operas, drop the needle to audition its harmonic motif, and direct the decisive bar.</p>
+        </div>
+      </div>
+
+      <div class="victrola-layout">
+        <!-- LEFT: PRECISION ACOUSTIC TURNTABLE BAY -->
+        <div class="victrola-cabinet">
+          <div style="display:flex; justify-content:space-between; align-items:center; margin-bottom:0.4rem;">
+            <span style="font-family:var(--font-typewriter); font-size:0.69rem; color:rgba(243,239,230,0.68); letter-spacing:0.09em;">ACOUSTIC BAY &middot; 78 RPM</span>
+            <span id="victrolaStatusBadge" style="font-family:var(--font-typewriter); font-size:0.69rem; color:#9e9589; font-variant-numeric:tabular-nums;">NEEDLE LIFTED</span>
+          </div>
+
+          <div class="turntable-stage">
+            <div class="shellac-disc" id="shellacDisc">
+              <div class="record-center-label" id="recordCenterLabel">
+                <div class="record-spindle"></div>
+                <strong id="discComposerText">MOZART</strong>
+                <span id="discTitleText">Don Giovanni</span>
+              </div>
+            </div>
+
+            <!-- Precision Brass Tonearm SVG -->
+            <svg class="tonearm-svg" id="tonearmSvg" viewBox="0 0 130 195" aria-hidden="true">
+              <circle cx="98" cy="28" r="14" fill="#b89246" stroke="#3a2b10" stroke-width="1.5" />
+              <circle cx="98" cy="28" r="5" fill="#e6cfa0" />
+              <path d="M 98 28 L 58 148 L 36 168" fill="none" stroke="#d4b475" stroke-width="5.5" stroke-linecap="round" stroke-linejoin="round" />
+              <rect x="25" y="160" width="18" height="12" rx="2" transform="rotate(-35 34 167)" fill="#8c6b2b" stroke="#e6cfa0" stroke-width="1" />
+            </svg>
+          </div>
+
+          <div style="display:flex; gap:0.5rem; justify-content:center; margin-bottom:0.75rem;">
+            <button type="button" class="btn-primary" id="playRecordBtn" style="flex:1;">&#9654; Drop Needle</button>
+            <button type="button" class="btn-secondary" id="stopRecordBtn" style="background:#1f1c19; color:#f3efe6; border-color:rgba(255,255,255,0.2);">&#9632; Lift</button>
+          </div>
+
+          <label style="display:flex; align-items:center; justify-content:center; gap:0.45rem; font-family:var(--font-sans); font-size:0.77rem; color:rgba(243,239,230,0.74); cursor:pointer;">
+            <input type="checkbox" id="crackleToggleCheckbox" checked />
+            1941 Shellac Surface Warmth
+          </label>
+
+          <!-- Vacuum-Tube Harmonic Oscilloscope -->
+          <div class="scope-box">
+            <div style="display:flex; justify-content:space-between; font-family:var(--font-typewriter); font-size:0.66rem; color:#8ecbc0; margin-bottom:0.3rem; letter-spacing:0.05em;">
+              <span>HARMONIC MONITOR</span>
+              <span id="motifStepCounter">Bar 0 / 0</span>
+            </div>
+            <canvas id="victrolaScopeCanvas" width="330" height="54" style="width:100%; height:54px; display:block;"></canvas>
+          </div>
+        </div>
+
+        <!-- RIGHT: 9 RECORD INDEX & BROADSHEET LIBRETTO FOLIO -->
+        <div>
+          <div class="record-crate" id="recordCrateGrid" role="listbox" aria-label="9 Syllabus Opera Records"></div>
+          <div class="libretto-card" id="activeLibrettoCard"></div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ROOM V: MERCIFULLY HUMANE ASSIGNMENTS -->
+    <section class="room-panel" id="room-assignments" aria-labelledby="assignmentsHeading">
+      <div class="section-header">
+        <div>
+          <p class="section-kicker">Coursework Reimagined &middot; Three Interactive Seminars</p>
+          <h2 class="section-title" id="assignmentsHeading">The Humane Assignment Studio</h2>
+          <p class="section-subtitle">In 1941, Auden required memorizing six cantos of Dante (~850 lines of medieval Italian), rigorous Latin translation, and unsparing psychological diagnosis. Experience the intellectual craft of all three without the exhaustion.</p>
+        </div>
+      </div>
+
+      <div class="workshop-subtabs" role="tablist">
+        <button type="button" class="workshop-tab-btn active" data-workshop="dante">
+          I. Dante&rsquo;s Six-Canto Reprieve
+        </button>
+        <button type="button" class="workshop-tab-btn" data-workshop="horace">
+          II. Horace&rsquo;s Sabine Translation Desk
+        </button>
+        <button type="button" class="workshop-tab-btn" data-workshop="augustine">
+          III. Augustine&rsquo;s Bad-Faith Alibi Clinic
+        </button>
+      </div>
+
+      <div id="workshopContainer"></div>
+    </section>
+
+    <!-- ROOM VI: THE "IMPOSSIBLE & INHUMANE" FINAL EXAM -->
+    <section class="room-panel" id="room-exam" aria-labelledby="examHeading">
+      <div class="section-header">
+        <div>
+          <p class="section-kicker">January 1942 &middot; University of Michigan Examination Folio</p>
+          <h2 class="section-title" id="examHeading">The &ldquo;Impossible and Inhumane&rdquo; Final Exam</h2>
+          <p class="section-subtitle">Choose between guided Socratic hospitality or authentic January 1942 single-ink rigor, then compose your four-work Oral Defense for Professor Auden&rsquo;s marginal evaluation.</p>
+        </div>
+      </div>
+
+      <div class="exam-mode-banner no-print">
+        <div>
+          <strong style="font-family:var(--font-typewriter); color:var(--accent-vermilion); font-size:0.75rem; letter-spacing:0.08em;" id="examModeTitle">CURRENT RULES: HUMANE SEMINAR EDITION (RECOMMENDED)</strong>
+          <p style="margin:0.2rem 0 0; font-size:0.87rem; color:var(--ink-secondary); max-width:60ch;" id="examModeDesc">
+            Includes whispered clues from Kenneth Millar&rsquo;s back-row notebook and Socratic retries.
+          </p>
+        </div>
+        <div style="display:flex; gap:0.5rem; flex-wrap:wrap; align-items:center;">
+          <button type="button" class="btn-secondary" id="toggleExamModeBtn">Dare 1941 &ldquo;Inhumane&rdquo; Mode</button>
+          <button type="button" class="filter-chip" id="clearExamSheetBtn" title="Clear exam ink only while keeping Syllabus &amp; Victrola stamps">Fresh Exam Sheet</button>
+          <span id="examScoreBadge" style="font-family:var(--font-typewriter); font-size:0.75rem; font-weight:600; border:1px solid var(--rule-strong); background:var(--paper-elevated); padding:0.5rem 0.8rem; border-radius:2px; font-variant-numeric:tabular-nums;">Score: 0 / 8</span>
+        </div>
+      </div>
+
+      <!-- PART I: 8 COMPARATIVE BLUE-BOOK PUZZLES -->
+      <div id="examQuestionsContainer" class="no-print"></div>
+
+      <!-- PART II: ORAL DEFENSE & THESIS SYNTHESIZER -->
+      <div class="synthesis-studio">
+        <div class="no-print">
+          <p class="section-kicker">&sect; Part II &middot; Oral Defense at 1227 Pontiac Street</p>
+          <h3 style="margin:0 0 0.4rem; font-size:1.5rem; letter-spacing:-0.02em;">Compose Your Cross-Millennial Thesis</h3>
+          <p style="margin:0 0 1rem; font-size:0.95rem; color:var(--ink-secondary); max-width:64ch;">
+            Select four touchstones across the 2,400-year syllabus—and optionally contribute a closing epigram in your own words—for Professor Auden&rsquo;s marginal critique and printable 1941 Certificate.
+          </p>
+
+          <div class="synthesis-selectors">
+            <div class="synthesis-select-box">
+              <label for="studentNameInput">Candidate Name on Examination Folio</label>
+              <input type="text" id="studentNameInput" class="synthesis-textarea" placeholder="e.g., Kenneth Millar / Visiting Scholar" maxlength="60" />
+            </div>
+            <div class="synthesis-select-box">
+              <label for="synClassicalSelect">I. Classical Anchor (Necessity &amp; Poise)</label>
+              <select id="synClassicalSelect"></select>
+            </div>
+            <div class="synthesis-select-box">
+              <label for="synPivotSelect">II. Turning Point of the Will (Grace &amp; Choice)</label>
+              <select id="synPivotSelect"></select>
+            </div>
+            <div class="synthesis-select-box">
+              <label for="synOperaSelect">III. Operatic Counterpoint (78-RPM Victrola)</label>
+              <select id="synOperaSelect"></select>
+            </div>
+            <div class="synthesis-select-box">
+              <label for="synModernSelect">IV. Modern Reckoning (Pride, Power &amp; Vocation)</label>
+              <select id="synModernSelect"></select>
+            </div>
+            <div class="synthesis-select-box">
+              <label for="synPersonalNote">Optional Concluding Epigram (Your Own Line)</label>
+              <input type="text" id="synPersonalNote" class="synthesis-textarea" placeholder="e.g., Fate is what our unexamined choices look like in retrospect." maxlength="180" />
+            </div>
+          </div>
+
+          <button type="button" class="btn-primary" id="generateDiplomaBtn">Submit Examination Folio to Prof. Auden &rarr;</button>
+        </div>
+
+        <div id="diplomaOutputContainer"></div>
+      </div>
+    </section>
+
+  </main>
+
+  <!-- =====================================================================
+       MODAL CALL-SLIP FOLIO FOR ALL 41 SYLLABUS WORKS
+       ===================================================================== -->
+  <div class="modal-backdrop" id="workModalBackdrop" role="dialog" aria-modal="true" aria-labelledby="modalWorkTitle">
+    <div class="dossier-modal" id="workModalContent"></div>
+  </div>
+
+  <!-- DATA & APPLICATION SCRIPTS (100% LOCAL, ZERO EXTERNAL DEPENDENCIES) -->
+  <script src="data/syllabus.js"></script>
+  <script src="data/activities.js"></script>
+  <script src="js/audio.js"></script>
+  <script src="js/app.js"></script>
+</body>
+</html>
